@@ -1,0 +1,24 @@
+package com.idinoproject.web.dao;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.idinoproject.web.model.UserModel;
+
+public class UserDAOImpl implements UserDAO{
+
+	@Inject
+	private SqlSession sqlSession;
+	
+	@Override
+	public List<UserModel> getUserInfo() throws Exception {
+		return sqlSession.selectList("com.idinoproject.web.userMapper.getUserInfo");
+		return null;
+	}
+	
+	
+
+}

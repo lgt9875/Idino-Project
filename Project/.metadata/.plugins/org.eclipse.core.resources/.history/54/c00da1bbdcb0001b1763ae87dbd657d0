@@ -1,0 +1,10 @@
+
+
+
+insert into [TEST].[dbo].[User] values(20121839,'이규태','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
+insert into [TEST].[dbo].[User] values(20121819,'홍길동','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
+insert into [TEST].[dbo].[User] values(20121849,'사오정','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
+insert into [TEST].[dbo].[User] values(20121879,'손오공','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
+insert into [TEST].[dbo].[User] values(20121249,'선풍기','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
+insert into [TEST].[dbo].[User] values(20188569,'그루트','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
+insert into [TEST].[dbo].[User] values(20124243,'블랙팬서','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');

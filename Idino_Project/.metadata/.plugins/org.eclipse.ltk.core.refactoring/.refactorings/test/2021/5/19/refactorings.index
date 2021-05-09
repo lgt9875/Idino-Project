@@ -1,7 +1,0 @@
-1620359015144	Copy file
-1620361046024	Move 'Idino.png' to 'images'
-1620361145503	Move 'images' to 'resources'
-1620366730158	Delete element
-1620367492317	Move 'jdbc.properties' to 'properties'
-1620369753179	Move 'datasource-context.xml' to 'spring'
-1620369756383	Move 'servlet-context.xml' to 'spring'

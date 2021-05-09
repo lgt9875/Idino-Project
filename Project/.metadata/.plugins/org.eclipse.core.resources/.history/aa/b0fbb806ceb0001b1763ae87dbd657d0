@@ -1,0 +1,5 @@
+package com.idinoproject.web.dao;
+
+public class UserDAOImpl {
+
+}
