@@ -30,7 +30,7 @@
 
 	<logger name="org.springframework.web">
 		<level value="info" />
-	</logger>
+	</logger> 
 
 	<!-- Root Logger -->
 	<root>

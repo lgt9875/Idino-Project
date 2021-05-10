@@ -1,31 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@taglib  prefix="spring" uri="http://www.springframework.org/tags" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8"  
+    pageEncoding="UTF-8"%> 
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
- integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
- crossorigin="anonymous"></script>
- 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-<title>Ãâ¼®Ã¼Å© ½Ã½ºÅÛ</title>
+<script type="text/javascript">
+	$(document).on('click','#btnLogin',function(e){
+		e.preventDefault();
+		$("#form").submit();
+	});
+	
+	$(document).on('click','#btnCancle',function(e){
+		e.preventDefault();
+		location.href="${pageContext.request.contextPath}/user/getUserInfo"
+	});
+</script>
 	
 
 </head>
 <style type="text/css">
-body {
-  padding-top: 10px;
-  padding-bottom: 30px;
-}
-.align-center{
-	text-align:center;
-}
+
 .cover{
  	text-align:center;
 }
@@ -36,26 +33,30 @@ body {
 <body>
 	<div class="container">
 		<img src="<spring:url value='/resources/images/Idino.png'/>">
-		<h1 class = "align-center">·Î±×ÀÎ</h1>	
+		<h1 class = "align-center">ë¡œê·¸ì¸</h1>	
 	</div>
 	
 	<article>
 		<div class="container" role="main">
-			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/board/saveBoard">
+			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/loginPost">
 				<div class="mb-3">
-					<label for="title">ÇĞ¹ø</label>
-					<input type="text" class="form-control" name="title" id="title" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="S_Num">í•™ë²ˆ</label>
+					<input type="number" class="form-control" name="S_Num" id="S_Num" placeholder="í•™ë²ˆì„ ì…ë ¥í•´ ì£¼ì„¸ìš”" required>
 				</div>
 				<div class="mb-3">
-					<label for="reg_id">ºñ¹Ğ¹øÈ£</label>
-					<input type="text" class="form-control" name="reg_id" id="reg_id" placeholder="ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="Password">ë¹„ë°€ë²ˆí˜¸</label>
+					<input type = "password" class="form-control" name="password" id="Password" placeholder="ë¹„ë°€ë²ˆí˜¸ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”" required>
 				</div>
 			
 			</form>
 
 			<div class = "cover">
 				<div class ="menu">
-					<button type="button" class="btn btn-sm btn-primary m-1" id="btnSave">·Î±×ÀÎ</button>
+					<button type="button" class="btn btn-sm btn-primary m-1" id="btnLogin">ë¡œê·¸ì¸</button>
+				</div>
+				
+				<div class ="menu">
+					<button type="button" class="btn btn-sm btn-primary m-1" id="btnCancle">ì·¨ì†Œ</button>
 				</div>
 			</div>
 			

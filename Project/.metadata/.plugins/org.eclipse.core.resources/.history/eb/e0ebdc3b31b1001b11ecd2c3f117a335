@@ -1,0 +1,14 @@
+package com.idinoproject.web.service;
+
+import java.util.Map;
+
+import com.idinoproject.web.dao.UserDAO;
+import com.idinoproject.web.model.UserModel;
+
+public class userJoinServiceImpl implements userJoinService{
+	@Override
+	public Map<String, Object> insertUser(UserModel userModel) throws Exception {
+		userDAO.insertUser(userModel);
+	}
+
+}

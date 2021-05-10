@@ -1,0 +1,67 @@
+package com.idinoproject.web.dao;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.idinoproject.web.model.UserModel;
+
+@Repository
+public class UserDAOImpl implements UserDAO{
+
+	@Inject
+	private SqlSession sqlSession;
+	
+	@Override
+	public List<UserModel> getUserInfo() throws Exception {
+		return sqlSession.selectList("com.idinoproject.web.userMapper.getUserInfo");
+		
+	}
+	
+
+	@Override
+	public void insertUser(UserModel userModel) throws Exception {
+		System.out.println(userModel.getS_Num());
+		int s_num = userModel.getS_Num();
+		String name = userModel.getName();
+		String password = userModel.getPassword();
+		String email = userModel.getEmail();
+		String address = userModel.getAddress();
+		String phone = userModel.getPhone();
+		
+		name = name.replace("<", "&gt");
+		name = name.replace(">", "&lg");
+
+		password = password.replace("<", "&gt");
+		password = password.replace(">", "&lg");
+		
+		email = email.replace("<", "&gt");
+		email = email.replace(">", "&lg");
+		
+		address = address.replace("<", "&gt");
+		address = address.replace(">", "&lg");
+		
+		phone = phone.replace("<", "&gt");
+		phone = phone.replace(">", "&lg");
+		
+		name = name.replace(" ", "&ndsp;&ndsp;");
+		password = password.replace(" ", "&ndsp;&ndsp;");
+		email = email.replace(" ", "&ndsp;&ndsp;");
+		address = address.replace(" ", "&ndsp;&ndsp;");
+		phone = phone.replace(" ", "&ndsp;&ndsp;");
+		
+		userModel.setS_Num(s_num);
+		userModel.setName(name);
+		userModel.setPassword(password);
+		userModel.setEmail(email);
+		userModel.setAddress(address);
+		userModel.setPhone(phone);
+		
+		SqlSession.insert("com.idinoproject.web.userMapper.saveUserInfo");
+		
+	}
+
+}

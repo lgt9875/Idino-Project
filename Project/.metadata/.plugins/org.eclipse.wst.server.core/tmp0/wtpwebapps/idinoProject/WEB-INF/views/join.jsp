@@ -1,24 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@taglib  prefix="spring" uri="http://www.springframework.org/tags" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"  
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
+<%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
- integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
-  
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-<title>Ãâ¼®Ã¼Å© ½Ã½ºÅÛ</title>
+<script type="text/javascript">
+	$(document).on('click','#btnSave',function(e){
+		e.preventDefault();
+		$("#form").submit();
+	});
+	
+	$(document).on('click','#btnCancle',function(e){
+		e.preventDefault();
+		location.href="${pageContext.request.contextPath}/user/getUserInfo"
+	});
+</script>
 <style type="text/css">
-.align-center{
-	text-align:center;
-}
+
 .cover{
  	text-align:center;
 }
@@ -28,62 +32,50 @@ integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706t
 .innerbutton{
 	padding : 5px;
 }
-body {
-  padding-top: 10px;
-  padding-bottom: 30px;
-}
-</style>
 
+</style>
 </head>
+
 <body>
-<!-- <script type="text/javascript">
-$(function(){
-	$('.content').click(function(){
-		$('.content').hide();
-	});
-});
-</script> -->
 	<div class="container">
 		<img src="<spring:url value='/resources/images/Idino.png'/>">
-		<h1 class = "align-center">È¸¿ø°¡ÀÔ</h1>		 
+		<h1 class = "align-center">íšŒì›ê°€ì…</h1>		 
 	</div>
 	<article>
 		<div class="container" role="main">
-			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/board/saveBoard">
+			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/saveUserInfo">
 				<div class="mb-3">
-					<label for="title">ÇĞ¹ø</label>
-					<input type="text" class="form-control" name="title" id="title" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="S_Num">í•™ë²ˆ</label>
+					<input type="number" class="form-control" name="S_Num" id="S_Num" placeholder="í•™ë²ˆì„ ì…ë ¥í•´ ì£¼ì„¸ìš”" required>
 				</div>
 				<div class="mb-3">
-					<label for="reg_id">ÀÌ¸§</label>
-					<input type="text" class="form-control" name="reg_id" id="reg_id" placeholder="ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="Name">ì´ë¦„</label>
+					<input type="text" class="form-control" name="name" id="Name" placeholder="ì´ë¦„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”" required>
 				</div>
 				<div class="mb-3">
-					<label for="content">PW</label>
-					<input class="form-control" name="content" id="content" placeholder="³»¿ëÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="Password">PW</label>
+					<input type = "password" class="form-control" name="password" id="Password" placeholder="ë¹„ë°€ë²ˆí˜¸ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”" required>
 				</div>
 				<div class="mb-3">
-					<label for="tag">Email</label>
-					<input type="text" class="form-control" name="tag" id="tag" placeholder="ÅÂ±×¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="Email">Email</label>
+					<input type="text" class="form-control" name="email" id="Email" placeholder="Emailì„ ì…ë ¥í•´ ì£¼ì„¸ìš”">
 				</div>
 				<div class="mb-3">
-					<label for="tag">ÁÖ¼Ò</label>
-					<input type="text" class="form-control" name="tag" id="tag" placeholder="ÅÂ±×¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="Address">ì£¼ì†Œ</label>
+					<input type="text" class="form-control" name="address" id="Address" placeholder="ì£¼ì†Œë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”">
 				</div>
 				<div class="mb-3">
-					<label for="tag">ÀüÈ­¹øÈ£</label>
-					<input type="text" class="form-control" name="tag" id="tag" placeholder="ÅÂ±×¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+					<label for="Phone">ì „í™”ë²ˆí˜¸</label>
+					<input type="text" class="form-control" name="phone" id="Phone" placeholder="í•¸ë“œí° ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”">
 				</div>
 			</form>
 
 			<div class = "cover">
 				<div class ="menu">
-					<button type="button" class="btn btn-sm btn-primary m-1" id="btnSave">È¸¿ø°¡ÀÔ</button>
+					<button type="button" class="btn btn-sm btn-primary m-1" id="btnSave">íšŒì›ê°€ì…</button>
 				</div>
 				<div class ="menu">
-					<div class ="content">
-						<button type="button" class="btn btn-sm btn-primary m-1" id="btnList">Ãë¼Ò</button>
-					</div>	
+					<button type="button" class="btn btn-sm btn-primary m-1" id="btnCancle">ì·¨ì†Œ</button>
 				</div>
 			</div>
 		</div>
