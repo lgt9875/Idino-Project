@@ -1,0 +1,12 @@
+package com.idinoproject.web.model;
+
+public class TakingSubject {
+	private int ts_sid;
+	private String ts_code;
+	private String ts_name;
+	private String tsS_time;
+	private String tsE_time;
+	
+	
+	
+}

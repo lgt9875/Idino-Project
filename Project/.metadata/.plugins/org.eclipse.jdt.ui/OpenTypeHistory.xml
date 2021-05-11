@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=idinoProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.idinoproject.web.model{UserModel.java[UserModel" modifiers="1" timestamp="1620608553496"/>
+    <typeInfo handle="=idinoProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.idinoproject.web.model{UserModel.java[UserModel" modifiers="1" timestamp="1620695012372"/>
+    <typeInfo handle="=idinoProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.idinoproject.web.model{TakingSubjectModel.java[TakingSubjectModel" modifiers="1" timestamp="1620709176172"/>
 </typeInfoHistroy>

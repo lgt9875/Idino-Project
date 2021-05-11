@@ -32,7 +32,7 @@ public class UserDaoTest {
 		logger.info("\n User Info \n");
 		if(userInfo.size() > 0) {
 			for(UserModel list : userInfo) {
-				logger.info(list.getS_Num() + "/" + list.getName());
+				logger.info(list.getSid() + "/" + list.getName());
 			}
 		}else {
 			logger.info("데이터가 없습니다.");

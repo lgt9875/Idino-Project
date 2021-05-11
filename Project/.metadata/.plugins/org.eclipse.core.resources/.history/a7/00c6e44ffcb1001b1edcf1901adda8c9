@@ -1,0 +1,19 @@
+package com.idinoproject.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping(value="/controller")
+public class SubjectController {
+	//과목 목록 출력
+	@RequestMapping(value = "/getSubjectList",method = RequestMethod.GET)
+	public String getSubjectList(Model model) throws Exception{
+		model.addAttribute("subjectList", sub.getUserInfo());
+		
+		return "user/user";
+		
+	}
+}

@@ -13,9 +13,9 @@
 		$("#form").submit();
 	});
 	
-	$(document).on('click','#btnCancle',function(e){
+	$(document).on('click', '#btnJoinForm',function(e){
 		e.preventDefault();
-		location.href="${pageContext.request.contextPath}/user/getUserInfo"
+		location.href = "${pageContext.request.contextPath}/user/join"
 	});
 </script>
 	
@@ -40,12 +40,12 @@
 		<div class="container" role="main">
 			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/loginPost">
 				<div class="mb-3">
-					<label for="S_Num">학번</label>
-					<input type="number" class="form-control" name="S_Num" id="S_Num" placeholder="학번을 입력해 주세요" required>
+					<label for="sid">학번</label>
+					<input type="number" class="form-control" name="sid" id="sid" placeholder="학번을 입력해 주세요" required>
 				</div>
 				<div class="mb-3">
-					<label for="Password">비밀번호</label>
-					<input type = "password" class="form-control" name="password" id="Password" placeholder="비밀번호을 입력해 주세요" required>
+					<label for="password">비밀번호</label>
+					<input type = "password" class="form-control" name="password" id="password" placeholder="비밀번호을 입력해 주세요" required>
 				</div>
 			
 			</form>
@@ -55,8 +55,8 @@
 					<button type="button" class="btn btn-sm btn-primary m-1" id="btnLogin">로그인</button>
 				</div>
 				
-				<div class ="menu">
-					<button type="button" class="btn btn-sm btn-primary m-1" id="btnCancle">취소</button>
+				<div class=menu>
+					<button type="button" class="btn btn-sm btn-primary" id="btnJoinForm">회원가입</button>
 				</div>
 			</div>
 			

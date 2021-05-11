@@ -1,0 +1,9 @@
+package com.idinoproject.web.dao;
+
+import java.util.List;
+
+import com.idinoproject.web.model.SubjectModel;
+
+public class SubjectDAoImpl {
+	public List<SubjectModel> getSubjectList() throws Exception;
+}

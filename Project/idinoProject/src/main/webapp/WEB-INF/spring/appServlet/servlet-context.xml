@@ -22,9 +22,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.idinoproject.web" />
+	<context:component-scan base-package="com.idinoproject.web.controller" />
 	
-	<beans:bean  class="com.idinoproject.web.commons.interceptor.LoginInterceptor"/>
 	
 	<mvc:interceptors>
 		<mvc:interceptor>

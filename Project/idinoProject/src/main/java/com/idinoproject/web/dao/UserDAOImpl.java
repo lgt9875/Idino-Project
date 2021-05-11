@@ -15,9 +15,9 @@ import com.idinoproject.web.model.UserModel;
 public class UserDAOImpl implements UserDAO{
 
 	private static final String NAMESPACE = "com.idinoproject.web.userMapper.";
+	
 	@Inject
 	private SqlSession sqlSession;
-	
 	
 	@Override
 	public List<UserModel> getUserInfo() throws Exception {
@@ -25,10 +25,9 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	
-
 	@Override
 	public void insertUser(UserModel userModel) throws Exception {
-		int s_num = userModel.getS_Num();
+		int sid = userModel.getSid();
 		String name = userModel.getName();
 		String password = BCrypt.hashpw(userModel.getPassword(), BCrypt.gensalt());
 		String email = userModel.getEmail();
@@ -52,7 +51,7 @@ public class UserDAOImpl implements UserDAO{
 		address = address.replace(" ", "&ndsp;&ndsp;");
 		phone = phone.replace(" ", "&ndsp;&ndsp;");
 		
-		userModel.setS_Num(s_num);
+		userModel.setSid(sid);
 		userModel.setName(name);
 		userModel.setPassword(password);
 		userModel.setEmail(email);

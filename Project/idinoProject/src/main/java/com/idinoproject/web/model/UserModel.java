@@ -1,48 +1,57 @@
 package com.idinoproject.web.model;
 
+import java.util.Date;
+
 public class UserModel {
-	public int S_Num;
-	public String Name;
-	public String Password;
-	public String Email;
-	public String Address;
-	public String Phone;
-	public int getS_Num() {
-		return S_Num;
+	public int sid;
+	public String name;
+	public String password;
+	public String email;
+	public String address;
+	public String phone;
+	public Date create_dt; 
+	
+	public int getSid() {
+		return sid;
 	}
-	public void setS_Num(int s_Num) {
-		S_Num = s_Num;
+	public void setSid(int sid) {
+		this.sid = sid;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
-	
+	public Date getCreate_dt() {
+		return create_dt;
+	}
+	public void setCreate_dt(Date create_dt) {
+		this.create_dt = create_dt;
+	}
 	
 }

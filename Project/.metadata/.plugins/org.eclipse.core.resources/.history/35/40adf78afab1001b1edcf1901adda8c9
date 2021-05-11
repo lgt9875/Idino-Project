@@ -1,0 +1,8 @@
+package com.idinoproject.web.model;
+
+public class SubjectModel {
+	public String s_code;
+	public String s_name;
+	public String s_tiem;
+	public String e_time;
+}

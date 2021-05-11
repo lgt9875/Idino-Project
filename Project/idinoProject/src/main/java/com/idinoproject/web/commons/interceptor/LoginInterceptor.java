@@ -24,7 +24,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		if(userModel != null) {
 			logger.info("new login success");
 			httpSession.setAttribute(LOGIN, userModel);
-			response.sendRedirect("/user/getUserInfo");
+			response.sendRedirect("/user/choice");
 		}
 	}
 	

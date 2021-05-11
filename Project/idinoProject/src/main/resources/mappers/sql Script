@@ -1,36 +1,60 @@
-USE [TEST]
-GO
-
-/****** Object:  Table [dbo].[User]    Script Date: 2021-05-10 오전 12:39:05 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
 CREATE TABLE [dbo].[User](
-	[S_Num] [int] NOT NULL,
-	[Name] [nchar](10) NOT NULL,
-	[Password] [nchar](20) NOT NULL,
-	[Email] [nchar](20) NULL,
-	[Address] [nchar](30) NULL,
-	[Phone] [nchar](20) NULL,
+	[sid] [int] NOT NULL,
+	[name] [varchar](20) NOT NULL,
+	[password] [varchar](100) NOT NULL,
+	[email] [varchar](50) NULL,
+	[address] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[create_dt] [datetime] NOT NULL,
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
-	[S_Num] ASC,
-	[Name] ASC
+	[sid] ASC,
+	[name] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
+
+
+CREATE TABLE [dbo].[TakingSubject](
+	[ts_sid] [varchar](100) NOT NULL,
+	[ts_code] [varchar](100) NOT NULL,
+	[ts_name] [varchar](100) NOT NULL,
+	[tsS_time] [varchar](100) NOT NULL,
+	[tsE_time] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_TakingSubject_1] PRIMARY KEY CLUSTERED 
+(
+	[ts_sid] ASC,
+	[ts_code] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 
 
 
+CREATE TABLE [dbo].[Subject](
+	[s_code] [varchar](100) NOT NULL,
+	[s_name] [varchar](100) NOT NULL,
+	[s_time] [varchar](100) NOT NULL,
+	[e_time] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_Subject_1] PRIMARY KEY CLUSTERED 
+(
+	[s_code] ASC,
+	[s_name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 
 
-insert into [TEST].[dbo].[User] values(20121839,'이규태','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
-insert into [TEST].[dbo].[User] values(20121819,'홍길동','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
-insert into [TEST].[dbo].[User] values(20121849,'사오정','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
-insert into [TEST].[dbo].[User] values(20121879,'손오공','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
-insert into [TEST].[dbo].[User] values(20121249,'선풍기','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
-insert into [TEST].[dbo].[User] values(20188569,'그루트','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
-insert into [TEST].[dbo].[User] values(20124243,'블랙팬서','1325','asdf@naver.com','부산시 해운대구','010-7777-8888');
+
+insert into [dbo].[Subject] values('15430','데이터베이스','14:00','16:00');
+insert into [dbo].[Subject] values('15431','운영체제','16:00','18:00');
+insert into [dbo].[Subject] values('15432','UML','12:00','14:00');
+insert into [dbo].[Subject] values('15433','소프트웨어공학','10:00','12:00');
+insert into [dbo].[Subject] values('15434','C#','10:00','12:00');
+
+
+insert into [dbo].[takingSubject] values('111','15430','데이터베이스','14:00','16:00');
+insert into [dbo].[takingSubject] values('111','15431','운영체제','16:00','18:00');
+insert into [dbo].[takingSubject] values('111','15432','UML','12:00','14:00');
+insert into [dbo].[takingSubject] values('111','15433','소프트웨어공학','10:00','12:00');
+insert into [dbo].[takingSubject] values('222','15434','C#','10:00','12:00');
+insert into [dbo].[takingSubject] values('222','15433','소프트웨어공학','10:00','12:00');
+insert into [dbo].[takingSubject] values('333','15433','소프트웨어공학','10:00','12:00');
+insert into [dbo].[takingSubject] values('222','15431','운영체제','16:00','18:00');

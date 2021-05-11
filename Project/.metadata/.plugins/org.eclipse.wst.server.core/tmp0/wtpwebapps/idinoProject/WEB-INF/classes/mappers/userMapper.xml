@@ -5,25 +5,37 @@
 	
 <mapper namespace="com.idinoproject.web.userMapper">
 <resultMap type="com.idinoproject.web.model.UserModel" id="userModelResultMap">
-<result property="S_Num" column="S_Num"/>
-<result property="Name" column="Name"/>
-<result property="Password" column="Password"/>
-<result property="Email" column="Email"/>
-<result property="Phone" column="Phone"/>
-
+	<result property="sid" column="sid"/>
+	<result property="name" column="name"/>
+	<result property="password" column="password"/>
+	<result property="email" column="email"/>
+	<result property="phone" column="phone"/>
+	<result property="create_dt" column="create_dt"/>
 </resultMap>
 
-<select id = "getUserInfo" resultType="com.idinoproject.web.model.UserModel">
+<resultMap type="com.idinoproject.web.model.TakingSubjectModel" id="takingSubjeckMap">
+	<result property="ts_sid" column="ts_sid"/>
+	<result property="ts_code" column="ts_code"/>
+	<result property="ts_name" column="ts_name"/>
+	<result property="tsS_time" column="tsS_time"/>
+	<result property="tsE_time" column="tsE_time"/>
+</resultMap>
+
+<!-- <select id = "getUserInfo" resultType="com.idinoproject.web.model.UserModel">
 	SELECT * FROM  [TEST].[dbo].[User]
+</select> -->
+
+<select id = "getUserInfo" resultMap="takingSubjeckMap">
+	SELECT * FROM  [TEST].[dbo].[TakingSubject]
 </select>
 
 <insert id="saveUserInfo" >
 	INSERT INTO [TEST].[dbo].[User]
-	VALUES(#{S_Num},#{Name},#{Password},#{Email},#{Address},#{Phone})
+	VALUES(#{sid},#{name},#{password},#{email},#{address},#{phone},GETDATE())
 </insert>
 
 <select id="login" resultMap="userModelResultMap">
-	SELECT * FROM  [TEST].[dbo].[User] where S_Num=#{S_Num}
-
+	SELECT * FROM  [TEST].[dbo].[User] where sid=#{sid}
 </select>
+
 </mapper>

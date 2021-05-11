@@ -16,3 +16,8 @@
 1620624843959	Delete element
 1620627428506	Copy compilation unit
 1620627432956	Delete element
+1620698577253	Rename type 'SubjectDao'
+1620698582032	Rename type 'SubjectDAoImpl'
+1620700639882	Rename resource 'user.jsp'
+1620702596297	Rename resource 'TakingSubject.java'
+1620708090367	Delete element

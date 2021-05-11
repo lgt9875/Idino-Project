@@ -164,6 +164,13 @@
 			<artifactId>jbcrypt</artifactId>
 			<version>0.4</version>
 		</dependency>
+		
+		<!-- QR코드 생성 -->
+<!-- 		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.1.0</version>
+		</dependency> -->
 	</dependencies>
 	
     <build>

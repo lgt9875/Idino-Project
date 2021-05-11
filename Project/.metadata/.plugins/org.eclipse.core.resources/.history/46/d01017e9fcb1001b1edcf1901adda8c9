@@ -1,0 +1,20 @@
+package com.idinoproject.web.dao;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.idinoproject.web.model.SubjectModel;
+@Repository
+public class SubjectDAoImpl {
+	private static final String NAMESPACE = "com.idinoproject.web.subjectMapper.";
+	@Inject
+	private SqlSession sqlSession;
+	
+	public List<SubjectModel> getSubjectList() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getSubjectList");
+	}
+}

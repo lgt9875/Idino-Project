@@ -1,0 +1,12 @@
+package com.idinoproject.web.service;
+
+import org.springframework.stereotype.Repository;
+
+import com.idinoproject.web.model.SubjectModel;
+
+@Repository
+public class SubjectServiceImpl {
+	@Inject
+	
+
+}

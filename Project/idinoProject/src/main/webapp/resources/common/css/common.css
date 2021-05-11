@@ -1,8 +1,8 @@
-body {
+.body {
   padding-top: 10px;
   padding-bottom: 30px;
 }
 
-align-center{
+.align-center{
 	text-align:center;
 }
