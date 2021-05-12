@@ -1,0 +1,11 @@
+.body {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.align-center{
+	text-align:center;
+}
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}

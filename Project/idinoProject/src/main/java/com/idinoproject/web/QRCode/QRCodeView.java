@@ -35,7 +35,7 @@ public class QRCodeView extends AbstractView{
            
         String text = (String)model.get("content");
         text = new String(text.getBytes("UTF-8"), "ISO-8859-1");
-        BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 100, 100);
+        BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 300, 300);
         /*BitMatrix bitMatrix = barcode.encode(text, BarcodeFormat.CODE_128, 100, 100);*/
            
         // zxing에서 스트림에 파일을 뿌릴수있도록 메소드를 지원함.

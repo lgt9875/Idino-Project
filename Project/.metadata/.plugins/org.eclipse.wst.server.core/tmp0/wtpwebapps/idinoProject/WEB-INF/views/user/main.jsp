@@ -16,9 +16,16 @@
 	float: right;
 	padding : 5px;
 }
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+		
 </style>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script>
 	$(document).on('click', '#btnJoinForm',function(e){
 		e.preventDefault();
@@ -36,37 +43,19 @@
 	});
 	
 	$(document).ready(function(){
-		$("#update input").on('click',function(){ 
+		 $("#update input").on('click',function(){ 
+			event.preventDefault();
 			var currentRow = $(this).closest('tr');
 			var col0 = currentRow.find('td:eq(0)').text();
 			var col1 = currentRow.find('td:eq(1)').text();
 			var col2 = currentRow.find('td:eq(2)').text();
-			
-			alert("col0 = "+ col0 +
-					", col1 = "+ col1 +
-					", col2 = "+ col2);
-			
+	
 			url = "${pageContext.request.contextPath}/user/createCode";
             var content = "col0 = "+ col0 +", col1 = "+ col1 +", col2 = "+ col2;
-			
-			$("#img").attr("src", url+"?content="+content);
-			
-					
-			
-			
-		/* 	var str = ""
-			var tdArr = new Array();	// 배열 선언
-			var checkBtn = $(this);
-			
-			// checkBtn.parent() : checkBtn의 부모는 <td>이다.
-			// checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
-			var tr = checkBtn.parent().parent();
-			var td = tr.children();
-			alert("클릭한 Row의 모든 데이터 : "+tr.text());
-			console.log("클릭한 Row의 모든 데이터 : "+tr.text()); */
-		});
-	});
-	
+			$("#img").prop("src", url+"?content="+content); 
+		}); 
+		
+	}); 
 </script>
 
 </head>
@@ -113,7 +102,7 @@
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_sid()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
-										<td id="update"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></td>
+										<td id="update"><a href="#ex1" rel="modal:open"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></a></td>
 									</tr>
 								</c:forEach>
 							</c:when>
@@ -123,7 +112,7 @@
 			</div>
 		</div>	
 	</article>
-	<img id="img" style="display:none" onload="this.style.display='block'"/>
+	
 </div>
 </c:if>
 <c:if test="${not empty login}">
@@ -167,7 +156,7 @@
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
 										<!-- <td><input type="button" class="checkBtn" value="출석체크"/></td> -->
-										<td id="update"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></td>
+										<td id="update"><a href="#ex1" rel="modal:open"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></a></td>
 									</tr>
 								</c:forEach>
 							</c:when>
@@ -177,7 +166,17 @@
 			</div>
 		</div>	
 	</article>
-	<img id="img" style="display:none" onload="this.style.display='block'"/>
+	
+	<div id="ex1" class="modal" style="width:500px;height:700px;display:none;">
+		<h1 class="align-center">출석체크</h1>
+		<p style="text-align: center;">
+			<img id="img" style="display:inline"/>
+		</p>
+		<p style="text-align: center;">
+			<a href="#" rel="modal:close" style=""display:none;"><button class="btn btn-sm btn-primary">닫기</button></a>
+		</p>
+	</div>
+	 
 </c:if>
 </body>
 </html>
