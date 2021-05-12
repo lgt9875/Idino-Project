@@ -173,7 +173,7 @@
 			<img id="img" style="display:inline"/>
 		</p>
 		<p style="text-align: center;">
-			<a href="#" rel="modal:close" style=""display:none;"><button class="btn btn-sm btn-primary">닫기</button></a>
+			<a href="#" rel="modal:close"><button class="btn btn-sm btn-primary">닫기</button></a>
 		</p>
 	</div>
 	 
