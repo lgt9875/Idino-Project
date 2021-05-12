@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="#">
 <meta charset="EUC-KR">
 <script type="text/javascript">
 	$(document).on('click','#btnCheck1',function(e){

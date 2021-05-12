@@ -6,11 +6,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="#">
 <meta charset="EUC-KR">
 <script type="text/javascript">
 	$(document).on('click','#btnLogin',function(e){
 		e.preventDefault();
-		$("#form").submit();
+		var theForm = document.form;
+		if(theForm.sid.value=="" || theForm.password.value==""){
+			alert("학번과 비밀번호를 입력해주세요")
+		}else{
+			$("#form").submit();
+		}
 	});
 	
 	$(document).on('click', '#btnJoinForm',function(e){
@@ -41,11 +47,11 @@
 			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/loginPost">
 				<div class="mb-3">
 					<label for="sid">학번</label>
-					<input type="number" class="form-control" name="sid" id="sid" placeholder="학번을 입력해 주세요" required>
+					<input type="number" class="form-control" name="sid" id="sid" placeholder="학번을 입력해 주세요" required/>
 				</div>
 				<div class="mb-3">
 					<label for="password">비밀번호</label>
-					<input type = "password" class="form-control" name="password" id="password" placeholder="비밀번호을 입력해 주세요" required>
+					<input type = "password" class="form-control" name="password" id="password" placeholder="비밀번호을 입력해 주세요" required/>
 				</div>
 			
 			</form>

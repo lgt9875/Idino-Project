@@ -8,12 +8,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="#">
 <meta charset="UTF-8">
-
 <script type="text/javascript">
 	$(document).on('click','#btnSave',function(e){
 		e.preventDefault();
-		$("#form").submit();
+		var theForm = document.form;
+		if(theForm.sid.value==""){
+			alert("학번은 필수입력조건입니다. 입력해주세요");
+			return theForm.sid.focus();
+		}else if (theForm.name.value=="" ){
+			alert("이름은 필수입력조건입니다. 입력해주세요");
+			return theForm.name.focus();
+		}else if (theForm.password.value==""){
+			alert("비밀번호는 필수입력조건입니다. 입력해주세요");
+			return theForm.password.focus();
+		}else{
+			$("#form").submit();
+		}
+		
 	});
 	
 	$(document).on('click','#btnCancle',function(e){
@@ -45,16 +58,16 @@
 		<div class="container" role="main">
 			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/saveUserInfo">
 				<div class="mb-3">
-					<label for="sid">학번</label>
-					<input type="number" class="form-control" name="sid" id="sid" placeholder="학번을 입력해 주세요" required>
+					<label for="sid">학번(*필수)</label>
+					<input type="number" class="form-control" name="sid" id="sid" placeholder="학번을 입력해 주세요" required/>
 				</div>
 				<div class="mb-3">
-					<label for="name">이름</label>
-					<input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해 주세요" required>
+					<label for="name">이름(*필수)</label>
+					<input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해 주세요" required/>
 				</div>
 				<div class="mb-3">
-					<label for="password">PW</label>
-					<input type = "password" class="form-control" name="password" id="password" placeholder="비밀번호을 입력해 주세요" required>
+					<label for="password">PW(*필수)</label>
+					<input type = "password" class="form-control" name="password" id="password" placeholder="비밀번호을 입력해 주세요" required/>
 				</div>
 				<div class="mb-3">
 					<label for="email">Email</label>

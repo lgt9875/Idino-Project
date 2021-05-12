@@ -1,0 +1,24 @@
+package com.idinoproject.web.QRCode;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.view.AbstractView;
+
+public class QRCodeView extends AbstractView{
+	
+	public QRCodeView() {
+		//∫‰¿« ƒ¡≈Ÿ√˜ ≈∏¿‘ º≥¡§
+        //¿ÃπÃ¡ˆ∑Œ ª—∑¡æﬂ «‘.
+        setContentType("image/png; charset=UTF-8");
+	}
+
+	@Override
+	 protected void renderMergedOutputModel(Map<String, Object> model, 
+			 HttpServletRequest req, HttpServletResponse res) throws Exception{{
+		 
+		 
+	 }
+}

@@ -1,0 +1,9 @@
+package com.idinoproject.web.QRCode;
+
+import org.springframework.web.servlet.view.AbstractView;
+
+public class QRCodeView extends AbstractView{
+	
+	
+
+}

@@ -166,11 +166,11 @@
 		</dependency>
 		
 		<!-- QR코드 생성 -->
-<!-- 		<dependency>
-			<groupId>com.google.zxing</groupId>
-			<artifactId>javase</artifactId>
-			<version>3.1.0</version>
-		</dependency> -->
+		<dependency>
+		    <groupId>com.google.zxing</groupId>
+		    <artifactId>javase</artifactId>
+		    <version>3.1.0</version>
+		</dependency>
 	</dependencies>
 	
     <build>
