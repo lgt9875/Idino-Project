@@ -58,3 +58,40 @@ insert into [dbo].[takingSubject] values('222','15434','C#','10:00','12:00');
 insert into [dbo].[takingSubject] values('222','15433','소프트웨어공학','10:00','12:00');
 insert into [dbo].[takingSubject] values('333','15433','소프트웨어공학','10:00','12:00');
 insert into [dbo].[takingSubject] values('222','15431','운영체제','16:00','18:00');
+
+
+
+//2021-05-14
+	
+ALTER TABLE [TEST].[dbo].[Subject] ADD s_yoil VARCHAR(100)
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_yoil VARCHAR(100)
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check int 
+
+
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN s_time time(7);
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN e_time time(7);
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsS_time time(7);
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time time(7);
+
+
+
+
+//저장된 시간과 현재시간을 비교해서 출석
+select * from [TEST].[dbo].[TakingSubject] 
+where (CONVERT(VARCHAR, tsS_Time, 14) > (select CONVERT(time,GETDATE())))
+OR (CONVERT(VARCHAR, tsS_Time, 14) < (select CONVERT(time,GETDATE())));
+
+
+update [TEST].[dbo].[Subject] set s_yoil='월요일' where s_code='15430'
+update [TEST].[dbo].[Subject] set s_yoil='화요일' where s_code='15431'
+update [TEST].[dbo].[Subject] set s_yoil='수요일' where s_code='15432'
+update [TEST].[dbo].[Subject] set s_yoil='목요일' where s_code='15433'
+update [TEST].[dbo].[Subject] set s_yoil='금요일' where s_code='15434'
+
+update [TEST].[dbo].[takingSubject] set ts_yoil='월요일',ts_check=0 where ts_code='15430'
+update [TEST].[dbo].[takingSubject] set ts_yoil='화요일',ts_check=0 where ts_code='15431'
+update [TEST].[dbo].[takingSubject] set ts_yoil='수요일',ts_check=0 where ts_code='15432'
+update [TEST].[dbo].[takingSubject] set ts_yoil='목요일',ts_check=0 where ts_code='15433'
+update [TEST].[dbo].[takingSubject] set ts_yoil='금요일',ts_check=0 where ts_code='15434' 
