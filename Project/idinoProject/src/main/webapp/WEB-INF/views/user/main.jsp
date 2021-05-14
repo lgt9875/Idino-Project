@@ -42,6 +42,7 @@
 		location.href = "${pageContext.request.contextPath}/user/logout"
 	});
 	
+  
 	$(document).ready(function(){
 		 $("#update input").on('click',function(){ 
 			event.preventDefault();
@@ -49,11 +50,20 @@
 			var col0 = currentRow.find('td:eq(0)').text();
 			var col1 = currentRow.find('td:eq(1)').text();
 			var col2 = currentRow.find('td:eq(2)').text();
-			debugger;
 			var randomText = randomStringfunction();
-			url = "${pageContext.request.contextPath}/user/createCode";
+		
+            url = "${pageContext.request.contextPath}/user/createCode";
             var content = "col0 = "+ col0 +", col1 = "+ col1 +", col2 = "+ col2 + randomText;
-			$("#img").prop("src", url+"?content="+content); 
+        	$("#img").prop("src", url+"?content="+content);
+        	
+            var myTimer = setInterval(function() {var randomText = randomStringfunction();
+				url = "${pageContext.request.contextPath}/user/createCode";
+	            var content = "col0 = "+ col0 +", col1 = "+ col1 +", col2 = "+ col2 + randomText;
+            	$("#img").prop("src", url+"?content="+content);
+           	}, 60000);
+            setTimeout(function(){
+            	clearInterval(myTimer);
+            },180001);
 		}); 
 		
 	}); 
@@ -66,9 +76,11 @@
 			var rnum = Math.floor(Math.random() * chars.length);
 			randomstring += chars.substring(rnum,rnum+1);
 		}
-		//document.randform.randomfield.value = randomstring;
 		return randomstring;
 	}
+	
+
+	
 </script>
 
 </head>
@@ -187,6 +199,7 @@
 		</p>
 		<p style="text-align: center;">
 			<a href="#" rel="modal:close"><button class="btn btn-sm btn-primary">닫기</button></a>
+			
 		</p>
 	</div>
 	 
