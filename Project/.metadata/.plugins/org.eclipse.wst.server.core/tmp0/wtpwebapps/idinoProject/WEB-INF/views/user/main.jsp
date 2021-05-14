@@ -49,13 +49,26 @@
 			var col0 = currentRow.find('td:eq(0)').text();
 			var col1 = currentRow.find('td:eq(1)').text();
 			var col2 = currentRow.find('td:eq(2)').text();
-	
+			debugger;
+			var randomText = randomStringfunction();
 			url = "${pageContext.request.contextPath}/user/createCode";
-            var content = "col0 = "+ col0 +", col1 = "+ col1 +", col2 = "+ col2;
+            var content = "col0 = "+ col0 +", col1 = "+ col1 +", col2 = "+ col2 + randomText;
 			$("#img").prop("src", url+"?content="+content); 
 		}); 
 		
 	}); 
+	
+	var randomStringfunction = function randomString() {
+		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+		var string_length = 7;
+		var randomstring = '';
+		for (var i=0; i<string_length; i++) {
+			var rnum = Math.floor(Math.random() * chars.length);
+			randomstring += chars.substring(rnum,rnum+1);
+		}
+		//document.randform.randomfield.value = randomstring;
+		return randomstring;
+	}
 </script>
 
 </head>
