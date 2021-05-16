@@ -98,4 +98,12 @@ public class UserController {
 	    //ModelAndView 바로 리턴
 	    return new ModelAndView("qrcodeview", "content", content);
 	}
+	
+	
+	//출석체크
+	@RequestMapping(value = "/saveStateInfo",method = RequestMethod.POST)
+	public String saveStateInfo(@ModelAttribute("UserModel") UserModel userModel, RedirectAttributes rttr) throws Exception{
+		userService.insertUser(userModel);
+		return "redirect:/user/login";
+	}
 }

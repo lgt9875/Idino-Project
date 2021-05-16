@@ -5,6 +5,8 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 
 <%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>     
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,7 @@
 .ui-dialog-titlebar-close {
     visibility: hidden;
 }
-		
+.hidden-col{display : none;}
 </style>
 
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -47,26 +49,28 @@
 		 $("#update input").on('click',function(){ 
 			event.preventDefault();
 			var currentRow = $(this).closest('tr');
-			var col0 = currentRow.find('td:eq(0)').text();
-			var col1 = currentRow.find('td:eq(1)').text();
-			var col2 = currentRow.find('td:eq(2)').text();
+			var sid = currentRow.find('td:eq(0)').text();
+			var code = currentRow.find('td:eq(1)').text();
+			var name = currentRow.find('td:eq(2)').text();
+			
 			var randomText = randomStringfunction();
 		
             url = "${pageContext.request.contextPath}/user/createCode";
-            var content = "col0 = "+ col0 +", col1 = "+ col1 +", col2 = "+ col2 + randomText;
+            var content = "sid="+ sid +",code="+ code +",name="+ name + randomText;
         	$("#img").prop("src", url+"?content="+content);
         	
             var myTimer = setInterval(function() {var randomText = randomStringfunction();
 				url = "${pageContext.request.contextPath}/user/createCode";
-	            var content = "col0 = "+ col0 +", col1 = "+ col1 +", col2 = "+ col2 + randomText;
+				var content = "sid="+ sid +",code="+ code +",name="+ name + randomText;
             	$("#img").prop("src", url+"?content="+content);
            	}, 60000);
             setTimeout(function(){
             	clearInterval(myTimer);
-            },180001);
+            },120001);
 		}); 
 		
 	}); 
+	
 	
 	var randomStringfunction = function randomString() {
 		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -76,10 +80,31 @@
 			var rnum = Math.floor(Math.random() * chars.length);
 			randomstring += chars.substring(rnum,rnum+1);
 		}
+		
 		return randomstring;
 	}
 	
-
+	//출석확인시스템 구현 필요(qr코드 / 현재시간 디비 저장 후 지각, 결석 확인)
+	$(document).on('click','#btnSave',function(e){
+		e.preventDefault();
+		var theForm = document.form;
+		var qrCodeSRC = theForm.img.src.split('?');
+		/* alert(theForm.img.src); */
+		alert(qrCodeSRC[1]);
+		
+	});
+	
+	$(document).on('click','#btnSave1',function(e){
+		e.preventDefault();
+		
+		var theForm = document.form;
+		var randomText = randomStringfunction();
+		var url = theForm.img.src;
+		url = url.substring(0,url.length-7);
+		$("#img").prop("src", url+randomText);
+	});
+	
+	
 	
 </script>
 
@@ -124,6 +149,7 @@
 							<c:when test="${!empty login}">
 								<c:forEach var="takingSubjectList" items="${takingSubjectList}">
 									<tr>
+										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_sid()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
@@ -147,6 +173,8 @@
 			<p>${login.getName()}님 안녕하세요</p>
 			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">출석확인</button>
 			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
+			
+			
 		</div>
 	</div>
 	<article>
@@ -177,6 +205,7 @@
 							<c:when test="${!empty login}">
 								<c:forEach var="takingSubjectList" items="${takingSubjectList}">
 									<tr>
+										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_sid()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
@@ -193,17 +222,21 @@
 	</article>
 	
 	<div id="ex1" class="modal" style="width:500px;height:700px;display:none;">
-		<h1 class="align-center">출석체크</h1>
-		<p style="text-align: center;">
-			<img id="img" style="display:inline"/>
-		</p>
-		<p style="text-align: center;">
-			<a href="#" rel="modal:close"><button class="btn btn-sm btn-primary">닫기</button></a>
-			
-		</p>
+		<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/saveStateInfo">
+			<h1 class="align-center">출석체크</h1>
+			<p style="text-align: center;">
+				<img id="img" style="display:inline"/>
+			</p>
+			<p style="text-align: center;">
+				<a href="#" rel="modal:close"><button class="btn btn-sm btn-primary">닫기</button></a>
+				<button type="button" class="btn btn-sm btn-primary m-1" id="btnSave">출석</button>
+				<button type="button" class="btn btn-sm btn-primary m-1" id="btnSave1">재생성</button>
+			</p>
+		</form>
 	</div>
 	 
 </c:if>
 </body>
 </html>
+
 
