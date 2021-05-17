@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="saveUserInfo"/>
+		<item key="selection" value="getChecking"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="saveUserInfo"/>
-			<item value="${pageContext.request.contextPath}/user/saveUserInfo"/>
-			<item value="createCode"/>
-			<item value="img"/>
-			<item value="sid"/>
+			<item value="getChecking"/>
+			<item value="URLEncoder "/>
+			<item value="saveStateInfo"/>
+			<item value="logout"/>
+			<item value="qrcodeview"/>
+			<item value="getTakingSubjectList"/>
+			<item value="choice"/>
 			<item value="btnSave"/>
-			<item value="randomStringfunction"/>
-			<item value="val"/>
-			<item value="btnLogOutForm"/>
-			<item value="modal"/>
-			<item value="post"/>
-			<item value="charset"/>
-			<item value="checkBtn"/>
-			<item value="input"/>
-			<item value="btnCancle"/>
+			<item value="log"/>
+			<item value="BCrypt"/>
+			<item value="login"/>
+			<item value="loginPost"/>
+			<item value="join"/>
+			<item value="saveUserInfo"/>
+			<item value="insertUser"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

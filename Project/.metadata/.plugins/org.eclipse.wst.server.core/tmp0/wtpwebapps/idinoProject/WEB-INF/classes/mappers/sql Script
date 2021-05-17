@@ -69,19 +69,15 @@ ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_yoil VARCHAR(100)
 ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check int 
 
 
-ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN s_time time(7);
-ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN e_time time(7);
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN s_time time(0);
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN e_time time(0);
 
-ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsS_time time(7);
-ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time time(7);
-
-
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsS_time time(0);
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time time(0);
 
 
-//저장된 시간과 현재시간을 비교해서 출석
-select * from [TEST].[dbo].[TakingSubject] 
-where (CONVERT(VARCHAR, tsS_Time, 14) > (select CONVERT(time,GETDATE())))
-OR (CONVERT(VARCHAR, tsS_Time, 14) < (select CONVERT(time,GETDATE())));
+
+
 
 
 update [TEST].[dbo].[Subject] set s_yoil='월요일' where s_code='15430'
@@ -95,3 +91,39 @@ update [TEST].[dbo].[takingSubject] set ts_yoil='화요일',ts_check=0 where ts_cod
 update [TEST].[dbo].[takingSubject] set ts_yoil='수요일',ts_check=0 where ts_code='15432'
 update [TEST].[dbo].[takingSubject] set ts_yoil='목요일',ts_check=0 where ts_code='15433'
 update [TEST].[dbo].[takingSubject] set ts_yoil='금요일',ts_check=0 where ts_code='15434' 
+
+
+//2021-05-17
+
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN s_time datetime;
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN e_time datetime;
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsS_time datetime;
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time datetime;
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] DROP COLUMN ts_check;
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check_late int;
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check_ab int;
+
+
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 10:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where ts_code='15434'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 14:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 16:00:00',120) where ts_code='15430'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 16:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 18:00:00',120) where ts_code='15431'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 12:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 14:00:00',120) where ts_code='15432'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 10:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where ts_code='15433'
+
+
+
+
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 10:00:00',120), e_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where s_code='15434'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 14:00:00',120), e_time = CONVERT(datetime,'2021/08/01 16:00:00',120) where s_code='15430'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 16:00:00',120), e_time = CONVERT(datetime,'2021/08/01 18:00:00',120) where s_code='15431'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 12:00:00',120), e_time = CONVERT(datetime,'2021/08/01 14:00:00',120) where s_code='15432'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 10:00:00',120), e_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where s_code='15433'
+
+
+
+select * from [TEST].[dbo].[TakingSubject] 
+where (CONVERT(VARCHAR, tsS_Time, 14) < (select CONVERT(time,GETDATE()))) 
+and (CONVERT(VARCHAR, tsE_Time, 14) > (select CONVERT(time,GETDATE()))) 
+and ( ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())));

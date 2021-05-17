@@ -1,0 +1,5 @@
+package com.idinoproject.web.dto;
+
+public class CheckDTO {
+
+}

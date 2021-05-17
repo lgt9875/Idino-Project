@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
-
+<%@ page import = "java.net.URLDecoder"%>
 <%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>     
 
 
@@ -52,16 +51,17 @@
 			var sid = currentRow.find('td:eq(0)').text();
 			var code = currentRow.find('td:eq(1)').text();
 			var name = currentRow.find('td:eq(2)').text();
+					
 			
 			var randomText = randomStringfunction();
 		
             url = "${pageContext.request.contextPath}/user/createCode";
-            var content = "sid="+ sid +",code="+ code +",name="+ name + randomText;
+            var content = "sid:"+ sid +":code:"+ code +":name:"+ name +":" + randomText;
         	$("#img").prop("src", url+"?content="+content);
         	
             var myTimer = setInterval(function() {var randomText = randomStringfunction();
 				url = "${pageContext.request.contextPath}/user/createCode";
-				var content = "sid="+ sid +",code="+ code +",name="+ name + randomText;
+				var content = "sid:"+ sid +":code:"+ code +":name:"+ name +":"+ randomText;
             	$("#img").prop("src", url+"?content="+content);
            	}, 60000);
             setTimeout(function(){
@@ -89,14 +89,36 @@
 		e.preventDefault();
 		var theForm = document.form;
 		var qrCodeSRC = theForm.img.src.split('?');
-		/* alert(theForm.img.src); */
-		alert(qrCodeSRC[1]);
+		var checkingData = qrCodeSRC[1].split(':');
 		
+		/* alert(theForm.img.src); */
+		/* var sid = qrCodeSRC[1].split(':'); */
+		console.log(checkingData);
+		var s_id = checkingData[1];
+		var subjectCode = checkingData[3];
+		var subjectName = decodeURIComponent(checkingData[5]);
+		console.log(s_id+"/"+subjectCode+"/"+subjectName);
+		$.ajax({
+			url :"${pageContext.request.contextPath}/user/checking",
+			type : 'POST',
+			data : {
+				s_id : s_id,
+				SubjectCode : subjectCode,
+				SubjectName : subjectName
+			},
+			dataType : "json",
+			/* success : function(data){
+				alert("성공");
+			},
+			error:function(){
+				alert("실패");
+			} */
+		});
+		/* location.href = "${pageContext.request.contextPath}/user/checking" */
 	});
 	
 	$(document).on('click','#btnSave1',function(e){
 		e.preventDefault();
-		
 		var theForm = document.form;
 		var randomText = randomStringfunction();
 		var url = theForm.img.src;

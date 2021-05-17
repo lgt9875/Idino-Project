@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -28,5 +29,15 @@ public class SubjectDAOImpl implements SubjectDAO{
 		
 		
 		return sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
+	}
+
+	@Override
+	public Boolean getChecking() throws Exception {
+		List<Object> checking = sqlSession.selectOne(NAMESPACE+"getChecking");
+		System.out.println(checking);
+		return null;
+		
+		
+//		return sqlSession.selectList(NAMESPACE+"getChecking",s_id,subjectCode,subjectName);
 	}
 }

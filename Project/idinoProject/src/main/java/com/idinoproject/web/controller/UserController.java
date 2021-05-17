@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.idinoproject.web.commons.interceptor.LoginInterceptor;
+import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.TakingSubjectModel;
 import com.idinoproject.web.model.UserModel;
@@ -36,14 +38,15 @@ public class UserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
-	//À¯Àú ¸ñ·Ï Ãâ·Â
+	
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/choice",method = RequestMethod.GET)
 	public String choice(){
 		return "user/choice";
 		
 	}
 
-	//À¯Àú ¸ñ·Ï Ãâ·Â
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/getUserInfo",method = RequestMethod.GET)
 	public String getUserInfo(LoginDto loginDto,Model model) throws Exception{
 		model.addAttribute("takingSubjectList", subjectService.getTakingSubjectList(loginDto.getSid()));
@@ -51,26 +54,26 @@ public class UserController {
 		
 	}
 		
-	//È¸¿ø°¡ÀÔÈ­¸é
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½
 	@RequestMapping("/join")
 	public String UserJoin() {
 		return "join";
 	}
 	
-	//È¸¿ø°¡ÀÔ Ã³¸®
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	@RequestMapping(value = "/saveUserInfo",method = RequestMethod.POST)
 	public String saveUserInfo(@ModelAttribute("UserModel") UserModel userModel, RedirectAttributes rttr) throws Exception{
 		userService.insertUser(userModel);
 		return "redirect:/user/login";
 	}
 	
-	//·Î±×ÀÎÈ­¸é
+	//ï¿½Î±ï¿½ï¿½ï¿½È­ï¿½ï¿½
 	@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public String loginGET(@ModelAttribute("loginDTO") LoginDto loginDTO) {
 		return "login";
 	}
 	
-	//·Î±×ÀÎÃ³¸®
+	//ï¿½Î±ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	@RequestMapping(value="/loginPost",method = RequestMethod.POST)
 	public void loginPost(LoginDto loginDto, HttpSession httpSession, Model model) throws Exception	{
 		UserModel userModel = userService.login(loginDto);
@@ -81,7 +84,7 @@ public class UserController {
 	}
 	
 	
-	//·Î±×¾Æ¿ô
+	//ï¿½Î±×¾Æ¿ï¿½
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession session) {
 		
@@ -95,15 +98,25 @@ public class UserController {
 	//QRCode
 	@RequestMapping("/createCode")
 	public ModelAndView createCode(@RequestParam String content){
-	    //ModelAndView ¹Ù·Î ¸®ÅÏ
+	    //ModelAndView ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½
 	    return new ModelAndView("qrcodeview", "content", content);
 	}
 	
 	
-	//Ãâ¼®Ã¼Å©
+	//ï¿½â¼®Ã¼Å©
 	@RequestMapping(value = "/saveStateInfo",method = RequestMethod.POST)
 	public String saveStateInfo(@ModelAttribute("UserModel") UserModel userModel, RedirectAttributes rttr) throws Exception{
 		userService.insertUser(userModel);
 		return "redirect:/user/login";
+	}
+		
+	
+	@ResponseBody
+	@RequestMapping(value = "/checking",method = RequestMethod.POST)
+	public String checking(CheckDto checkDto,Model model) throws Exception{
+		subjectService.getChecking();
+//		model.addAttribute("takingSubjectList", subjectService.getTakingSubjectList(checkDto.getS_id()));
+		return "user/main";
+		
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.idinoproject.web.dao.SubjectDAO;
@@ -19,6 +20,11 @@ public class SubjectServiceImpl implements SubjectService{
 	@Override
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception{
 		return subjectDao.getTakingSubjectList(ts_Sid);
+	}
+
+	@Override
+	public Boolean getChecking() throws Exception {
+		return subjectDao.getChecking();
 	}
 	
 

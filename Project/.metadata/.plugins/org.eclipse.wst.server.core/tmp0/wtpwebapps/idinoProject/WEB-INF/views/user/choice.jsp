@@ -13,6 +13,11 @@
 		e.preventDefault();
 		$("#form").submit();
 	});
+	
+	$(document).on('click', '#btnLogOutForm',function(e){
+		e.preventDefault();
+		location.href = "${pageContext.request.contextPath}/user/logout"
+	});
 </script>
 	
 
@@ -46,6 +51,11 @@
 					<form name="formCheck2" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/getUserInfo">
 						<div class=menu>
 							<button type="button" class="btn btn-sm btn-primary" id="btnCheck2">출석확인</button>
+						</div>
+					</form>
+					<form name="formCheck2" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/getUserInfo">
+						<div class=menu>
+							<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">취소</button>
 						</div>
 					</form>
 				</div>

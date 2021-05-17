@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.idinoproject.web.subjectMapper">
+
+<resultMap type="com.idinoproject.web.model.TakingSubjectModel" id="takingSubjeckMap">
+	<result property="ts_sid" column="ts_sid"/>
+	<result property="ts_code" column="ts_code"/>
+	<result property="ts_name" column="ts_name"/>
+	<result property="tsS_time" column="tsS_time"/>
+	<result property="tsE_time" column="tsE_time"/>
+</resultMap>
+
+<select id = "getTakingSubjectList" resultMap="takingSubjeckMap" parameterType="int">
+	SELECT * FROM  [TEST].[dbo].[TakingSubject] where ts_sid=#{ts_sid}
+</select>
+
+<select id = "getChecking" resultMap="takingSubjeckMap" parameterType="int">
+	select * from [TEST].[dbo].[TakingSubject] 
+	where <![CDATA[(CONVERT(VARCHAR, tsS_Time, 14) < (select CONVERT(time,GETDATE())))
+	and (CONVERT(VARCHAR, tsE_Time, 14) > (select CONVERT(time,GETDATE()))) 
+	and ( ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())))]]> 
+	
+</select>
+
+</mapper>

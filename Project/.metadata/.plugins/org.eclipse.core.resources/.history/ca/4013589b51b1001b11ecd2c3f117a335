@@ -1,7 +1,0 @@
-package com.idinoproject.web.dto;
-
-public class LoginDto {
-	private int S_num;
-	private String Password;
-	private boolean useCookie;
-}

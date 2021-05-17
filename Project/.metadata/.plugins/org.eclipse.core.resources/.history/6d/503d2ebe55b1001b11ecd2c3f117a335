@@ -1,5 +1,0 @@
-package com.idinoproject.web.commons;
-
-public class LoginInterceptor {
-
-}
