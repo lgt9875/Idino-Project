@@ -171,6 +171,14 @@
 		    <artifactId>javase</artifactId>
 		    <version>3.1.0</version>
 		</dependency>
+		
+		<!-- SQL Log -->
+		<dependency>
+		    <groupId>org.lazyluke</groupId>
+		    <artifactId>log4jdbc-remix</artifactId>
+		    <version>0.2.7</version>
+		</dependency>
+		
 	</dependencies>
 	
     <build>

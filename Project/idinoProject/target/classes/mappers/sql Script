@@ -43,21 +43,21 @@ CREATE TABLE [dbo].[Subject](
 
 
 
-insert into [dbo].[Subject] values('15430','µ¥ÀÌÅÍº£ÀÌ½º','14:00','16:00');
-insert into [dbo].[Subject] values('15431','¿î¿µÃ¼Á¦','16:00','18:00');
+insert into [dbo].[Subject] values('15430','ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½','14:00','16:00');
+insert into [dbo].[Subject] values('15431','ï¿½î¿µÃ¼ï¿½ï¿½','16:00','18:00');
 insert into [dbo].[Subject] values('15432','UML','12:00','14:00');
-insert into [dbo].[Subject] values('15433','¼ÒÇÁÆ®¿þ¾î°øÇÐ','10:00','12:00');
+insert into [dbo].[Subject] values('15433','ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','10:00','12:00');
 insert into [dbo].[Subject] values('15434','C#','10:00','12:00');
 
 
-insert into [dbo].[takingSubject] values('111','15430','µ¥ÀÌÅÍº£ÀÌ½º','14:00','16:00');
-insert into [dbo].[takingSubject] values('111','15431','¿î¿µÃ¼Á¦','16:00','18:00');
+insert into [dbo].[takingSubject] values('111','15430','ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½','14:00','16:00');
+insert into [dbo].[takingSubject] values('111','15431','ï¿½î¿µÃ¼ï¿½ï¿½','16:00','18:00');
 insert into [dbo].[takingSubject] values('111','15432','UML','12:00','14:00');
-insert into [dbo].[takingSubject] values('111','15433','¼ÒÇÁÆ®¿þ¾î°øÇÐ','10:00','12:00');
+insert into [dbo].[takingSubject] values('111','15433','ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','10:00','12:00');
 insert into [dbo].[takingSubject] values('222','15434','C#','10:00','12:00');
-insert into [dbo].[takingSubject] values('222','15433','¼ÒÇÁÆ®¿þ¾î°øÇÐ','10:00','12:00');
-insert into [dbo].[takingSubject] values('333','15433','¼ÒÇÁÆ®¿þ¾î°øÇÐ','10:00','12:00');
-insert into [dbo].[takingSubject] values('222','15431','¿î¿µÃ¼Á¦','16:00','18:00');
+insert into [dbo].[takingSubject] values('222','15433','ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','10:00','12:00');
+insert into [dbo].[takingSubject] values('333','15433','ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','10:00','12:00');
+insert into [dbo].[takingSubject] values('222','15431','ï¿½î¿µÃ¼ï¿½ï¿½','16:00','18:00');
 
 
 
@@ -80,17 +80,17 @@ ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time time(0);
 
 
 
-update [TEST].[dbo].[Subject] set s_yoil='¿ù¿äÀÏ' where s_code='15430'
-update [TEST].[dbo].[Subject] set s_yoil='È­¿äÀÏ' where s_code='15431'
-update [TEST].[dbo].[Subject] set s_yoil='¼ö¿äÀÏ' where s_code='15432'
-update [TEST].[dbo].[Subject] set s_yoil='¸ñ¿äÀÏ' where s_code='15433'
-update [TEST].[dbo].[Subject] set s_yoil='±Ý¿äÀÏ' where s_code='15434'
+update [TEST].[dbo].[Subject] set s_yoil='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' where s_code='15430'
+update [TEST].[dbo].[Subject] set s_yoil='È­ï¿½ï¿½ï¿½ï¿½' where s_code='15431'
+update [TEST].[dbo].[Subject] set s_yoil='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' where s_code='15432'
+update [TEST].[dbo].[Subject] set s_yoil='ï¿½ï¿½ï¿½ï¿½ï¿½' where s_code='15433'
+update [TEST].[dbo].[Subject] set s_yoil='ï¿½Ý¿ï¿½ï¿½ï¿½' where s_code='15434'
 
-update [TEST].[dbo].[takingSubject] set ts_yoil='¿ù¿äÀÏ',ts_check=0 where ts_code='15430'
-update [TEST].[dbo].[takingSubject] set ts_yoil='È­¿äÀÏ',ts_check=0 where ts_code='15431'
-update [TEST].[dbo].[takingSubject] set ts_yoil='¼ö¿äÀÏ',ts_check=0 where ts_code='15432'
-update [TEST].[dbo].[takingSubject] set ts_yoil='¸ñ¿äÀÏ',ts_check=0 where ts_code='15433'
-update [TEST].[dbo].[takingSubject] set ts_yoil='±Ý¿äÀÏ',ts_check=0 where ts_code='15434' 
+update [TEST].[dbo].[takingSubject] set ts_yoil='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',ts_check=0 where ts_code='15430'
+update [TEST].[dbo].[takingSubject] set ts_yoil='È­ï¿½ï¿½ï¿½ï¿½',ts_check=0 where ts_code='15431'
+update [TEST].[dbo].[takingSubject] set ts_yoil='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',ts_check=0 where ts_code='15432'
+update [TEST].[dbo].[takingSubject] set ts_yoil='ï¿½ï¿½ï¿½ï¿½ï¿½',ts_check=0 where ts_code='15433'
+update [TEST].[dbo].[takingSubject] set ts_yoil='ï¿½Ý¿ï¿½ï¿½ï¿½',ts_check=0 where ts_code='15434' 
 
 
 //2021-05-17
@@ -127,3 +127,7 @@ select * from [TEST].[dbo].[TakingSubject]
 where (CONVERT(VARCHAR, tsS_Time, 14) < (select CONVERT(time,GETDATE()))) 
 and (CONVERT(VARCHAR, tsE_Time, 14) > (select CONVERT(time,GETDATE()))) 
 and ( ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())));
+
+
+UPDATE [TEST].[dbo].[takingSubject]
+SET ts_check_late = NULL

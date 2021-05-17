@@ -1,0 +1,10 @@
+log4jdbc.spylogdelegator.name =  net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+#sql\uBB38\uC744 \uCD5C\uB300 \uBA87 \uB77C\uC778\uAE4C\uC9C0 \uCD9C\uB825\uD560\uC9C0 \uC5EC\uBD80: 0\uC740 \uC81C\uD55C \uC5C6\uC74C
+log4jdbc.dump.sql.maxlinelength=0
+
+
+\uCD9C\uCC98: https://blog.eomsh.com/81 [\uAC1C\uBC1C\uC790\uC758 \uC77C\uC0C1]
+
+\uCD9C\uCC98: https://blog.eomsh.com/81 [\uAC1C\uBC1C\uC790\uC758 \uC77C\uC0C1]
+
+\uCD9C\uCC98: https://blog.eomsh.com/81 [\uAC1C\uBC1C\uC790\uC758 \uC77C\uC0C1]

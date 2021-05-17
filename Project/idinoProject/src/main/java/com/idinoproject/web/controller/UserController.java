@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
 
+import org.apache.ibatis.annotations.Param;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,8 +114,9 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/checking",method = RequestMethod.POST)
-	public String checking(CheckDto checkDto,Model model) throws Exception{
-		subjectService.getChecking();
+//	public String checking(CheckDto checkDto,Model model) throws Exception{
+	public String checking(@Param("s_id") String s_id, @Param("SubjectCode") String SubjectCode,@Param("SubjectName") String SubjectName) throws Exception{
+		subjectService.getChecking(s_id,SubjectCode,SubjectName);
 //		model.addAttribute("takingSubjectList", subjectService.getTakingSubjectList(checkDto.getS_id()));
 		return "user/main";
 		

@@ -1,0 +1,8 @@
+driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+url: jdbc:log4jdbc:sqlserver://localhost:1433;DatabaseName=test
+jdbc.user = sa
+jdbc.password = 1234
+
+url: jdbc:log4jdbc:sqlserver://localhost:1433;DatabaseName=test
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+

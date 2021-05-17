@@ -172,7 +172,7 @@
 								<c:forEach var="takingSubjectList" items="${takingSubjectList}">
 									<tr>
 										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTs_sid()}"/></td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_code()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
 										<td id="update"><a href="#ex1" rel="modal:open"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></a></td>
@@ -228,7 +228,7 @@
 								<c:forEach var="takingSubjectList" items="${takingSubjectList}">
 									<tr>
 										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTs_sid()}"/></td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_code()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
 										<!-- <td><input type="button" class="checkBtn" value="출석체크"/></td> -->

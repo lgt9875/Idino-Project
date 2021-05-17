@@ -14,6 +14,7 @@
 </resultMap>
 
 
+
 <select id = "getTakingSubjectList" resultMap="takingSubjeckMap" parameterType="int">
 	SELECT * FROM  [TEST].[dbo].[TakingSubject] where ts_sid=#{ts_sid}
 </select>
@@ -25,5 +26,12 @@
 	and ( ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())))]]> 
 	
 </select>
+<update id="updateChecking" parameterType="com.idinoproject.web.dto.CheckDto">
+	UPDATE [TEST].[dbo].[takingSubject] 
+	SET ts_check_late = #{checkStatus}
+	WHERE ts_sid = #{s_id} AND ts_code = #{SubjectCode} AND ts_name = #{SubjectName}
+</update> 
+
+
 
 </mapper>

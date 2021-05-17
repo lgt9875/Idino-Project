@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.idinoproject.web.dao.SubjectDAO;
+import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
@@ -23,8 +24,8 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 	@Override
-	public Boolean getChecking() throws Exception {
-		return subjectDao.getChecking();
+	public Boolean getChecking(@Param("s_id") String s_id, @Param("SubjectCode") String SubjectCode,@Param("SubjectName") String SubjectName) throws Exception {
+		return subjectDao.getChecking(s_id,SubjectCode,SubjectName);
 	}
 	
 

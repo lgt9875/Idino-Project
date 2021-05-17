@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
@@ -32,8 +33,20 @@ public class SubjectDAOImpl implements SubjectDAO{
 	}
 
 	@Override
-	public Boolean getChecking() throws Exception {
+	public Boolean getChecking(@Param("s_id") String s_id, @Param("SubjectCode") String SubjectCode,@Param("SubjectName") String SubjectName) throws Exception {
 		List<Object> checking = sqlSession.selectOne(NAMESPACE+"getChecking");
+		if(checking != null) {
+			
+		}else {
+//			int checkStatus=1;
+			CheckDto checkdto = new CheckDto();
+			checkdto.setCheckStatus(1);
+			checkdto.setS_id(s_id);
+			checkdto.setSubjectCode(SubjectCode);
+			checkdto.setSubjectName(SubjectName);
+			sqlSession.update(NAMESPACE+"updateChecking",checkdto);
+			
+		}
 		System.out.println(checking);
 		return null;
 		

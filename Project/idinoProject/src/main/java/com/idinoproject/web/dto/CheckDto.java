@@ -1,13 +1,17 @@
 package com.idinoproject.web.dto;
 
 public class CheckDto {
-	private int s_id;
+	private String s_id;
 	private String SubjectCode;
 	private String SubjectName;
-	public int getS_id() {
+	private int checkStatus;
+	
+	
+	
+	public String getS_id() {
 		return s_id;
 	}
-	public void setS_id(int s_id) {
+	public void setS_id(String s_id) {
 		this.s_id = s_id;
 	}
 	public String getSubjectCode() {
@@ -21,6 +25,12 @@ public class CheckDto {
 	}
 	public void setSubjectName(String subjectName) {
 		SubjectName = subjectName;
+	}
+	public int getCheckStatus() {
+		return checkStatus;
+	}
+	public void setCheckStatus(int checkStatus) {
+		this.checkStatus = checkStatus;
 	}
 	
 	
