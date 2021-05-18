@@ -10,5 +10,8 @@ import com.idinoproject.web.model.TakingSubjectModel;
 
 public interface SubjectService {
 	public List<TakingSubjectModel> getTakingSubjectList(int i) throws Exception;
-	public Boolean getChecking(@Param("s_id") String s_id, @Param("SubjectCode") String SubjectCode,@Param("SubjectName") String SubjectName) throws Exception;
+	public List<TakingSubjectModel> getChecking(@Param("s_id") String s_id,
+			@Param("SubjectCode") String SubjectCode,
+			@Param("SubjectName") String SubjectName,
+			@Param("Status") String Status) throws Exception;
 }

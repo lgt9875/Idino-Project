@@ -102,8 +102,7 @@ ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsS_time datetime;
 ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time datetime;
 
 ALTER TABLE [TEST].[dbo].[TakingSubject] DROP COLUMN ts_check;
-ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check_late int;
-ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check_ab int;
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check int;
 
 
 update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 10:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where ts_code='15434'
@@ -131,3 +130,45 @@ and ( ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())));
 
 UPDATE [TEST].[dbo].[takingSubject]
 SET ts_check_late = NULL
+
+
+
+//2021-05-18
+//시작하기 20분전부터 시작하는 시간까지 현재시간이 포함되어있으면 데이터 검색
+<select id = "getChecking" resultMap="takingSubjeckMap" parameterType="com.idinoproject.web.dto.CheckDto">
+	SELECT * from [TEST].[dbo].[TakingSubject] 
+	where (select CONVERT(VARCHAR,GETDATE(),14)) 
+	BETWEEN 
+		(select (CONVERT(VARCHAR,(dateadd(MINUTE,-20,(select tsS_Time from [TEST].[dbo].[TakingSubject] where ts_sid=#{s_id} and ts_code= #{SubjectCode}))),14)))
+	AND 
+		(select (CONVERT(VARCHAR, (select tsS_Time from [TEST].[dbo].[TakingSubject] where ts_sid=#{s_id} and ts_code= #{SubjectCode}), 14)))
+	AND (ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())))
+	and ts_sid=#{s_id};
+</select>
+
+//지각
+<select id = "getLateChecking" resultMap="takingSubjeckMap" parameterType="com.idinoproject.web.dto.CheckDto">
+	SELECT * from [TEST].[dbo].[TakingSubject] 
+	where (select CONVERT(VARCHAR,GETDATE(),14)) 
+	BETWEEN 
+		(select (CONVERT(VARCHAR, (select tsS_Time from [TEST].[dbo].[TakingSubject] where ts_sid=#{s_id} and ts_code= #{SubjectCode}), 14)))
+	AND 
+		(select (CONVERT(VARCHAR, (select tsE_Time from [TEST].[dbo].[TakingSubject] where ts_sid=#{s_id} and ts_code= #{SubjectCode}), 14)))
+	AND (ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())))
+	and ts_sid=#{s_id};
+</select>
+
+//결석
+<select id = "getabsenceChecking" resultMap="takingSubjeckMap" parameterType="com.idinoproject.web.dto.CheckDto">
+	SELECT * from [TEST].[dbo].[TakingSubject] 
+	where <![CDATA[(select CONVERT(VARCHAR,GETDATE(),14)) >(select (CONVERT(VARCHAR, (select tsE_Time from [TEST].[dbo].[TakingSubject] where ts_sid=#{s_id} and ts_code=#{SubjectCode}), 14)))]]>
+	AND (ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())))
+	and ts_sid=#{s_id};
+</select>
+
+
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] DROP COLUMN ts_check_late;
+ALTER TABLE [TEST].[dbo].[TakingSubject] DROP COLUMN ts_check_ab;
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check VARCHAR(100);

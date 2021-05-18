@@ -33,22 +33,32 @@ public class SubjectDAOImpl implements SubjectDAO{
 	}
 
 	@Override
-	public Boolean getChecking(@Param("s_id") String s_id, @Param("SubjectCode") String SubjectCode,@Param("SubjectName") String SubjectName) throws Exception {
-		List<Object> checking = sqlSession.selectOne(NAMESPACE+"getChecking");
-		if(checking != null) {
-			
-		}else {
-//			int checkStatus=1;
-			CheckDto checkdto = new CheckDto();
-			checkdto.setCheckStatus(1);
-			checkdto.setS_id(s_id);
-			checkdto.setSubjectCode(SubjectCode);
-			checkdto.setSubjectName(SubjectName);
-			sqlSession.update(NAMESPACE+"updateChecking",checkdto);
-			
+	public List<TakingSubjectModel> getChecking(@Param("s_id") String s_id,
+			@Param("SubjectCode") String SubjectCode,
+			@Param("SubjectName") String SubjectName,
+			@Param("Status") String Status) throws Exception {
+		CheckDto checkdto = new CheckDto();
+		checkdto.setS_id(s_id);
+		checkdto.setSubjectCode(SubjectCode);
+		checkdto.setSubjectName(SubjectName);
+		checkdto.setStatus(Status);
+		
+		List<TakingSubjectModel> checking = sqlSession.selectList(NAMESPACE+"getChecking",checkdto);
+		List<TakingSubjectModel> latecheCking = sqlSession.selectList(NAMESPACE+"getLateChecking",checkdto);
+		List<TakingSubjectModel> absenceChecking = sqlSession.selectList(NAMESPACE+"getabsenceChecking",checkdto);
+		
+		if(!checking.isEmpty() && latecheCking.isEmpty() && absenceChecking.isEmpty()) {
+			//20분 전의 데이터가 있는경우
+			checkdto.setCheckStatus("출석");
+		}else if (checking.isEmpty() && !latecheCking.isEmpty() && absenceChecking.isEmpty()) {
+			//20분 전의 데이터가 없는경우
+			checkdto.setCheckStatus("지각");
+		}else  if(checking.isEmpty() && latecheCking.isEmpty() && !absenceChecking.isEmpty()) {
+			checkdto.setCheckStatus("결석");
 		}
+		sqlSession.update(NAMESPACE+"updateChecking",checkdto);
 		System.out.println(checking);
-		return null;
+		return sqlSession.selectList(NAMESPACE+"getTakingSubjectList",Integer.parseInt(checkdto.getS_id()));
 		
 		
 //		return sqlSession.selectList(NAMESPACE+"getChecking",s_id,subjectCode,subjectName);

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <%@ page import = "java.net.URLDecoder"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>     
 
 
@@ -47,21 +48,23 @@
 	$(document).ready(function(){
 		 $("#update input").on('click',function(){ 
 			event.preventDefault();
+			
 			var currentRow = $(this).closest('tr');
 			var sid = currentRow.find('td:eq(0)').text();
 			var code = currentRow.find('td:eq(1)').text();
 			var name = currentRow.find('td:eq(2)').text();
+			var status = currentRow.find('td:eq(5)').text();
 					
 			
 			var randomText = randomStringfunction();
 		
             url = "${pageContext.request.contextPath}/user/createCode";
-            var content = "sid:"+ sid +":code:"+ code +":name:"+ name +":" + randomText;
+            var content = "sid:"+ sid +":code:"+ code +":name:"+ name+":status:"+ status +":" + randomText;
         	$("#img").prop("src", url+"?content="+content);
         	
             var myTimer = setInterval(function() {var randomText = randomStringfunction();
 				url = "${pageContext.request.contextPath}/user/createCode";
-				var content = "sid:"+ sid +":code:"+ code +":name:"+ name +":"+ randomText;
+				var content = "sid:"+ sid +":code:"+ code +":name:"+ name+":status:"+ status +":" + randomText;
             	$("#img").prop("src", url+"?content="+content);
            	}, 60000);
             setTimeout(function(){
@@ -97,24 +100,29 @@
 		var s_id = checkingData[1];
 		var subjectCode = checkingData[3];
 		var subjectName = decodeURIComponent(checkingData[5]);
-		console.log(s_id+"/"+subjectCode+"/"+subjectName);
+		var status = decodeURIComponent(checkingData[7]);
+		console.log(s_id+"/"+subjectCode+"/"+subjectName+"/"+status);
 		$.ajax({
 			url :"${pageContext.request.contextPath}/user/checking",
 			type : 'POST',
 			data : {
 				s_id : s_id,
 				SubjectCode : subjectCode,
-				SubjectName : subjectName
+				SubjectName : subjectName,
+				Status : status
 			},
 			dataType : "json",
-			/* success : function(data){
-				alert("성공");
+			success : function(data){
+				
 			},
-			error:function(){
-				alert("실패");
-			} */
+			error:function(request,status,error){
+				
+			},
+			complete : function(data) {
+				alert("출석체크를 완료하였습니다.");
+				location.reload();
+			}
 		});
-		/* location.href = "${pageContext.request.contextPath}/user/checking" */
 	});
 	
 	$(document).on('click','#btnSave1',function(e){
@@ -124,6 +132,11 @@
 		var url = theForm.img.src;
 		url = url.substring(0,url.length-7);
 		$("#img").prop("src", url+randomText);
+	});
+	
+	$(document).on('click','#btnReload',function(e){
+		e.preventDefault();
+		location.reload();
 	});
 	
 	
@@ -159,6 +172,7 @@
 							<th class="align-center">과목코드</th>
 							<th class="align-center">과목명</th>
 							<th class="align-center">강의시간</th>
+							<th class="align-center">요일</th>
 							<th class="align-center">출석여부</th>
 							<th class="align-center">출석상태</th>
 						</tr>
@@ -174,7 +188,16 @@
 										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_code()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
+										<td class="align-center">
+											<fmt:parseDate value='${takingSubjectList.getTsS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+											<fmt:parseDate value='${takingSubjectList.getTsE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+											<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
+											~
+											<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
+										</td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_yoil()}"/></td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_check()}"/></td>
+										
 										<td id="update"><a href="#ex1" rel="modal:open"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></a></td>
 									</tr>
 								</c:forEach>
@@ -215,6 +238,7 @@
 							<th class="align-center">과목코드</th>
 							<th class="align-center">과목명</th>
 							<th class="align-center">강의시간</th>
+							<th class="align-center">요일</th>
 							<th class="align-center">출석여부</th>
 							<th class="align-center">출석상태</th>
 						</tr>
@@ -230,8 +254,15 @@
 										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_code()}"/></td>
 										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTsS_time()} ~ ${takingSubjectList.getTsE_time()}"/></td>
-										<!-- <td><input type="button" class="checkBtn" value="출석체크"/></td> -->
+										<td class="align-center">
+											<fmt:parseDate value='${takingSubjectList.getTsS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+											<fmt:parseDate value='${takingSubjectList.getTsE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+											<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
+											~
+											<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
+										</td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_yoil()}"/></td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_check()}"/></td>
 										<td id="update"><a href="#ex1" rel="modal:open"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></a></td>
 									</tr>
 								</c:forEach>
@@ -250,7 +281,7 @@
 				<img id="img" style="display:inline"/>
 			</p>
 			<p style="text-align: center;">
-				<a href="#" rel="modal:close"><button class="btn btn-sm btn-primary">닫기</button></a>
+				<a href="#" rel="modal:close"><button class="btn btn-sm btn-primary" id="btnReload">닫기</button></a>
 				<button type="button" class="btn btn-sm btn-primary m-1" id="btnSave">출석</button>
 				<button type="button" class="btn btn-sm btn-primary m-1" id="btnSave1">재생성</button>
 			</p>

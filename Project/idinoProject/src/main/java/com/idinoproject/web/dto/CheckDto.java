@@ -4,7 +4,8 @@ public class CheckDto {
 	private String s_id;
 	private String SubjectCode;
 	private String SubjectName;
-	private int checkStatus;
+	private String checkStatus;
+	private String status;
 	
 	
 	
@@ -26,11 +27,18 @@ public class CheckDto {
 	public void setSubjectName(String subjectName) {
 		SubjectName = subjectName;
 	}
-	public int getCheckStatus() {
+	
+	public String getCheckStatus() {
 		return checkStatus;
 	}
-	public void setCheckStatus(int checkStatus) {
+	public void setCheckStatus(String checkStatus) {
 		this.checkStatus = checkStatus;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

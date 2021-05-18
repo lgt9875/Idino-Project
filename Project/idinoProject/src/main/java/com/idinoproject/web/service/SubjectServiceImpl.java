@@ -24,8 +24,11 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 	@Override
-	public Boolean getChecking(@Param("s_id") String s_id, @Param("SubjectCode") String SubjectCode,@Param("SubjectName") String SubjectName) throws Exception {
-		return subjectDao.getChecking(s_id,SubjectCode,SubjectName);
+	public List<TakingSubjectModel> getChecking(@Param("s_id") String s_id,
+			@Param("SubjectCode") String SubjectCode,
+			@Param("SubjectName") String SubjectName,
+			@Param("Status") String Status) throws Exception {
+		return subjectDao.getChecking(s_id,SubjectCode,SubjectName,Status);
 	}
 	
 

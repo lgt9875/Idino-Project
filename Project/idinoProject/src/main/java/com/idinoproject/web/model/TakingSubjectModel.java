@@ -6,6 +6,9 @@ public class TakingSubjectModel {
 	private String ts_name;
 	private String tsS_time;
 	private String tsE_time;
+	private String ts_check;
+	private String ts_yoil;
+	
 	
 	public int getTs_sid() {
 		return ts_sid;
@@ -37,4 +40,19 @@ public class TakingSubjectModel {
 	public void setTsE_time(String tsE_time) {
 		this.tsE_time = tsE_time;
 	}
+	public String getTs_check() {
+		return ts_check;
+	}
+	public void setTs_check(String ts_check) {
+		this.ts_check = ts_check;
+	}
+	public String getTs_yoil() {
+		return ts_yoil;
+	}
+	public void setTs_yoil(String ts_yoil) {
+		this.ts_yoil = ts_yoil;
+	}
+	
+	
+	
 }

@@ -1,0 +1,147 @@
+CREATE TABLE [dbo].[User](
+	[sid] [int] NOT NULL,
+	[name] [varchar](20) NOT NULL,
+	[password] [varchar](100) NOT NULL,
+	[email] [varchar](50) NULL,
+	[address] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[create_dt] [datetime] NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[sid] ASC,
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[TakingSubject](
+	[ts_sid] [varchar](100) NOT NULL,
+	[ts_code] [varchar](100) NOT NULL,
+	[ts_name] [varchar](100) NOT NULL,
+	[tsS_time] [varchar](100) NOT NULL,
+	[tsE_time] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_TakingSubject_1] PRIMARY KEY CLUSTERED 
+(
+	[ts_sid] ASC,
+	[ts_code] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+CREATE TABLE [dbo].[Subject](
+	[s_code] [varchar](100) NOT NULL,
+	[s_name] [varchar](100) NOT NULL,
+	[s_time] [varchar](100) NOT NULL,
+	[e_time] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_Subject_1] PRIMARY KEY CLUSTERED 
+(
+	[s_code] ASC,
+	[s_name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+insert into [dbo].[Subject] values('15430','�����ͺ��̽�','14:00','16:00');
+insert into [dbo].[Subject] values('15431','�ü��','16:00','18:00');
+insert into [dbo].[Subject] values('15432','UML','12:00','14:00');
+insert into [dbo].[Subject] values('15433','����Ʈ�������','10:00','12:00');
+insert into [dbo].[Subject] values('15434','C#','10:00','12:00');
+
+
+insert into [dbo].[takingSubject] values('111','15430','�����ͺ��̽�','14:00','16:00');
+insert into [dbo].[takingSubject] values('111','15431','�ü��','16:00','18:00');
+insert into [dbo].[takingSubject] values('111','15432','UML','12:00','14:00');
+insert into [dbo].[takingSubject] values('111','15433','����Ʈ�������','10:00','12:00');
+insert into [dbo].[takingSubject] values('222','15434','C#','10:00','12:00');
+insert into [dbo].[takingSubject] values('222','15433','����Ʈ�������','10:00','12:00');
+insert into [dbo].[takingSubject] values('333','15433','����Ʈ�������','10:00','12:00');
+insert into [dbo].[takingSubject] values('222','15431','�ü��','16:00','18:00');
+
+
+
+//2021-05-14
+	
+ALTER TABLE [TEST].[dbo].[Subject] ADD s_yoil VARCHAR(100)
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_yoil VARCHAR(100)
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check int 
+
+
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN s_time time(0);
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN e_time time(0);
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsS_time time(0);
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time time(0);
+
+
+
+
+
+
+update [TEST].[dbo].[Subject] set s_yoil='������' where s_code='15430'
+update [TEST].[dbo].[Subject] set s_yoil='ȭ����' where s_code='15431'
+update [TEST].[dbo].[Subject] set s_yoil='������' where s_code='15432'
+update [TEST].[dbo].[Subject] set s_yoil='�����' where s_code='15433'
+update [TEST].[dbo].[Subject] set s_yoil='�ݿ���' where s_code='15434'
+
+update [TEST].[dbo].[takingSubject] set ts_yoil='������',ts_check=0 where ts_code='15430'
+update [TEST].[dbo].[takingSubject] set ts_yoil='ȭ����',ts_check=0 where ts_code='15431'
+update [TEST].[dbo].[takingSubject] set ts_yoil='������',ts_check=0 where ts_code='15432'
+update [TEST].[dbo].[takingSubject] set ts_yoil='�����',ts_check=0 where ts_code='15433'
+update [TEST].[dbo].[takingSubject] set ts_yoil='�ݿ���',ts_check=0 where ts_code='15434' 
+
+
+//2021-05-17
+
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN s_time datetime;
+ALTER TABLE [TEST].[dbo].[Subject] ALTER COLUMN e_time datetime;
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsS_time datetime;
+ALTER TABLE [TEST].[dbo].[TakingSubject] ALTER COLUMN tsE_time datetime;
+
+ALTER TABLE [TEST].[dbo].[TakingSubject] DROP COLUMN ts_check;
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check_late int;
+ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check_ab int;
+
+
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 10:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where ts_code='15434'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 14:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 16:00:00',120) where ts_code='15430'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 16:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 18:00:00',120) where ts_code='15431'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 12:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 14:00:00',120) where ts_code='15432'
+update [TEST].[dbo].[takingSubject] set tsS_time = CONVERT(datetime,'2021/03/01 10:00:00',120), tsE_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where ts_code='15433'
+
+
+
+
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 10:00:00',120), e_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where s_code='15434'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 14:00:00',120), e_time = CONVERT(datetime,'2021/08/01 16:00:00',120) where s_code='15430'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 16:00:00',120), e_time = CONVERT(datetime,'2021/08/01 18:00:00',120) where s_code='15431'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 12:00:00',120), e_time = CONVERT(datetime,'2021/08/01 14:00:00',120) where s_code='15432'
+update [TEST].[dbo].[Subject] set s_time = CONVERT(datetime,'2021/03/01 10:00:00',120), e_time = CONVERT(datetime,'2021/08/01 12:00:00',120) where s_code='15433'
+
+
+
+select * from [TEST].[dbo].[TakingSubject] 
+where (CONVERT(VARCHAR, tsS_Time, 14) < (select CONVERT(time,GETDATE()))) 
+and (CONVERT(VARCHAR, tsE_Time, 14) > (select CONVERT(time,GETDATE()))) 
+and ( ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())));
+
+
+UPDATE [TEST].[dbo].[takingSubject]
+SET ts_check_late = NULL
+
+
+
+
+
+//시작하기 20분전부터 시작하는 시간까지 현재시간이 포함되어있으면 데이터 검색
+select * from [TEST].[dbo].[TakingSubject] 
+where (select CONVERT(VARCHAR,GETDATE(),14)) 
+BETWEEN 
+	(select (CONVERT(VARCHAR,(dateadd(MINUTE,-20,(select tsS_Time from [TEST].[dbo].[TakingSubject] where ts_sid='111' and ts_code='15431'))),14)))
+	AND 
+	(select (CONVERT(VARCHAR, (select tsS_Time from [TEST].[dbo].[TakingSubject] where ts_sid='111' and ts_code='15431'), 14)))
+AND (ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())))
+and ts_sid='111';

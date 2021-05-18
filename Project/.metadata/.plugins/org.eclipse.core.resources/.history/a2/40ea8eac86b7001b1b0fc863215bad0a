@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.idinoproject.web.subjectMapper">
+
+<resultMap type="com.idinoproject.web.model.TakingSubjectModel" id="takingSubjeckMap">
+	<result property="ts_sid" column="ts_sid"/>
+	<result property="ts_code" column="ts_code"/>
+	<result property="ts_name" column="ts_name"/>
+	<result property="tsS_time" column="tsS_time"/>
+	<result property="tsE_time" column="tsE_time"/>
+	<result property="ts_check" column="ts_check"/>
+</resultMap>
+
+
+
+<select id = "getTakingSubjectList" resultMap="takingSubjeckMap" parameterType="int">
+	SELECT * FROM  [TEST].[dbo].[TakingSubject] where ts_sid=#{ts_sid}
+</select>
+
+<select id = "getChecking" resultMap="takingSubjeckMap" parameterType="com.idinoproject.web.dto.CheckDto">
+	SELECT * from [TEST].[dbo].[TakingSubject] 
+	where (select CONVERT(VARCHAR,GETDATE(),14)) 
+	BETWEEN 
+		(select (CONVERT(VARCHAR,(dateadd(MINUTE,-20,(select tsS_Time from [TEST].[dbo].[TakingSubject] where ts_sid=#{s_id} and ts_code= #{SubjectCode}))),14)))
+	AND 
+		(select (CONVERT(VARCHAR, (select tsS_Time from [TEST].[dbo].[TakingSubject] where ts_sid=#{s_id} and ts_code= #{SubjectCode}), 14)))
+	AND (ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())))
+	and ts_sid=#{s_id}
+	
+</select>
+<update id="updateChecking" parameterType="com.idinoproject.web.dto.CheckDto">
+	UPDATE [TEST].[dbo].[takingSubject] 
+	SET ts_check_ab = #{checkStatus}
+	WHERE ts_sid = #{s_id} AND ts_code = #{SubjectCode} AND ts_name = #{SubjectName}
+</update> 
+
+
+
+
+</mapper>

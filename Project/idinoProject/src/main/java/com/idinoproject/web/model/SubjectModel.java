@@ -5,6 +5,8 @@ public class SubjectModel {
 	public String s_name;
 	public String s_time;
 	public String e_time;
+	
+	
 	public String getS_code() {
 		return s_code;
 	}
@@ -30,6 +32,7 @@ public class SubjectModel {
 	public void setE_time(String e_time) {
 		this.e_time = e_time;
 	}
+	
 	
 	
 }
