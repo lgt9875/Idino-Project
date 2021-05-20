@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="login"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="reload"/>
+			<item value="checkingList"/>
+			<item value="arr"/>
+			<item value="key"/>
+			<item value="checkingList2"/>
+			<item value="dynamicTbody"/>
+			<item value="tableCreate"/>
+			<item value="SubjectName"/>
+			<item value="getCheckingInfo"/>
+			<item value="getCheckingAll"/>
+			<item value="ajax"/>
 			<item value="login"/>
 			<item value="CheckDto"/>
 			<item value="getCheckingSearch"/>
 			<item value="btnJoinForm"/>
-			<item value="getTs_code()"/>
-			<item value="code()"/>
-			<item value="checkinglist"/>
-			<item value="checking"/>
-			<item value="ts_Code"/>
-			<item value="code"/>
-			<item value="getTs_code"/>
-			<item value="getTs"/>
-			<item value="takingSubjeckMap"/>
-			<item value="getdate"/>
-			<item value="insert"/>
 		</list>
 		<list key="replacehistory">
 			<item value="calendar"/>

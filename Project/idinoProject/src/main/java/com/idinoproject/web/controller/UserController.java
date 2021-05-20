@@ -127,20 +127,24 @@ public class UserController {
 	
 	//출석체크화면
 	@RequestMapping(value = "/getCheckingInfo",method = RequestMethod.GET)
-	public String getCheckingInfo(LoginDto loginDto,Model model) throws Exception{
-		model.addAttribute("checkingList", subjectService.getCheckingAll(loginDto.getSid()));
+	public String getCheckingInfo(LoginDto loginDto, Model model,
+			@Param("s_id") String s_id,
+			@Param("SubjectName") String SubjectName) throws Exception{
+//		model.addAttribute("checkingList", subjectService.getCheckingAll(loginDto.getSid()));
+		model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
+		model.addAttribute("subjectList", subjectService.getSubjectList());
+//		model.addAttribute("checkingList2", subjectService.getCheckingSearchInfo(s_id,SubjectName));
 		return "checking2";
-		
 	}
 	
 	
 	//출석체크화면
-	@RequestMapping(value = "/getCheckingSearchInfo",method = RequestMethod.POST)
+	@RequestMapping(value = "/getCheckingSearchInfo",method = RequestMethod.GET)
 	public String getCheckingSearchInfo(Model model,
 			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception{
 //		subjectService.getCheckingSearchInfo(sid,SubjectName);
-		model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
+		model.addAttribute("checkingList2", subjectService.getCheckingSearchInfo(s_id,SubjectName));
 		return "checking2";
 		
 	}

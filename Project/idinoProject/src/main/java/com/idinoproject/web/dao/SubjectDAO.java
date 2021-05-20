@@ -11,6 +11,8 @@ import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 
 public interface SubjectDAO {
+	public List<SubjectModel> getSubjectList()throws Exception;
+	
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception;
 	public List<TakingSubjectModel> getChecking(@Param("s_id") String s_id,
 			@Param("SubjectCode") String SubjectCode,
@@ -18,6 +20,7 @@ public interface SubjectDAO {
 			@Param("Status") String Status) throws Exception;
 	
 	public List<CheckingModel> getCheckingAll(int ts_Sid) throws Exception;
-	public List<CheckingModel> getCheckingSearchInfo(@Param("s_id") String s_id,
+	public List<CheckingModel> getCheckingSearchInfo(
+			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception;
 }

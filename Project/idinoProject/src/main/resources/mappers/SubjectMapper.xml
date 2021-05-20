@@ -5,6 +5,16 @@
 	
 <mapper namespace="com.idinoproject.web.subjectMapper">
 
+
+	
+<resultMap type="com.idinoproject.web.model.SubjectModel" id="subjeckMap">
+	<result property="s_code" column="s_code"/>
+	<result property="s_name" column="s_name"/>
+	<result property="s_time" column="s_time"/>
+	<result property="e_time" column="e_time"/>
+</resultMap>
+
+
 <resultMap type="com.idinoproject.web.model.TakingSubjectModel" id="takingSubjeckMap">
 	<result property="ts_sid" column="ts_sid"/>
 	<result property="ts_code" column="ts_code"/>
@@ -26,7 +36,9 @@
 </resultMap>
 
 
-
+<select id = "getSubjectList" resultMap="subjeckMap">
+	SELECT * FROM  [TEST].[dbo].[Subject] 
+</select>
 
 <select id = "getTakingSubjectList" resultMap="takingSubjeckMap" parameterType="int">
 	SELECT * FROM  [TEST].[dbo].[TakingSubject] 
@@ -76,12 +88,27 @@
 
 <select id = "getCheckingAll" resultMap="checkingMap" parameterType="int">
 	SELECT * FROM  [TEST].[dbo].[Checking] 
-	where c_sid=#{c_sid}; 
+	<if test="s_id != null">
+	where c_sid=#{s_id}
+	</if>
+
+	<if test="SubjectName != null">
+		AND c_subjectName=#{SubjectName};
+	</if>
+
 </select>
 
 <select id = "getCheckingSearch" resultMap="checkingMap" parameterType="com.idinoproject.web.dto.CheckDto">
-	SELECT * FROM  [TEST].[dbo].[Checking] 
-	where c_sid=#{s_id} AND c_subjectName=#{SubjectName}; 
+	SELECT *
+	FROM  [TEST].[dbo].[Checking]
+	<if test="s_id != null">
+	where c_sid=#{s_id}
+	</if>
+
+	<if test="SubjectName != null">
+		AND c_subjectName=#{SubjectName};
+	</if>
+
 </select>
 
 

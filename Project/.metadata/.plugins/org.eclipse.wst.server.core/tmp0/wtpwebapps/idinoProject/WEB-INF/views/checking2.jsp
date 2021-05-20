@@ -28,6 +28,8 @@
 .hidden-col{display : none;}
 </style>
 
+
+
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -36,26 +38,53 @@
 	$(document).on('click', '#btnSearchForm',function(e){
 		e.preventDefault();
 		var subjectName = $("#SubjectName option:selected").attr('value');
-		//value3에 userPK 데이터
-		alert(subjectName);
-		/* var s_id = login.getSid(); */
 		$.ajax({
-			url :"${pageContext.request.contextPath}/user/getCheckingSearchInfo",
-			type : 'POST',
+			url :"${pageContext.request.contextPath}/user/getCheckingInfo",
+			type : 'GET',
 			data : {
 				s_id : '111',
 				SubjectName : subjectName
 			},
 			dataType : "json",
 			success : function(data){
-				
+				checkingList =null;
 			},
 			error:function(request,status,error){
 				
 			},
 			complete : function(data) {
 				/* alert("출석체크를 완료하였습니다."); */
-				/* location.reload(); */
+				var arr = new Array();
+				var html = "";
+				var data ='<c:out value="${login.getSid()}"/>';
+				debugger;
+				<c:forEach var="checkingList" items="${checkingList}">
+					arr.push({
+						c_SubjectName : "${checkingList.getC_SubjectName()}",
+						cS_time : "${checkingList.getcS_time()}",
+						cE_time : "${checkingList.getcE_time()}",
+						c_yoil : "${checkingList.getC_yoil()}",
+						c_checkingTime : "${checkingList.getC_checkingTime()}",
+						c_state : "${checkingList.getC_state()}"
+					});
+				</c:forEach> 
+				
+				for(key in arr){
+					html += '<tr>';
+					html += '<td class="align-center">'+arr[key].c_SubjectName+'</td>';
+				
+					
+					html += '<td class="align-center">'+arr[key].cS_time+'</td>';
+					html += '<td class="align-center">'+arr[key].cE_time+'</td>';
+					html += '<td class="align-center">'+arr[key].c_yoil+'</td>';
+					html += '<td class="align-center">'+arr[key].c_checkingTime+'</td>';
+					html += '<td class="align-center">'+arr[key].c_state+'</td>';
+					html += '</tr>';
+				}
+					$("#dynamicTbody").empty();
+
+					$("#dynamicTbody").append(html);
+					
 			}
 		});
 		
@@ -77,6 +106,75 @@
 		location.href = "${pageContext.request.contextPath}/user/logout"
 	});
 	
+	function tableCreate(){
+		var html = "";
+		var arr = new Array();
+		
+		var data ='<c:out value="${login.getSid()}"/>';
+		debugger;
+		<c:forEach var="checkingList" items="${checkingList}">
+			arr.push({
+				c_SubjectName : "${checkingList.getC_SubjectName()}",
+				cS_time : "${checkingList.getcS_time()}",
+				cE_time : "${checkingList.getcE_time()}",
+				c_yoil : "${checkingList.getC_yoil()}",
+				c_checkingTime : "${checkingList.getC_checkingTime()}",
+				c_state : "${checkingList.getC_state()}"
+			});
+		</c:forEach> 
+		
+		for(key in arr){
+			html += '<tr>';
+			html += '<td class="align-center">'+arr[key].c_SubjectName+'</td>';
+			html += '<td class="align-center">'+arr[key].cS_time+'</td>';
+			html += '<td class="align-center">'+arr[key].cE_time+'</td>';
+			html += '<td class="align-center">'+arr[key].c_yoil+'</td>';
+			html += '<td class="align-center">'+arr[key].c_checkingTime+'</td>';
+			html += '<td class="align-center">'+arr[key].c_state+'</td>';
+			html += '</tr>';
+		}
+		
+		
+		
+		/* alert(data2);
+		tc.push({name : '남궁민수', job : '기관사', age : 50,hobby : '노래듣기' }); 
+		tc.push({name : '유재석', job : 'MC', age : 40,hobby : '운동' }); 
+		tc.push({name : '박명수', job : '개그맨', age : 42,hobby : '영어' }); 
+		tc.push({name : '정준하', job : '엔터테이너', age : 41,hobby : '맛집탐방' }); 
+		tc.push({name : '정형돈', job : '개그맨', age : 36,hobby : '잠자기' }); 
+
+		for(key in tc){
+			html += '<tr>';
+			html += '<td>'+tc[key].name+'</td>';
+			html += '<td>'+tc[key].job+'</td>';
+			html += '<td>'+tc[key].age+'</td>';
+			html += '<td>'+tc[key].hobby+'</td>';
+			html += '</tr>';
+		} */
+		
+		$("#dynamicTbody").empty();
+		$("#dynamicTbody").append(html);
+	}
+	
+	/* <c:forEach var="checkingList" items="${checkingList}">
+		<tr>
+			<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
+			<td class="align-center"><c:out value="${checkingList.getC_SubjectName()}"/></td>
+			<td class="align-center">
+				<fmt:parseDate value='${checkingList.getcS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+				<fmt:parseDate value='${checkingList.getcE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+				<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
+				~
+				<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
+			</td>
+			<td class="align-center"><c:out value="${checkingList.getC_yoil()}"/></td>
+			<td class="align-center">
+				<fmt:parseDate value='${checkingList.getC_checkingTime()}' var='checkingTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+				<fmt:formatDate value="${checkingTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+			</td>
+			<td class="align-center"><c:out value="${checkingList.getC_state()}"/></td>
+		</tr>
+	</c:forEach> */
 	
 </script>
 
@@ -94,8 +192,8 @@
 			
 			<div class="combo">
 				<select id="SubjectName">
-					<c:forEach var="checkingList" items="${checkingList}">	
-					    <option value="${checkingList.getC_SubjectName()}"><c:out value="${checkingList.getC_SubjectName()}"/></option>
+					<c:forEach var="subjectList" items="${subjectList}">	
+					    <option value="${subjectList.getS_name()}"><c:out value="${subjectList.getS_name()}"/></option>
 				    </c:forEach>
 				</select>
 				
@@ -106,9 +204,9 @@
 	</div>
 	
 	<article>
-		<div class="container">
+		<div class="container"> 
 			<div class="table-responsive">
-				<table id="example-table-2" class="table table-striped table-sm text-center">
+				<table id="dynamicTable" class="table table-striped table-sm text-center">
 					<colgroup>
 						<col style="width:15%;" />
 						<col style="width:30&;" />
@@ -125,39 +223,40 @@
 							<th class="align-center">출석상태</th>
 						</tr>
 					</thead>
-					<tbody>
-						<c:choose>
-							<c:when test="${empty login }" >
-								<tr><td colspan="5" align="center">데이터가 없습니다.</td></tr>
-							</c:when> 
-							<c:when test="${!empty login}">
-								<c:forEach var="checkingList" items="${checkingList}">
-									<tr>
-										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
-										<td class="align-center"><c:out value="${checkingList.getC_SubjectName()}"/></td>
-										<td class="align-center">
-											<fmt:parseDate value='${checkingList.getcS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:parseDate value='${checkingList.getcE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
-											~
-											<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
-										</td>
-										<td class="align-center"><c:out value="${checkingList.getC_yoil()}"/></td>
-										<td class="align-center">
-											<fmt:parseDate value='${checkingList.getC_checkingTime()}' var='checkingTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:formatDate value="${checkingTime}" pattern="HH:mm:ss"/>
-										</td>
-										<td class="align-center"><c:out value="${checkingList.getC_state()}"/></td>
-									</tr>
-								</c:forEach>
-							</c:when>
-						</c:choose>
-					</tbody>
+						<tbody id="dynamicTbody">
+							<%-- <c:choose>
+								<c:when test="${empty login }" >
+									<tr><td colspan="5" align="center">데이터가 없습니다.</td></tr>
+								</c:when> 
+								<c:when test="${!empty login}">
+									<c:forEach var="checkingList" items="${checkingList}">
+										<tr>
+											<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
+											<td class="align-center"><c:out value="${checkingList.getC_SubjectName()}"/></td>
+											<td class="align-center">
+												<fmt:parseDate value='${checkingList.getcS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+												<fmt:parseDate value='${checkingList.getcE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+												<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
+												~
+												<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
+											</td>
+											<td class="align-center"><c:out value="${checkingList.getC_yoil()}"/></td>
+											<td class="align-center">
+												<fmt:parseDate value='${checkingList.getC_checkingTime()}' var='checkingTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+												<fmt:formatDate value="${checkingTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+											</td>
+											<td class="align-center"><c:out value="${checkingList.getC_state()}"/></td>
+										</tr>
+									</c:forEach>
+								</c:when>
+							</c:choose> --%>
+						</tbody>
 				</table>
 			</div>
 		</div>	
 	</article>
-	
+
+	<button onclick="tableCreate()">table_append</button>
 
 	 
 </c:if>

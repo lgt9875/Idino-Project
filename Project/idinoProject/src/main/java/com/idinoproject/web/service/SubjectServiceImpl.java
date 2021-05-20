@@ -20,6 +20,11 @@ public class SubjectServiceImpl implements SubjectService{
 	private SubjectDAO subjectDao;
 	
 	@Override
+	public List<SubjectModel> getSubjectList()throws Exception{
+		return subjectDao.getSubjectList();
+	}
+	
+	@Override
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception{
 		return subjectDao.getTakingSubjectList(ts_Sid);
 	}
@@ -39,7 +44,8 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 	
 	@Override
-	public List<CheckingModel> getCheckingSearchInfo(@Param("s_id") String s_id,
+	public List<CheckingModel> getCheckingSearchInfo(
+			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception{
 		return subjectDao.getCheckingSearchInfo(s_id,SubjectName);
 	}

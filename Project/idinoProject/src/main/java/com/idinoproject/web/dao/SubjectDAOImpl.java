@@ -23,6 +23,11 @@ public class SubjectDAOImpl implements SubjectDAO{
 	private SqlSession sqlSession;
 	
 	@Override
+	public List<SubjectModel> getSubjectList()throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getSubjectList");
+	}
+	
+	@Override
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception{
 		
 //		List<Object> takingSubject = sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);

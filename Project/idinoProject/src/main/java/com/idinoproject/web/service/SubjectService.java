@@ -7,9 +7,11 @@ import org.apache.ibatis.annotations.Param;
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.CheckingModel;
+import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 
 public interface SubjectService {
+	public List<SubjectModel> getSubjectList()throws Exception;
 	public List<TakingSubjectModel> getTakingSubjectList(int i) throws Exception;
 	public List<TakingSubjectModel> getChecking(@Param("s_id") String s_id,
 			@Param("SubjectCode") String SubjectCode,
@@ -17,6 +19,7 @@ public interface SubjectService {
 			@Param("Status") String Status) throws Exception;
 	
 	public List<CheckingModel> getCheckingAll(int i) throws Exception;
-	public List<CheckingModel> getCheckingSearchInfo(@Param("s_id") String s_id,
+	public List<CheckingModel> getCheckingSearchInfo(
+			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception;
 }
