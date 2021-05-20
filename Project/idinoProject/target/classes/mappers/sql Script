@@ -172,3 +172,42 @@ ALTER TABLE [TEST].[dbo].[TakingSubject] DROP COLUMN ts_check_late;
 ALTER TABLE [TEST].[dbo].[TakingSubject] DROP COLUMN ts_check_ab;
 
 ALTER TABLE [TEST].[dbo].[TakingSubject] ADD ts_check VARCHAR(100);
+
+
+
+
+//2021/05/20
+USE [TEST]
+GO
+
+/****** Object:  Table [dbo].[Checking]    Script Date: 2021-05-20 오전 11:16:59 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Checking](
+	[c_sid] [int] NOT NULL,
+	[c_subjectName] [varchar](50) NOT NULL,
+	[cS_time] [datetime] NOT NULL,
+	[cE_time] [datetime] NOT NULL,
+	[c_yoil] [varchar](50) NOT NULL,
+	[c_checkingTime] [datetime] NOT NULL,
+	[c_state] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_Checking] PRIMARY KEY CLUSTERED 
+(
+	[c_sid] ASC,
+	[c_subjectName] ASC,
+	[c_checkingTime] ASC,
+	[c_state] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+insert into  [TEST].[dbo].[Checking] values (111,'데이터베이스','2021-03-01 14:00:00.000','2021-08-01 16:00:00.000','월요일',GETDATE(),'지각');
+insert into  [TEST].[dbo].[Checking] values (111,'운영체제','2021-03-01 15:47:00.000','2021-08-01 15:48:00.000','화요일',GETDATE(),'출석');
+insert into  [TEST].[dbo].[Checking] values (111,'UML','2021-03-01 12:00:00.000','2021-08-01 14:00:00.000','수요일',GETDATE(),'결석');
+insert into  [TEST].[dbo].[Checking] values (111,'소프트웨어공학','2021-03-01 10:00:00.000','2021-08-01 12:00:00.000','목요일',GETDATE(),'지각');
+

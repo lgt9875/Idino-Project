@@ -39,6 +39,12 @@
 		location.href = "${pageContext.request.contextPath}/user/login"
 	});
 	
+	$(document).on('click', '#btnChoiceForm',function(e){
+		e.preventDefault();
+		location.href = "${pageContext.request.contextPath}/user/choice"
+	});
+	
+	
 	$(document).on('click', '#btnLogOutForm',function(e){
 		e.preventDefault();
 		location.href = "${pageContext.request.contextPath}/user/logout"
@@ -216,7 +222,7 @@
 		<img src="<spring:url value='/resources/images/Idino.png'/>">
 		<div class=button>
 			<p>${login.getName()}님 안녕하세요</p>
-			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">출석확인</button>
+			<button type="button" class="btn btn-sm btn-primary" id="btnChoiceForm">출석확인</button>
 			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
 			
 			

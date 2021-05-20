@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
+import com.idinoproject.web.model.CheckingModel;
 import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 import com.idinoproject.web.model.UserModel;
@@ -24,8 +25,8 @@ public class SubjectDAOImpl implements SubjectDAO{
 	@Override
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception{
 		
-		List<Object> takingSubject = sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
-		System.out.println(takingSubject);
+//		List<Object> takingSubject = sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
+//		System.out.println(takingSubject);
 //		return sqlSession.selectOne(NAMESPACE+"login",usermodel);	
 		
 		
@@ -48,10 +49,10 @@ public class SubjectDAOImpl implements SubjectDAO{
 		List<TakingSubjectModel> absenceChecking = sqlSession.selectList(NAMESPACE+"getabsenceChecking",checkdto);
 		
 		if(!checking.isEmpty() && latecheCking.isEmpty() && absenceChecking.isEmpty()) {
-			//20분 전의 데이터가 있는경우
+			//20전
 			checkdto.setCheckStatus("출석");
 		}else if (checking.isEmpty() && !latecheCking.isEmpty() && absenceChecking.isEmpty()) {
-			//20분 전의 데이터가 없는경우
+			//20분 후
 			checkdto.setCheckStatus("지각");
 		}else  if(checking.isEmpty() && latecheCking.isEmpty() && !absenceChecking.isEmpty()) {
 			checkdto.setCheckStatus("결석");
@@ -63,4 +64,26 @@ public class SubjectDAOImpl implements SubjectDAO{
 		
 //		return sqlSession.selectList(NAMESPACE+"getChecking",s_id,subjectCode,subjectName);
 	}
+	
+	
+	@Override
+	public List<CheckingModel> getCheckingAll(int ts_Sid) throws Exception{
+		
+//		List<Object> takingSubject = sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
+//		System.out.println(takingSubject);
+//		return sqlSession.selectOne(NAMESPACE+"login",usermodel);	
+		
+		
+		return sqlSession.selectList(NAMESPACE+"getCheckingAll",ts_Sid);
+	}
+	
+	@Override
+	public List<CheckingModel> getCheckingSearchInfo(@Param("s_id") String s_id,
+			@Param("SubjectName") String SubjectName) throws Exception{
+		CheckDto checkdto = new CheckDto();
+		checkdto.setS_id(s_id);
+		checkdto.setSubjectName(SubjectName);
+		return sqlSession.selectList(NAMESPACE+"getCheckingSearch",checkdto);
+	}
+	
 }

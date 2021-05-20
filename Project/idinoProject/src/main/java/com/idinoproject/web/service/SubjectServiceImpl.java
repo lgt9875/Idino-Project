@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.idinoproject.web.dao.SubjectDAO;
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
+import com.idinoproject.web.model.CheckingModel;
 import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 
@@ -31,5 +32,15 @@ public class SubjectServiceImpl implements SubjectService{
 		return subjectDao.getChecking(s_id,SubjectCode,SubjectName,Status);
 	}
 	
-
+	
+	@Override
+	public List<CheckingModel> getCheckingAll(int ts_Sid) throws Exception{
+		return subjectDao.getCheckingAll(ts_Sid);
+	}
+	
+	@Override
+	public List<CheckingModel> getCheckingSearchInfo(@Param("s_id") String s_id,
+			@Param("SubjectName") String SubjectName) throws Exception{
+		return subjectDao.getCheckingSearchInfo(s_id,SubjectName);
+	}
 }

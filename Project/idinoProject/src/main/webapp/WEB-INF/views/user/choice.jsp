@@ -18,6 +18,11 @@
 		e.preventDefault();
 		location.href = "${pageContext.request.contextPath}/user/logout"
 	});
+	
+	$(document).on('click', '#btnCheck2',function(e){
+		e.preventDefault();
+		$("#formCheck2").submit();
+	});
 </script>
 	
 
@@ -48,12 +53,13 @@
 							<button type="button" class="btn btn-sm btn-primary m-1" id="btnCheck1">출석체크</button>
 						</div>
 					</form>
-					<form name="formCheck2" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/getUserInfo">
+					<form name="formCheck2" id="formCheck2" role="form" method="GET" action="${pageContext.request.contextPath}/user/getCheckingInfo">
 						<div class=menu>
+							<input type="hidden" name="sid" value="${login.getName()}" />
 							<button type="button" class="btn btn-sm btn-primary" id="btnCheck2">출석확인</button>
 						</div>
 					</form>
-					<form name="formCheck2" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/getUserInfo">
+					<form name="formCheck3" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/getUserInfo">
 						<div class=menu>
 							<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">취소</button>
 						</div>

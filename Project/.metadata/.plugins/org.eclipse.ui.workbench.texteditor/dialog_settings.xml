@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="btnReload"/>
+		<item key="selection" value="login"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="btnReload"/>
-			<item value="#"/>
-			<item value="modal:close"/>
-			<item value="btnSave1"/>
-			<item value="deb"/>
-			<item value="ANDand"/>
-			<item value="console.log"/>
-			<item value="takingSubjectList"/>
-			<item value="updateChecking"/>
-			<item value="getTakingSubjectList"/>
-			<item value="getTs_check"/>
-			<item value="parametermape"/>
-			<item value="subjectMapper"/>
-			<item value="path"/>
-			<item value="r"/>
+			<item value="login"/>
+			<item value="CheckDto"/>
+			<item value="getCheckingSearch"/>
+			<item value="btnJoinForm"/>
+			<item value="getTs_code()"/>
+			<item value="code()"/>
+			<item value="checkinglist"/>
+			<item value="checking"/>
+			<item value="ts_Code"/>
+			<item value="code"/>
+			<item value="getTs_code"/>
+			<item value="getTs"/>
+			<item value="takingSubjeckMap"/>
+			<item value="getdate"/>
+			<item value="insert"/>
 		</list>
 		<list key="replacehistory">
+			<item value="calendar"/>
 			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1446"/>
-		<item key="DIALOG_Y_ORIGIN" value="217"/>
+		<item key="DIALOG_X_ORIGIN" value="471"/>
+		<item key="DIALOG_Y_ORIGIN" value="209"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

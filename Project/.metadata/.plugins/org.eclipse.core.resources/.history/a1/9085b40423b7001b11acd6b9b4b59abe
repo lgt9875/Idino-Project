@@ -1,6 +1,0 @@
-jdbc.driverClassName = com.microsoft.sqlserver.jdbc.SQLServerDriver
-jdbc.url = jdbc:sqlserver://localhost:1433;databaseName=test
-jdbc.user = sa
-jdbc.password = 1234
-
-
