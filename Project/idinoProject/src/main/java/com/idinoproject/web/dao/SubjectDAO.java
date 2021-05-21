@@ -3,6 +3,7 @@ package com.idinoproject.web.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.mapping.ResultMap;
 
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
@@ -11,7 +12,7 @@ import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 
 public interface SubjectDAO {
-	public List<SubjectModel> getSubjectList()throws Exception;
+	public List<SubjectModel> getComboSubjectList(int i)throws Exception;
 	
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception;
 	public List<TakingSubjectModel> getChecking(@Param("s_id") String s_id,

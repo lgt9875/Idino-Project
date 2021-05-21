@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.mapping.ResultMap;
 import org.springframework.stereotype.Repository;
 
 import com.idinoproject.web.dao.SubjectDAO;
@@ -20,8 +21,8 @@ public class SubjectServiceImpl implements SubjectService{
 	private SubjectDAO subjectDao;
 	
 	@Override
-	public List<SubjectModel> getSubjectList()throws Exception{
-		return subjectDao.getSubjectList();
+	public List<SubjectModel> getComboSubjectList(int i)throws Exception{
+		return subjectDao.getComboSubjectList(i);
 	}
 	
 	@Override

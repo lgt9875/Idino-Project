@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.mapping.ResultMap;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -23,18 +24,12 @@ public class SubjectDAOImpl implements SubjectDAO{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<SubjectModel> getSubjectList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getSubjectList");
+	public List<SubjectModel> getComboSubjectList(int ts_Sid)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getComboTakingSubjectList",ts_Sid);
 	}
 	
 	@Override
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception{
-		
-//		List<Object> takingSubject = sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
-//		System.out.println(takingSubject);
-//		return sqlSession.selectOne(NAMESPACE+"login",usermodel);	
-		
-		
 		return sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
 	}
 
