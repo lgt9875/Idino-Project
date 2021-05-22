@@ -3,8 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <%@ page import = "java.net.URLDecoder"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>     
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 
 
 <!DOCTYPE html>
@@ -35,7 +34,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script>
-	$(document).on('click', '#btnSearchForm',function(e){
+	/* $(document).on('click', '#btnSearchForm',function(e){
 		e.preventDefault();
 		var subjectName = $("#SubjectName option:selected").attr('value');
 		var sid ='<c:out value="${login.getSid()}"/>';
@@ -93,42 +92,8 @@
 			} 
 		});
 		
-	});
-	/* var change = function(){ 
-		
-		$("#dynamicTbody").empty();
-		var arr = new Array();
-		var html = "";
-		var data ='<c:out value="${login.getSid()}"/>';
-		
-		<c:forEach var="checkingSearchList" items="${checkingSearchList}">
-			arr.push({
-				c_SubjectName : "${checkingSearchList.getC_SubjectName()}",
-				cS_time : "${checkingSearchList.getcS_time()}",
-				cE_time : "${checkingSearchList.getcE_time()}",
-				c_yoil : "${checkingSearchList.getC_yoil()}",
-				c_checkingTime : "${checkingSearchList.getC_checkingTime()}",
-				c_state : "${checkingSearchList.getC_state()}"
-			});
-		</c:forEach> 
-		
-		for(key in arr){
-			html += '<tr>';
-			html += '<td class="align-center">'+arr[key].c_SubjectName+'</td>';
-		
-			
-			html += '<td class="align-center">'+arr[key].cS_time+'</td>';
-			html += '<td class="align-center">'+arr[key].cE_time+'</td>';
-			html += '<td class="align-center">'+arr[key].c_yoil+'</td>';
-			html += '<td class="align-center">'+arr[key].c_checkingTime+'</td>';
-			html += '<td class="align-center">'+arr[key].c_state+'</td>';
-			html += '</tr>';
-		}
-			
-		$("#dynamicTbody").empty();
-		$("#dynamicTbody").append(html);
-		
-	} */
+	}); */
+
 	
 	
 	$(document).on('click', '#btnLoginForm',function(e){
@@ -159,17 +124,6 @@
 			<p>${login.getName()}님 안녕하세요</p>
 			<button type="button" class="btn btn-sm btn-primary" id="btnChoiceForm">출석확인</button>
 			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
-			
-			
-			<div class="combo">
-				<select id="SubjectName">
-					<c:forEach var="comboSubjectList" items="${comboSubjectList}">	
-					    <option value="${comboSubjectList.getTs_name()}"><c:out value="${comboSubjectList.getTs_name()}"/></option>
-				    </c:forEach>
-				</select>
-				
-				<button type="button" class="btn btn-sm btn-primary" id="btnSearchForm">검색</button>
-			</div>
 			
 		</div>
 	</div>
@@ -217,35 +171,6 @@
 											<fmt:formatDate value="${checkingTime}" pattern="HH:mm"/>
 										</td>
 										<td class="align-center"><c:out value="${checkingList.getC_state()}"/></td>
-										
-									</tr>
-								</c:forEach>
-							</c:when>
-						</c:choose>
-					</tbody>
-					<tbody id="dynamicTbody">
-					<c:choose>
-							<c:when test="${empty login }" >
-								<tr><td colspan="5" align="center">데이터가 없습니다.</td></tr>
-							</c:when> 
-							<c:when test="${!empty login}">
-								<c:forEach var="checkingSearchList" items="${checkingSearchList}">
-									<tr>
-										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
-										<td class="align-center"><c:out value="${checkingSearchList.getC_SubjectName()}"/></td>
-										<td class="align-center">
-											<fmt:parseDate value='${checkingSearchList.getcS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:parseDate value='${checkingSearchList.getcE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
-											~
-											<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
-										</td>
-										<td class="align-center"><c:out value="${checkingSearchList.getC_yoil()}"/></td>
-										<td class="align-center">
-											<fmt:parseDate value='${checkingSearchList.getC_checkingTime()}' var='checkingTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:formatDate value="${checkingTime}" pattern="HH:mm"/>
-										</td>
-										<td class="align-center"><c:out value="${checkingSearchList.getC_state()}"/></td>
 										
 									</tr>
 								</c:forEach>

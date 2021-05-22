@@ -21,7 +21,7 @@ public class SubjectServiceImpl implements SubjectService{
 	private SubjectDAO subjectDao;
 	
 	@Override
-	public List<SubjectModel> getComboSubjectList(int i)throws Exception{
+	public List<TakingSubjectModel> getComboSubjectList(int i)throws Exception{
 		return subjectDao.getComboSubjectList(i);
 	}
 	

@@ -32,6 +32,7 @@ import com.idinoproject.web.commons.interceptor.LoginInterceptor;
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.CheckingModel;
+import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 import com.idinoproject.web.model.UserModel;
 import com.idinoproject.web.service.SubjectService;
@@ -52,7 +53,11 @@ public class UserController {
 	
 	//화면 선택 
 	@RequestMapping(value = "/choice",method = RequestMethod.GET)
-	public String choice(){
+	public String choice(LoginDto loginDto, HttpSession httpSession, Model model,HttpServletRequest request) throws Exception	{
+		UserModel userModel = (UserModel) httpSession.getAttribute("login"); 
+		int sid = userModel.getSid();
+	
+		model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(sid));
 		return "user/choice";
 		
 	}
@@ -78,7 +83,7 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 	
-	//로그인
+	//로그인 페이지로 돌아감
 	@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public String loginGET(@ModelAttribute("loginDTO") LoginDto loginDTO) {
 		return "login";
@@ -91,6 +96,7 @@ public class UserController {
 		if(userModel == null || !BCrypt.checkpw(loginDto.getPassword(), userModel.getPassword())) {
 			return;
 		}
+		
 		model.addAttribute("user",userModel);
 	}
 	
@@ -139,11 +145,9 @@ public class UserController {
 	public String getCheckingInfo(LoginDto loginDto, Model model,
 			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception{
-		
-		model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(loginDto.getSid()));
+//		String sid = Integer.toString(loginDto.getSid());
 		model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
 //		model.addAttribute("checkingSearchList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
-	
 		return "checking2";
 //		return "redirect:getCheckingSearchInfo";
 	}
@@ -166,6 +170,5 @@ public class UserController {
 		model.addAttribute("checkingSearchList",jsonArray.fromObject(list));
 		return "checking2";
 	}
-
 
 }

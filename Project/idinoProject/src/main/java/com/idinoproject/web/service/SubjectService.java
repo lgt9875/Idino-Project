@@ -12,7 +12,7 @@ import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 
 public interface SubjectService {
-	public List<SubjectModel> getComboSubjectList(int i)throws Exception;
+	public List<TakingSubjectModel> getComboSubjectList(int i)throws Exception;
 	public List<TakingSubjectModel> getTakingSubjectList(int i) throws Exception;
 	public List<TakingSubjectModel> getChecking(@Param("s_id") String s_id,
 			@Param("SubjectCode") String SubjectCode,

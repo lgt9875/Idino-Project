@@ -24,7 +24,7 @@ public class SubjectDAOImpl implements SubjectDAO{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<SubjectModel> getComboSubjectList(int ts_Sid)throws Exception{
+	public List<TakingSubjectModel> getComboSubjectList(int ts_Sid)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getComboTakingSubjectList",ts_Sid);
 	}
 	

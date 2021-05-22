@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  
     pageEncoding="UTF-8"%> 
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +12,8 @@
 <meta charset="EUC-KR">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script>
 	$(document).on('click','#btnCheck1',function(e){
 		e.preventDefault();
 		$("#form").submit();
@@ -22,13 +24,21 @@
 		location.href = "${pageContext.request.contextPath}/user/logout"
 	});
 	
-	$(document).on('click', '#btnCheck2',function(e){
+	$(document).on('click', '#btnSearch',function(e){
+		
 		e.preventDefault();
+		/* alert($("#SubjectName option:selected").text()); */
+		
 		$("#formCheck2").submit();
-	});
+	}); 
+	 /* alert($("#SubjectName option:selected").attr('value')); */
 	
-
-	
+	function OnChange()
+	{    
+		var subject = $("#selectSubject option:selected").attr('value');
+		document.getElementById('SubjectName').setAttribute('value',subject);
+	}
+	 
 </script>
 	
 
@@ -61,8 +71,17 @@
 					</form>
 					<form name="formCheck2" id="formCheck2" role="form" method="GET" action="${pageContext.request.contextPath}/user/getCheckingInfo">
 						<div class=menu>
-							<input type="hidden" name="sid" value="${login.getName()}" />
-							<button type="button" class="btn btn-sm btn-primary" id="btnCheck2">출석확인</button>
+						<select id="selectSubject" name="selectSubject"onchange="OnChange();">
+								<option value=""><c:out value="전체"/></option>
+								<c:forEach var="comboSubjectList" items="${comboSubjectList}">	
+								    <option value="${comboSubjectList.getTs_name()}"><c:out value="${comboSubjectList.getTs_name()}"/></option>
+							    </c:forEach>
+						</select>
+							<input type="hidden" id="s_id" name=s_id value="${login.getName()}" />
+							<input type="hidden" id="SubjectName" name=SubjectName value="${(SubjectName).attr('value')}" />
+							
+							
+							<button type="button" class="btn btn-sm btn-primary" id="btnSearch">출석확인</button>
 						</div>
 					</form>
 					<form name="formCheck3" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/getUserInfo">
