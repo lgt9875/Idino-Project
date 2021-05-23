@@ -211,3 +211,36 @@ insert into  [TEST].[dbo].[Checking] values (111,'운영체제','2021-03-01 15:4
 insert into  [TEST].[dbo].[Checking] values (111,'UML','2021-03-01 12:00:00.000','2021-08-01 14:00:00.000','수요일',GETDATE(),'결석');
 insert into  [TEST].[dbo].[Checking] values (111,'소프트웨어공학','2021-03-01 10:00:00.000','2021-08-01 12:00:00.000','목요일',GETDATE(),'지각');
 
+
+
+
+
+
+2020-05-21
+insert into [TEST].[dbo].[Subject] values('15435','React','2021-03-01 10:00','2021-03-01 12:00','일요일');
+
+insert into [TEST].[dbo].[takingSubject] values(111,'15435','React','2021-03-01 10:00','2021-03-01 12:00','일요일',NULL,NULL);
+
+
+
+
+
+
+2020-05-23
+
+
+
+INSERT INTO [TEST].[dbo].[Checking]
+	VALUES(111,'React','2021-03-01 10:00','2021-03-01 12:00','일요일',GETDATE()-5,'지각')
+INSERT INTO [TEST].[dbo].[Checking]
+	VALUES(111,'React','2021-03-01 10:00','2021-03-01 12:00','일요일',GETDATE()-10,'지각')
+
+
+
+		UPDATE [TEST].[dbo].[Checking] 
+	SET c_checkingTime = GETDATE()
+	WHERE c_sid = 111 AND c_subjectName = 'React'
+	and convert(varchar, c_checkingTime,102)=convert(varchar, getdate(),102)
+
+
+	SELECT * FROM  [TEST].[dbo].[Subject] 

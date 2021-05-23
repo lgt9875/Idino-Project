@@ -5,6 +5,7 @@ public class SubjectModel {
 	public String s_name;
 	public String s_time;
 	public String e_time;
+	public String s_yoil;
 	
 	
 	public String getS_code() {
@@ -31,6 +32,12 @@ public class SubjectModel {
 	}
 	public void setE_time(String e_time) {
 		this.e_time = e_time;
+	}
+	public String getS_yoil() {
+		return s_yoil;
+	}
+	public void setS_yoil(String s_yoil) {
+		this.s_yoil = s_yoil;
 	}
 	
 	

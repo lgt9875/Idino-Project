@@ -39,6 +39,8 @@ public class SubjectDAOImpl implements SubjectDAO{
 			@Param("SubjectName") String SubjectName,
 			@Param("Status") String Status) throws Exception {
 		CheckDto checkdto = new CheckDto();
+		String status = null;
+		
 		checkdto.setS_id(s_id);
 		checkdto.setSubjectCode(SubjectCode);
 		checkdto.setSubjectName(SubjectName);
@@ -50,14 +52,39 @@ public class SubjectDAOImpl implements SubjectDAO{
 		
 		if(!checking.isEmpty() && latecheCking.isEmpty() && absenceChecking.isEmpty()) {
 			//20전
-			checkdto.setCheckStatus("출석");
+//			checkdto.setCheckStatus("출석");
+			status = "출석";
 		}else if (checking.isEmpty() && !latecheCking.isEmpty() && absenceChecking.isEmpty()) {
 			//20분 후
-			checkdto.setCheckStatus("지각");
+//			checkdto.setCheckStatus("지각");
+			status = "지각";
 		}else  if(checking.isEmpty() && latecheCking.isEmpty() && !absenceChecking.isEmpty()) {
-			checkdto.setCheckStatus("결석");
+//			checkdto.setCheckStatus("결석");
+			status = "결석";
 		}
+		checkdto.setCheckStatus(status);
 		sqlSession.update(NAMESPACE+"updateChecking",checkdto);
+		
+		
+		List<CheckingModel>checkingList = sqlSession.selectList(NAMESPACE+"getDateCheckingSearch",checkdto);
+		
+		if(checkingList.isEmpty()) {
+			System.out.println("asdfasdfasdfassdf");
+			CheckingModel checkModel = new CheckingModel();
+			List<SubjectModel>subjectList = sqlSession.selectList(NAMESPACE+"getSubjectDate",SubjectCode);
+			checkModel.setC_sid(Integer.parseInt(s_id));
+			checkModel.setC_SubjectName(SubjectName);
+			checkModel.setcS_time(subjectList.get(0).getS_time());
+			checkModel.setcE_time(subjectList.get(0).getE_time());
+			checkModel.setC_yoil(subjectList.get(0).getS_yoil());
+			checkModel.setC_state(status);
+			
+			sqlSession.insert(NAMESPACE+"saveCheckingInfo",checkModel);
+		}else {
+			System.out.println("1111111111111");
+			sqlSession.insert(NAMESPACE+"updateCheckingData",checkdto);
+		}
+		
 		System.out.println(checking);
 		return sqlSession.selectList(NAMESPACE+"getTakingSubjectList",Integer.parseInt(checkdto.getS_id()));
 		

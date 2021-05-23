@@ -34,67 +34,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script>
-	/* $(document).on('click', '#btnSearchForm',function(e){
-		e.preventDefault();
-		var subjectName = $("#SubjectName option:selected").attr('value');
-		var sid ='<c:out value="${login.getSid()}"/>';
-		var parmData = {
-			"s_id" : sid,
-			"SubjectName" : decodeURIComponent(subjectName)
-		};
-		$.ajax({
-			type : 'GET',
-			url :'${pageContext.request.contextPath}/user/getCheckingSearchInfo',
-			data : parmData,
-			dataType: "json",
-			async:false,
-			success:function(data){
-				alert("success"+data);
-				console.log(data)
-				var arr = new Array();
-				var html = "";
-				var data ='<c:out value="${login.getSid()}"/>';
-				console.log('${checkingSearchList}')
-				<c:forEach var="checkingSearchList" items="${checkingSearchList}">
-					arr.push({
-						c_SubjectName : "${checkingSearchList.getC_SubjectName()}",
-						cS_time : "${checkingSearchList.getcS_time()}",
-						cE_time : "${checkingSearchList.getcE_time()}",
-						c_yoil : "${checkingSearchList.getC_yoil()}",
-						c_checkingTime : "${checkingSearchList.getC_checkingTime()}",
-						c_state : "${checkingSearchList.getC_state()}"
-					});
-				</c:forEach> 
-				
-				for(key in arr){
-					html += '<tr>';
-					html += '<td class="align-center">'+arr[key].c_SubjectName+'</td>';
-				
-					
-					html += '<td class="align-center">'+arr[key].cS_time+'</td>';
-					html += '<td class="align-center">'+arr[key].cE_time+'</td>';
-					html += '<td class="align-center">'+arr[key].c_yoil+'</td>';
-					html += '<td class="align-center">'+arr[key].c_checkingTime+'</td>';
-					html += '<td class="align-center">'+arr[key].c_state+'</td>';
-					html += '</tr>';
-				}
-					
-				$("#dynamicTbody").empty();
-				$("#dynamicTbody").append(html);
-			},
-			error:function(request,status,error){
-				alert("error");
-				console.log('${checkingSearchList}')
-				console.log(error);
-			},
-			complete : function(data) {
-				alert("complete");
-			} 
-		});
-		
-	}); */
-
-	
 	
 	$(document).on('click', '#btnLoginForm',function(e){
 		e.preventDefault();
@@ -168,7 +107,7 @@
 										<td class="align-center"><c:out value="${checkingList.getC_yoil()}"/></td>
 										<td class="align-center">
 											<fmt:parseDate value='${checkingList.getC_checkingTime()}' var='checkingTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:formatDate value="${checkingTime}" pattern="HH:mm"/>
+											<fmt:formatDate value="${checkingTime}" pattern="MM월dd일 HH:mm:ss"/>
 										</td>
 										<td class="align-center"><c:out value="${checkingList.getC_state()}"/></td>
 										

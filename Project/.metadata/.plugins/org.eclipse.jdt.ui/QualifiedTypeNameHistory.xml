@@ -54,10 +54,10 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-    <fullyQualifiedTypeName name="com.idinoproject.web.model.CheckingModel"/>
     <fullyQualifiedTypeName name="net.sf.json.JSONArray"/>
-    <fullyQualifiedTypeName name="com.idinoproject.web.model.SubjectModel"/>
     <fullyQualifiedTypeName name="com.idinoproject.web.model.TakingSubjectModel"/>
     <fullyQualifiedTypeName name="com.idinoproject.web.model.UserModel"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.idinoproject.web.model.CheckingModel"/>
+    <fullyQualifiedTypeName name="com.idinoproject.web.model.SubjectModel"/>
 </qualifiedTypeNameHistroy>

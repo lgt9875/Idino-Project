@@ -113,9 +113,32 @@
 	<if test="SubjectName != null and SubjectName != ''">
 		AND c_subjectName=#{SubjectName};
 	</if>
-
-
 </select>
 
+<insert id="saveCheckingInfo" >
+	INSERT INTO [TEST].[dbo].[Checking]
+	VALUES(#{c_sid},#{c_SubjectName},#{cS_time},#{cE_time},#{c_yoil},GETDATE(),#{c_state})
+</insert>
+ 
+ 
+<select id = "getDateCheckingSearch" resultMap="checkingMap" parameterType="com.idinoproject.web.dto.CheckDto">
+ 	SELECT *
+	FROM  [TEST].[dbo].[Checking]
+	where c_sid = #{s_id} and c_subjectName=#{SubjectName}
+	and convert(varchar, c_checkingTime,102)=convert(varchar, getdate(),102)
+ </select>
+ 
+ 
+<update id="updateCheckingData" parameterType="com.idinoproject.web.dto.CheckDto">
+	UPDATE [TEST].[dbo].[Checking] 
+	SET c_checkingTime = GETDATE()
+	WHERE c_sid = #{s_id} AND c_subjectName = #{SubjectName}
+		  AND convert(varchar, c_checkingTime,102)=convert(varchar, getdate(),102)
+</update> 
+ 
+ <select id = "getSubjectDate" resultMap="subjeckMap">
+	SELECT * FROM  [TEST].[dbo].[Subject] 
+	Where s_code = #{SubjectCode}
+</select>
 
 </mapper>
