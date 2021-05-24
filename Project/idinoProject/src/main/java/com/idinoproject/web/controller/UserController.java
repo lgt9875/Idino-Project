@@ -148,7 +148,7 @@ public class UserController {
 //		String sid = Integer.toString(loginDto.getSid());
 		model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
 //		model.addAttribute("checkingSearchList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
-		return "checking2";
+		return "checking";
 //		return "redirect:getCheckingSearchInfo";
 	}
 	
@@ -168,7 +168,7 @@ public class UserController {
 		
 //		model.addAttribute("checkingSearchList", list);
 		model.addAttribute("checkingSearchList",jsonArray.fromObject(list));
-		return "checking2";
+		return "checking";
 	}
 
 }

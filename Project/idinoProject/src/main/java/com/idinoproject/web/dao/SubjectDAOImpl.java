@@ -61,7 +61,10 @@ public class SubjectDAOImpl implements SubjectDAO{
 		}else  if(checking.isEmpty() && latecheCking.isEmpty() && !absenceChecking.isEmpty()) {
 //			checkdto.setCheckStatus("결석");
 			status = "결석";
+		}else {
+			status = "출석시간이 아닙니다.";
 		}
+			
 		checkdto.setCheckStatus(status);
 		sqlSession.update(NAMESPACE+"updateChecking",checkdto);
 		

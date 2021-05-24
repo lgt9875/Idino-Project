@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="INSERT"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="checking2"/>
+			<item value="checking"/>
 			<item value="insert"/>
 			<item value="[Checking]"/>
 			<item value="getDateCheckingSearch"/>
@@ -17,12 +19,10 @@
 			<item value="saveUserInfo"/>
 			<item value="getTakingSubjectList"/>
 			<item value="getChecking"/>
-			<item value="checking"/>
 			<item value="btnSave"/>
 			<item value="출석"/>
 			<item value="getCheckingSearchInfo"/>
 			<item value="type=&quot;hidden&quot;"/>
-			<item value="SubjectName"/>
 		</list>
 		<list key="replacehistory">
 			<item value="checkingList"/>
