@@ -126,6 +126,7 @@
 			},
 			complete : function(data) {
 				alert("출석체크를 완료하였습니다.");
+				debugger;
 				location.reload();
 			}
 		});
