@@ -47,7 +47,8 @@
 
 <select id = "getTakingSubjectList" resultMap="takingSubjeckMap" parameterType="int">
 	SELECT * FROM  [TEST].[dbo].[TakingSubject] 
-	where ts_sid=#{ts_sid} AND ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE())); 
+	where ts_sid=#{ts_sid} AND ts_yoil = (SELECT DATENAME(WEEKDAY,GETDATE()))
+	
 </select>
 
 <select id = "getChecking" resultMap="takingSubjeckMap" parameterType="com.idinoproject.web.dto.CheckDto">
@@ -79,17 +80,19 @@
 	AND ts_sid=#{s_id};
 </select>
 
-
-
-
-
-
 <update id="updateChecking" parameterType="com.idinoproject.web.dto.CheckDto">
 	UPDATE [TEST].[dbo].[takingSubject] 
-	SET ts_check = #{checkStatus}
+	SET ts_check = #{checkStatus},ts_checkingTime=getDate()
 	WHERE ts_sid = #{s_id} AND ts_code = #{SubjectCode} AND ts_name = #{SubjectName}
 </update> 
 
+
+<update id="changeCheckingTimeNull" parameterType="int">
+	UPDATE [TEST].[dbo].[takingSubject] 
+	SET ts_check = NULL
+	WHERE ts_sid = #{s_id}
+	AND(convert(varchar(8), ts_checkingTime, 112) != convert(varchar(8), getDate(), 112))
+</update> 
 
 <select id = "getCheckingAll" resultMap="checkingMap" parameterType="int">
 	SELECT * FROM  [TEST].[dbo].[Checking] 

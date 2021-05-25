@@ -30,6 +30,7 @@ public class SubjectDAOImpl implements SubjectDAO{
 	
 	@Override
 	public List<TakingSubjectModel> getTakingSubjectList(int ts_Sid) throws Exception{
+		sqlSession.update(NAMESPACE+"changeCheckingTimeNull",ts_Sid);
 		return sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
 	}
 
@@ -45,6 +46,7 @@ public class SubjectDAOImpl implements SubjectDAO{
 		checkdto.setSubjectCode(SubjectCode);
 		checkdto.setSubjectName(SubjectName);
 		checkdto.setStatus(Status);
+		
 		
 		List<TakingSubjectModel> checking = sqlSession.selectList(NAMESPACE+"getChecking",checkdto);
 		List<TakingSubjectModel> latecheCking = sqlSession.selectList(NAMESPACE+"getLateChecking",checkdto);
