@@ -12,6 +12,7 @@ import com.idinoproject.web.dao.SubjectDAO;
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.CheckingModel;
+import com.idinoproject.web.model.ManagementModel;
 import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 
@@ -49,5 +50,10 @@ public class SubjectServiceImpl implements SubjectService{
 			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception{
 		return subjectDao.getCheckingSearchInfo(s_id,SubjectName);
+	}
+	
+	@Override
+	public List<ManagementModel> getManagementList(@Param("m_subCode") String m_subCode)throws Exception{
+		return subjectDao.getManagementList(m_subCode);
 	}
 }

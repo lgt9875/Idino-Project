@@ -35,6 +35,15 @@
 	<result property="c_state" column="c_state"/>
 </resultMap>
 
+<resultMap type="com.idinoproject.web.model.ManagementModel" id="managementMap">
+	<result property="m_sid" column="m_sid"/>
+	<result property="m_sname" column="m_sname"/>
+	<result property="m_subCode" column="m_subCode"/>
+	<result property="m_subMode" column="m_subMode"/>
+	<result property="m_chekcingTime" column="m_chekcingTime"/>
+	<result property="m_state"  column="m_state"/>
+</resultMap>
+
 
 <select id = "getSubjectList" resultMap="subjeckMap">
 	SELECT * FROM  [TEST].[dbo].[Subject] 
@@ -143,5 +152,13 @@
 	SELECT * FROM  [TEST].[dbo].[Subject] 
 	Where s_code = #{SubjectCode}
 </select>
+
+
+<select id = "getManagementList" resultMap="managementMap">
+	SELECT * FROM  [TEST].[dbo].[Management] 
+	Where m_subCode = #{m_subCode}
+
+</select>
+
 
 </mapper>

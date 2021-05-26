@@ -1,0 +1,10 @@
+package com.idinoproject.web.model;
+
+public class ManagementModel {
+	int m_sid;
+	String m_sname;
+	String m_subCode;
+	String m_subMode;
+	String m_chekcingTime;
+	String m_state;
+}

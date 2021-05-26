@@ -4,7 +4,6 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <%@ page import = "java.net.URLDecoder"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %> --%>     
 
 
 <!DOCTYPE html>
@@ -214,7 +213,6 @@
 			</div>
 		</div>	
 	</article>
-	
 </div>
 </c:if>
 <c:if test="${not empty login}">

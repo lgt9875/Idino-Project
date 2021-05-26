@@ -56,13 +56,21 @@ public class UserController {
 	public String choice(LoginDto loginDto, HttpSession httpSession, Model model,HttpServletRequest request) throws Exception	{
 		UserModel userModel = (UserModel) httpSession.getAttribute("login"); 
 		int sid = userModel.getSid();
-	
+		String m_subCode = "15430"; 
 		if(userModel.getPosition().equals("학생")) {
 			model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(sid));
 			return "user/choice";	
 		}
 		else if(userModel.getPosition().equals("관리자")) {
-			return "user/manager";	
+			
+			model.addAttribute("managementList", subjectService.getManagementList(m_subCode));
+			
+			return "user/manager";
+			
+			//managerChoice화면에서 전체과목에 대해서 콤보박스 셋팅후
+			//해당 과목 데이터를 가지고 아래 실행
+//			model.addAttribute("managementList", subjectService.getManagementList(m_subCode));
+//			return "user/manageerChoice";	
 		}
 		
 		return null;

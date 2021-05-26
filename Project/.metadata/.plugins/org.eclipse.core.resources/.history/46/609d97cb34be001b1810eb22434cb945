@@ -1,0 +1,5 @@
+package com.idinoproject.web.model;
+
+public class ManagementModel {
+
+}

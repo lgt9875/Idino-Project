@@ -8,6 +8,7 @@ import org.apache.ibatis.mapping.ResultMap;
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.CheckingModel;
+import com.idinoproject.web.model.ManagementModel;
 import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 
@@ -24,4 +25,8 @@ public interface SubjectDAO {
 	public List<CheckingModel> getCheckingSearchInfo(
 			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception;
+	
+	
+	public List<ManagementModel> getManagementList(@Param("m_subCode") String m_subCode)throws Exception;
+	
 }

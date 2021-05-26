@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
 import com.idinoproject.web.model.CheckingModel;
+import com.idinoproject.web.model.ManagementModel;
 import com.idinoproject.web.model.SubjectModel;
 import com.idinoproject.web.model.TakingSubjectModel;
 import com.idinoproject.web.model.UserModel;
@@ -109,6 +110,12 @@ public class SubjectDAOImpl implements SubjectDAO{
 		checkdto.setS_id(s_id);
 		checkdto.setSubjectName(SubjectName);
 		return sqlSession.selectList(NAMESPACE+"getCheckingSearch",checkdto);
+	}
+	
+	@Override
+	public List<ManagementModel> getManagementList(@Param("m_subCode") String m_subCode)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getManagementList",m_subCode);
+		
 	}
 	
 }

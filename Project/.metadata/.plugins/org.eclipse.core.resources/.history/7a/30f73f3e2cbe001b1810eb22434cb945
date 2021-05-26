@@ -1,0 +1,85 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="#">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script>
+	
+$(document).on('click', '#btnLogOutForm',function(e){
+	e.preventDefault();
+	location.href = "${pageContext.request.contextPath}/user/logout"
+});
+	
+	
+	 
+</script>
+
+</head>
+
+		<div class="container">
+			<div class="table-responsive">
+				<table id="example-table-2" class="table table-striped table-sm text-center">
+					<colgroup>
+						<col style="width:15%;" />
+						<col style="width:30&;" />
+						<col style="width:20%;" />
+						<col style="width:15%;" />
+						<col style="width:15%;" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="align-center">과목코드</th>
+							<th class="align-center">과목명</th>
+							<th class="align-center">강의시간</th>
+							<th class="align-center">요일</th>
+							<th class="align-center">출석여부</th>
+							<th class="align-center">출석상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:choose>
+							<c:when test="${empty login }" >
+								<tr><td colspan="5" align="center">데이터가 없습니다.</td></tr>
+							</c:when> 
+							<c:when test="${!empty login}">
+								<c:forEach var="takingSubjectList" items="${takingSubjectList}">
+									<tr>
+										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_code()}"/></td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
+										<td class="align-center">
+											<fmt:parseDate value='${takingSubjectList.getTsS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+											<fmt:parseDate value='${takingSubjectList.getTsE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
+											<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
+											~
+											<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
+										</td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_yoil()}"/></td>
+										<td class="align-center"><c:out value="${takingSubjectList.getTs_check()}"/></td>
+										
+										<td id="update"><a href="#ex1" rel="modal:open"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></a></td>
+									</tr>
+								</c:forEach>
+							</c:when>
+						</c:choose>
+					</tbody>
+				</table>
+			</div>
+		</div>	
+	</article>
+<body>
+	<div class=menu>
+		<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">취소</button>
+	</div>
+</body>
+</html>

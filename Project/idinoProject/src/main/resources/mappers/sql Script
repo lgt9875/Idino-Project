@@ -294,3 +294,99 @@ select * from [dbo].[User]
 
 update [dbo].[User] set position='학생'
 
+
+
+
+
+//management create table
+CREATE TABLE [dbo].[Management](
+	[m_sid] [int] NOT NULL,
+	[m_sname] [varchar](50) NOT NULL,
+	[m_subCode] [varchar](100) NOT NULL,
+	[m_subName] [varchar](100) NOT NULL,
+	[m_checkingTime] [datetime] NOT NULL,
+	[m_state] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_Management] PRIMARY KEY CLUSTERED 
+(
+	[m_sid] ASC,
+	[m_subCode] ASC,
+	[m_checkingTime] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+insert into [dbo].[Management] values(111,'111','15430','데이터베이스',getDate()-7,'출석');
+insert into [dbo].[Management] values(111,'111','15430','데이터베이스',getDate()-14,'지각');
+insert into [dbo].[Management] values(111,'111','15430','데이터베이스',getDate()-21,'출석');
+insert into [dbo].[Management] values(111,'111','15430','데이터베이스',getDate()-28,'출석');
+insert into [dbo].[Management] values(111,'111','15430','데이터베이스',getDate()-35,'출석');
+insert into [dbo].[Management] values(111,'111','15430','데이터베이스',getDate(),'결석');
+
+
+
+insert into [dbo].[Management] values(111,'111','15431','운영체제',getDate()-8,'출석');
+insert into [dbo].[Management] values(111,'111','15431','운영체제',getDate()-15,'지각');
+insert into [dbo].[Management] values(111,'111','15431','운영체제',getDate()-22,'지각');
+insert into [dbo].[Management] values(111,'111','15431','운영체제',getDate()-29,'출석');
+insert into [dbo].[Management] values(111,'111','15431','운영체제',getDate()-36,'결석');
+insert into [dbo].[Management] values(111,'111','15431','운영체제',getDate(),'결석');
+
+
+insert into [dbo].[Management] values(111,'111','15432','UML',getDate()-6,'출석');
+insert into [dbo].[Management] values(111,'111','15432','UML',getDate()-13,'출석');
+insert into [dbo].[Management] values(111,'111','15432','UML',getDate()-20,'출석');
+insert into [dbo].[Management] values(111,'111','15432','UML',getDate()-27,'출석');
+insert into [dbo].[Management] values(111,'111','15432','UML',getDate()-34,'결석');
+insert into [dbo].[Management] values(111,'111','15432','UML',getDate(),'결석');
+
+
+
+insert into [dbo].[Management] values(222,'222','15430','데이터베이스',getDate()-7,'출석');
+insert into [dbo].[Management] values(222,'222','15430','데이터베이스',getDate()-14,'지각');
+insert into [dbo].[Management] values(222,'222','15430','데이터베이스',getDate()-21,'출석');
+insert into [dbo].[Management] values(222,'222','15430','데이터베이스',getDate()-28,'출석');
+insert into [dbo].[Management] values(222,'222','15430','데이터베이스',getDate()-35,'출석');
+insert into [dbo].[Management] values(222,'222','15430','데이터베이스',getDate(),'결석');
+
+
+
+insert into [dbo].[Management] values(222,'222','15431','운영체제',getDate()-8,'출석');
+insert into [dbo].[Management] values(222,'222','15431','운영체제',getDate()-15,'지각');
+insert into [dbo].[Management] values(222,'222','15431','운영체제',getDate()-22,'지각');
+insert into [dbo].[Management] values(222,'222','15431','운영체제',getDate()-29,'출석');
+insert into [dbo].[Management] values(222,'222','15431','운영체제',getDate()-36,'결석');
+insert into [dbo].[Management] values(222,'222','15431','운영체제',getDate(),'결석');
+
+
+insert into [dbo].[Management] values(222,'222','15432','UML',getDate()-6,'출석');
+insert into [dbo].[Management] values(222,'222','15432','UML',getDate()-13,'출석');
+insert into [dbo].[Management] values(222,'222','15432','UML',getDate()-20,'출석');
+insert into [dbo].[Management] values(222,'222','15432','UML',getDate()-27,'출석');
+insert into [dbo].[Management] values(222,'222','15432','UML',getDate()-34,'결석');
+insert into [dbo].[Management] values(222,'222','15432','UML',getDate(),'결석');
+
+
+insert into [dbo].[Management] values(333,'333','15430','데이터베이스',getDate()-7,'결석');
+insert into [dbo].[Management] values(333,'333','15430','데이터베이스',getDate()-14,'지각');
+insert into [dbo].[Management] values(333,'333','15430','데이터베이스',getDate()-21,'출석');
+insert into [dbo].[Management] values(333,'333','15430','데이터베이스',getDate()-28,'지각');
+insert into [dbo].[Management] values(333,'333','15430','데이터베이스',getDate()-35,'출석');
+insert into [dbo].[Management] values(333,'333','15430','데이터베이스',getDate(),'결석');
+
+
+
+insert into [dbo].[Management] values(333,'333','15431','운영체제',getDate()-8,'출석');
+insert into [dbo].[Management] values(333,'333','15431','운영체제',getDate()-15,'지각');
+insert into [dbo].[Management] values(333,'333','15431','운영체제',getDate()-22,'지각');
+insert into [dbo].[Management] values(333,'333','15431','운영체제',getDate()-29,'지각');
+insert into [dbo].[Management] values(333,'333','15431','운영체제',getDate()-36,'결석');
+insert into [dbo].[Management] values(333,'333','15431','운영체제',getDate(),'결석');
+
+
+insert into [dbo].[Management] values(333,'333','15432','UML',getDate()-6,'출석');
+insert into [dbo].[Management] values(333,'333','15432','UML',getDate()-13,'결석');
+insert into [dbo].[Management] values(333,'333','15432','UML',getDate()-20,'결석');
+insert into [dbo].[Management] values(333,'333','15432','UML',getDate()-27,'출석');
+insert into [dbo].[Management] values(333,'333','15432','UML',getDate()-34,'결석');
+insert into [dbo].[Management] values(333,'333','15432','UML',getDate(),'결석');
