@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+$(document).on('click', '#btnLogOutForm',function(e){
+	e.preventDefault();
+	location.href = "${pageContext.request.contextPath}/user/logout"
+});
+	
+	
+	 
+</script>
+
+</head>
+<body>
+	<div class=menu>
+		<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">취소</button>
+	</div>
+</body>
+</html>

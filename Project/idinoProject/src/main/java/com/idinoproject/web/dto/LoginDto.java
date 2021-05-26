@@ -4,6 +4,7 @@ public class LoginDto {
 	public int sid;
 	public String password;
 	public boolean useCookie;
+	public String position;
 
 	public int getSid() {
 		return sid;
@@ -22,6 +23,12 @@ public class LoginDto {
 	}
 	public void setUseCookie(boolean useCookie) {
 		this.useCookie = useCookie;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
 	}
 	
 	

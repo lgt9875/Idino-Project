@@ -10,6 +10,7 @@ public class UserModel {
 	public String address;
 	public String phone;
 	public Date create_dt; 
+	public String position;
 	
 	public int getSid() {
 		return sid;
@@ -53,5 +54,12 @@ public class UserModel {
 	public void setCreate_dt(Date create_dt) {
 		this.create_dt = create_dt;
 	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	
 	
 }

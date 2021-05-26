@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.idinoproject.web.MssqlConnectionTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.185 sec <<< FAILURE!
-com.idinoproject.web.MssqlConnectionTest  Time elapsed: 0.185 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.192 sec <<< FAILURE!
+com.idinoproject.web.MssqlConnectionTest  Time elapsed: 0.191 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: org/junit/runners/model/MultipleFailureException
 	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.withAfterClasses(SpringJUnit4ClassRunner.java:188)
 	at org.junit.runners.ParentRunner.classBlock(ParentRunner.java:145)

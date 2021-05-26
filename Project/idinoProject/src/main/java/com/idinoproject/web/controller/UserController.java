@@ -57,10 +57,18 @@ public class UserController {
 		UserModel userModel = (UserModel) httpSession.getAttribute("login"); 
 		int sid = userModel.getSid();
 	
-		model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(sid));
-		return "user/choice";
+		if(userModel.getPosition().equals("학생")) {
+			model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(sid));
+			return "user/choice";	
+		}
+		else if(userModel.getPosition().equals("관리자")) {
+			return "user/manager";	
+		}
 		
+		return null;
 	}
+	
+
 
 	//출석체크화면
 	@RequestMapping(value = "/getUserInfo",method = RequestMethod.GET)
@@ -93,6 +101,7 @@ public class UserController {
 	@RequestMapping(value="/loginPost",method = RequestMethod.POST)
 	public void loginPost(LoginDto loginDto, HttpSession httpSession, Model model) throws Exception	{
 		UserModel userModel = userService.login(loginDto);
+		
 		if(userModel == null || !BCrypt.checkpw(loginDto.getPassword(), userModel.getPassword())) {
 			return;
 		}

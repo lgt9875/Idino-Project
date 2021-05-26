@@ -134,7 +134,7 @@
  
 <update id="updateCheckingData" parameterType="com.idinoproject.web.dto.CheckDto">
 	UPDATE [TEST].[dbo].[Checking] 
-	SET c_checkingTime = GETDATE()
+	SET c_checkingTime = GETDATE() , c_state=#{checkStatus}
 	WHERE c_sid = #{s_id} AND c_subjectName = #{SubjectName}
 		  AND convert(varchar, c_checkingTime,102)=convert(varchar, getdate(),102)
 </update> 

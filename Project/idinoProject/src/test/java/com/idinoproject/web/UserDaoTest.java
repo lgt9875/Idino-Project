@@ -35,7 +35,7 @@ public class UserDaoTest {
 				logger.info(list.getSid() + "/" + list.getName());
 			}
 		}else {
-			logger.info("µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			logger.info("ë¡œê·¸ì¸ í…ŒìŠ¤íŠ¸");
 		}
 	}
 }

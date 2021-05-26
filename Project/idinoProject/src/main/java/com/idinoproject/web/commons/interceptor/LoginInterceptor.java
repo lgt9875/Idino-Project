@@ -10,6 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.idinoproject.web.model.UserModel;
+
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 	
 	private static final String LOGIN = "login";
@@ -20,9 +22,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		HttpSession httpSession = request.getSession();
 		ModelMap modelMap = modelAndView.getModelMap();
 		Object userModel = modelMap.get("user");
-		
 		if(userModel != null) {
 			logger.info("new login success");
+			System.out.println(userModel);
+			
+			
 			httpSession.setAttribute(LOGIN, userModel);
 			response.sendRedirect("/user/choice");
 		}

@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-	alert("아이디와 비밀번호를 확인해주세요");
+	alert("아이디와 비밀번호,직급을 확인해주세요");
 	self.location="/user/login";
 </script>
 </body>

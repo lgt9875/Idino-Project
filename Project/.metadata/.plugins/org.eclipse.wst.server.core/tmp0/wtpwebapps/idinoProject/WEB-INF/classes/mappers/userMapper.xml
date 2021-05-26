@@ -11,6 +11,7 @@
 	<result property="email" column="email"/>
 	<result property="phone" column="phone"/>
 	<result property="create_dt" column="create_dt"/>
+	<result property="position" column="position"/>
 </resultMap>
 
 <resultMap type="com.idinoproject.web.model.TakingSubjectModel" id="takingSubjeckMap">
@@ -31,11 +32,11 @@
 
 <insert id="saveUserInfo" >
 	INSERT INTO [TEST].[dbo].[User]
-	VALUES(#{sid},#{name},#{password},#{email},#{address},#{phone},GETDATE())
+	VALUES(#{sid},#{name},#{password},#{email},#{address},#{phone},GETDATE(),#{position})
 </insert>
 
 <select id="login" resultMap="userModelResultMap">
-	SELECT * FROM  [TEST].[dbo].[User] where sid=#{sid}
+	SELECT * FROM  [TEST].[dbo].[User] where sid=#{sid} AND position=#{position}
 </select>
 
 </mapper>

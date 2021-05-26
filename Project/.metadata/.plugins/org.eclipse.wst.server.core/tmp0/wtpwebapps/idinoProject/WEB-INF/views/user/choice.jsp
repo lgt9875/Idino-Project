@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://JAVA.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://JAVA.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="shortcut icon" href="#">
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -84,11 +84,9 @@
 							<button type="button" class="btn btn-sm btn-primary" id="btnSearch">출석확인</button>
 						</div>
 					</form>
-					<form name="formCheck3" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/getUserInfo">
 						<div class=menu>
 							<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">취소</button>
 						</div>
-					</form>
 				</div>
 			</c:if>
 		</div>

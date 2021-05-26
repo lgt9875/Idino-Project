@@ -33,6 +33,7 @@ public class UserDAOImpl implements UserDAO{
 		String email = userModel.getEmail();
 		String address = userModel.getAddress();
 		String phone = userModel.getPhone();
+		String position = userModel.getPosition();
 		
 		name = name.replace("<", "&gt");
 		name = name.replace(">", "&lg");
@@ -46,10 +47,14 @@ public class UserDAOImpl implements UserDAO{
 		phone = phone.replace("<", "&gt");
 		phone = phone.replace(">", "&lg");
 		
+		position = position.replace("<", "&gt");
+		position = position.replace(">", "&lg");
+		
 		name = name.replace(" ", "&ndsp;&ndsp;");
 		email = email.replace(" ", "&ndsp;&ndsp;");
 		address = address.replace(" ", "&ndsp;&ndsp;");
 		phone = phone.replace(" ", "&ndsp;&ndsp;");
+		position = position.replace(" ", "&ndsp;&ndsp;");
 		
 		userModel.setSid(sid);
 		userModel.setName(name);
@@ -57,6 +62,7 @@ public class UserDAOImpl implements UserDAO{
 		userModel.setEmail(email);
 		userModel.setAddress(address);
 		userModel.setPhone(phone);
+		userModel.setPosition(position);
 		
 		sqlSession.insert(NAMESPACE+"saveUserInfo",userModel);
 		
@@ -65,7 +71,7 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public UserModel login(LoginDto loginDto) throws Exception{
 		UserModel usermodel = sqlSession.selectOne(NAMESPACE+"login",loginDto);
-		System.out.println(usermodel);
+		
 		return sqlSession.selectOne(NAMESPACE+"login",usermodel);	
 	}
 	

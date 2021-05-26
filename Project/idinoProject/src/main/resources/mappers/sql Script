@@ -249,3 +249,48 @@ INSERT INTO [TEST].[dbo].[Checking]
 2020-05-25	
 ALTER TABLE [TEST].[dbo].[Subject] ADD ts_checkingTime dateTime;
 update [TEST].[dbo].TakingSubject set ts_checkingTime= getdate()-2;
+
+
+
+
+2020-05-26
+ALTER TABLE [TEST].[dbo].[user] ADD position varchar(200);
+
+
+select * from [dbo].[User]
+
+update [dbo].[User] set position='학생'
+
+
+
+	SELECT *
+	FROM  [TEST].[dbo].[Checking]
+	where c_sid = '111'
+ and c_subjectName='UML'
+
+
+ 
+ select * from [TEST].[dbo].[takingSubject];
+
+ select ts_sid,ts_check from [TEST].[dbo].[takingSubject] where ts_code='15431'
+ select ts_sid,ts_check from [TEST].[dbo].[takingSubject] where ts_code='15432'
+ select ts_sid,ts_check from [TEST].[dbo].[takingSubject] where ts_code='15433'
+ select ts_sid,ts_check from [TEST].[dbo].[takingSubject] where ts_code='15434'
+
+ select ts_sid,ts_check from [TEST].[dbo].[takingSubject] where ts_code='15431'AND(convert(varchar(8), ts_checkingTime, 112) != convert(varchar(8), getDate(), 112)); 
+ select ts_sid,ISNULL(ts_check,'결석') from [TEST].[dbo].[takingSubject] where ts_code='15431'AND(convert(varchar(8), ts_checkingTime, 112) != convert(varchar(8), getDate(), 112)); 
+ select ts_sid,ISNULL(ts_check,'결석') from [TEST].[dbo].[takingSubject] where ts_code='15432'AND(convert(varchar(8), ts_checkingTime, 112) != convert(varchar(8), getDate(), 112)); 
+ select ts_sid,ISNULL(ts_check,'결석') from [TEST].[dbo].[takingSubject] where ts_code='15433'AND(convert(varchar(8), ts_checkingTime, 112) != convert(varchar(8), getDate(), 112)); 
+ select ts_sid,ISNULL(ts_check,'결석') from [TEST].[dbo].[takingSubject] where ts_code='15434'AND(convert(varchar(8), ts_checkingTime, 112) != convert(varchar(8), getDate(), 112)); 
+
+ 
+
+
+ select ISNULL(ts_check,'결석') from [TEST].[dbo].[takingSubject]
+
+
+
+select * from [dbo].[User]
+
+update [dbo].[User] set position='학생'
+

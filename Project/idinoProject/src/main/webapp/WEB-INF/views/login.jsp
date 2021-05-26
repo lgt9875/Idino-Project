@@ -14,7 +14,11 @@
 		var theForm = document.form;
 		if(theForm.sid.value=="" || theForm.password.value==""){
 			alert("학번과 비밀번호를 입력해주세요")
-		}else{
+		}else if(theForm.position.value==""){
+			alert("직급을 선택해주세요")
+		}
+		
+		else{
 			$("#form").submit();
 		}
 	});
@@ -52,6 +56,12 @@
 				<div class="mb-3">
 					<label for="password">비밀번호</label>
 					<input type = "password" class="form-control" name="password" id="password" placeholder="비밀번호을 입력해 주세요" required/>
+				</div>
+				<div class="cover">
+				   <!-- radio는 동일한 속성으로 갈라면 name이 같아야한다. -->
+				   <!-- check :  사용자가 누르기전에 체크되어 있는 속성 -->
+				   <input type="radio" id="position" name="position" value="관리자">관리자     
+				   <input type="radio" id="position" name="position" value="학생">학생
 				</div>
 			
 			</form>

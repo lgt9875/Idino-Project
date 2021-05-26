@@ -16,8 +16,6 @@ import com.google.zxing.qrcode.QRCodeWriter;
 
 public class QRCodeView extends AbstractView{
 	public QRCodeView() {
-		//ºäÀÇ ÄÁÅÙÃ÷ Å¸ÀÔ ¼³Á¤
-        //ÀÌ¹ÌÁö·Î »Ñ·Á¾ß ÇÔ.
         setContentType("image/png; charset=UTF-8");
 	}
 
@@ -30,15 +28,14 @@ public class QRCodeView extends AbstractView{
           
         OutputStream out = res.getOutputStream();
           
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();        // QR ÄÚµå
-        MultiFormatWriter barcode = new MultiFormatWriter();    // ¹ÙÄÚµå
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();        // QR ï¿½Úµï¿½
+        MultiFormatWriter barcode = new MultiFormatWriter();    // ï¿½ï¿½ï¿½Úµï¿½
            
         String text = (String)model.get("content");
         text = new String(text.getBytes("UTF-8"), "ISO-8859-1");
         BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 300, 300);
         /*BitMatrix bitMatrix = barcode.encode(text, BarcodeFormat.CODE_128, 100, 100);*/
-           
-        // zxing¿¡¼­ ½ºÆ®¸²¿¡ ÆÄÀÏÀ» »Ñ¸±¼öÀÖµµ·Ï ¸Þ¼Òµå¸¦ Áö¿øÇÔ.
+       
         MatrixToImageWriter.writeToStream(bitMatrix, "png", out);
            
         out.flush();

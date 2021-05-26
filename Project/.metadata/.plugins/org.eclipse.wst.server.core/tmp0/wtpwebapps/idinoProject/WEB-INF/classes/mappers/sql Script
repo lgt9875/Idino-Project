@@ -244,3 +244,19 @@ INSERT INTO [TEST].[dbo].[Checking]
 
 
 	SELECT * FROM  [TEST].[dbo].[Subject] 
+	
+	
+2020-05-25	
+ALTER TABLE [TEST].[dbo].[Subject] ADD ts_checkingTime dateTime;
+update [TEST].[dbo].TakingSubject set ts_checkingTime= getdate()-2;
+
+
+
+
+2020-05-26
+ALTER TABLE [TEST].[dbo].[user] ADD position varchar(200);
+
+
+select * from [dbo].[User]
+
+update [dbo].[User] set position='학생'

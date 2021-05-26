@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="datetime"/>
+		<item key="selection" value="jstl"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="datetime"/>
-			<item value="column"/>
-			<item value="getTakingSubjectList"/>
+			<item value="jstl"/>
+			<item value="jslt"/>
+			<item value="formCheck3"/>
+			<item value="btnLogOutForm"/>
+			<item value="loginPost"/>
+			<item value="password"/>
+			<item value="saveUserInfo"/>
+			<item value="ADD"/>
+			<item value="login"/>
+			<item value="getUserInfo"/>
+			<item value="getUserInfogetUserInfo"/>
 			<item value="updateChecking"/>
-			<item value="updateChecking."/>
-			<item value="update"/>
-			<item value="drop"/>
-			<item value="ALTER TABLE"/>
-			<item value="getChecking"/>
-			<item value="checking"/>
-			<item value="btnSave"/>
-			<item value="checking2"/>
-			<item value="insert"/>
-			<item value="[Checking]"/>
-			<item value="getDateCheckingSearch"/>
+			<item value="updateCheckingupdateChecking"/>
+			<item value="status"/>
+			<item value="updateCheckingData"/>
 		</list>
 		<list key="replacehistory">
 			<item value="checkingList"/>

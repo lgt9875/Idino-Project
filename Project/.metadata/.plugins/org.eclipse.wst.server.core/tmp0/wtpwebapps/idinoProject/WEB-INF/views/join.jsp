@@ -23,6 +23,9 @@
 		}else if (theForm.password.value==""){
 			alert("비밀번호는 필수입력조건입니다. 입력해주세요");
 			return theForm.password.focus();
+		}else if (theForm.position.value==""){
+			alert("직급는 필수입력조건입니다. 선택해주세요");
+			return theForm.position.focus();
 		}else{
 			$("#form").submit();
 		}
@@ -58,7 +61,7 @@
 		<div class="container" role="main">
 			<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/user/saveUserInfo">
 				<div class="mb-3">
-					<label for="sid">학번(*필수)</label>
+					<label for="sid">학번(사번)(*필수)</label>
 					<input type="number" class="form-control" name="sid" id="sid" placeholder="학번을 입력해 주세요" required/>
 				</div>
 				<div class="mb-3">
@@ -80,6 +83,12 @@
 				<div class="mb-3">
 					<label for="phone">전화번호</label>
 					<input type="text" class="form-control" name="phone" id="phone" placeholder="핸드폰 번호를 입력해 주세요">
+				</div>
+				<div class="cover">
+				   <!-- radio는 동일한 속성으로 갈라면 name이 같아야한다. -->
+				   <!-- check :  사용자가 누르기전에 체크되어 있는 속성 -->
+				   <input type="radio" id="position" name="position" value="관리자">관리자     
+				   <input type="radio" id="position" name="position" value="학생">학생
 				</div>
 			</form>
 

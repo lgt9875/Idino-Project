@@ -94,18 +94,11 @@ public class SubjectDAOImpl implements SubjectDAO{
 		return sqlSession.selectList(NAMESPACE+"getTakingSubjectList",Integer.parseInt(checkdto.getS_id()));
 		
 		
-//		return sqlSession.selectList(NAMESPACE+"getChecking",s_id,subjectCode,subjectName);
 	}
 	
 	
 	@Override
 	public List<CheckingModel> getCheckingAll(int ts_Sid) throws Exception{
-		
-//		List<Object> takingSubject = sqlSession.selectList(NAMESPACE+"getTakingSubjectList",ts_Sid);
-//		System.out.println(takingSubject);
-//		return sqlSession.selectOne(NAMESPACE+"login",usermodel);	
-		
-		
 		return sqlSession.selectList(NAMESPACE+"getCheckingAll",ts_Sid);
 	}
 	

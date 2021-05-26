@@ -24,7 +24,7 @@ public class MssqlConnectionTest {
 	@Test
 	public void testConnection() {
 		try (Connection con = ds.getConnection()){
-			logger.info("MSSQL ¿¬°á : "+ con);
+			logger.info("MSSQL ì •ë³´ : "+ con);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
