@@ -1,0 +1,73 @@
+package com.idinoproject.web.model;
+
+public class ManagementModel {
+	int m_sid;
+	String m_sname;
+	String m_subCode;
+	String m_subName;
+	String m_chekcingTime;
+	String m_state;
+	
+	String chul;
+	String gi;
+	String gyul;
+	
+	public int getM_sid() {
+		return m_sid;
+	}
+	public void setM_sid(int m_sid) {
+		this.m_sid = m_sid;
+	}
+	public String getM_sname() {
+		return m_sname;
+	}
+	public void setM_sname(String m_sname) {
+		this.m_sname = m_sname;
+	}
+	public String getM_subCode() {
+		return m_subCode;
+	}
+	public void setM_subCode(String m_subCode) {
+		this.m_subCode = m_subCode;
+	}
+	
+	public String getM_subName() {
+		return m_subName;
+	}
+	public void setM_subName(String m_subName) {
+		this.m_subName = m_subName;
+	}
+	public String getM_chekcingTime() {
+		return m_chekcingTime;
+	}
+	public void setM_chekcingTime(String m_chekcingTime) {
+		this.m_chekcingTime = m_chekcingTime;
+	}
+	public String getM_state() {
+		return m_state;
+	}
+	public void setM_state(String m_state) {
+		this.m_state = m_state;
+	}
+	public String getChul() {
+		return chul;
+	}
+	public void setChul(String chul) {
+		this.chul = chul;
+	}
+	public String getGi() {
+		return gi;
+	}
+	public void setGi(String gi) {
+		this.gi = gi;
+	}
+	public String getGyul() {
+		return gyul;
+	}
+	public void setGyul(String gyul) {
+		this.gyul = gyul;
+	}
+	
+	
+	
+}

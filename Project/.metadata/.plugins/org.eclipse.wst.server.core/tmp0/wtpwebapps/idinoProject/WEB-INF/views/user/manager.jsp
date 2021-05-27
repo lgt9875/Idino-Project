@@ -82,12 +82,12 @@ function OnChange()
 					</colgroup>
 					<thead>
 						<tr>
-							<th class="align-center">과목코드</th>
+							<th class="align-center">학번</th>
 							<th class="align-center">과목명</th>
-							<th class="align-center">강의시간</th>
-							<th class="align-center">요일</th>
-							<th class="align-center">출석여부</th>
-							<th class="align-center">출석상태</th>
+							<th class="align-center">출석</th>
+							<th class="align-center">지각</th>
+							<th class="align-center">결석</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -100,11 +100,10 @@ function OnChange()
 									<tr>
 										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
 										<td class="align-center"><c:out value="${managementList.getM_sid()}"/></td>
-										<td class="align-center"><c:out value="${managementList.getM_sname()}"/></td>
-										<td class="align-center"><c:out value="${managementList.getM_subCode()}"/></td>
 										<td class="align-center"><c:out value="${managementList.getM_subName()}"/></td>
-										<td class="align-center"><c:out value="${managementList.getM_chekcingTime()}"/></td>
-										<td class="align-center"><c:out value="${managementList.getM_state()}"/></td>
+										<td class="align-center"><c:out value="${managementList.getM_attendance()}"/></td>
+										<td class="align-center"><c:out value="${managementList.getM_lateness()}"/></td>
+										<td class="align-center"><c:out value="${managementList.getM_absence()}"/></td>
 									</tr>
 								</c:forEach>
 							</c:when>

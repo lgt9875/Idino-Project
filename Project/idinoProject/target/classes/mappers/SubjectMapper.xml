@@ -37,11 +37,13 @@
 
 <resultMap type="com.idinoproject.web.model.ManagementModel" id="managementMap">
 	<result property="m_sid" column="m_sid"/>
-	<result property="m_sname" column="m_sname"/>
-	<result property="m_subCode" column="m_subCode"/>
 	<result property="m_subName" column="m_subName"/>
-	<result property="m_chekcingTime" column="m_chekcingTime"/>
+	<result property="m_checkingTime" column="m_checkingTime"/>
 	<result property="m_state"  column="m_state"/>
+	<result property="m_attendance"  column="m_attendance"/>
+	<result property="m_lateness"  column="m_lateness"/>
+	<result property="m_absence"  column="m_absence"/>
+	
 </resultMap>
 
 
@@ -155,12 +157,34 @@
 
 
 <select id = "getManagementList" resultMap="managementMap">
-	SELECT * FROM  [TEST].[dbo].[Management]
+	SELECT distinct 
+	m_sid, 
+	m_subname ,
+	sum(m_attendance) as m_attendance, 
+	sum(m_lateness) as m_lateness, 
+	sum(m_absence) as m_absence
+	FROM  [TEST].[dbo].[Management]
 	<if test="m_subName != null and m_subName !=''">
 		Where m_subName = #{m_subName}
 	</if>
+	group by m_sid,m_subname;
+	
 </select>
 
+
+
+<insert id="saveManagementInfo" >
+	INSERT INTO [TEST].[dbo].[Management]
+	VALUES(#{m_sid},#{m_subName},GETDATE(),#{m_state},#{m_attendance},#{m_lateness},#{m_absence})
+</insert>
+
+
+<update id="updateManagementData" parameterType="com.idinoproject.web.dto.ManagementDto">
+	UPDATE [TEST].[dbo].[Management] 
+	SET m_checkingTime = GETDATE() ,  m_state=#{m_state} ,m_attendance=#{m_attendance},m_lateness=#{m_lateness},m_absence=#{m_absence}
+	WHERE m_sid = #{m_sid} AND m_subName = #{m_subName}
+		AND convert(varchar, m_checkingTime,102)=convert(varchar, getdate(),102)
+</update> 
 
 
 </mapper>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.idinoproject.web.dto.CheckDto;
 import com.idinoproject.web.dto.LoginDto;
+import com.idinoproject.web.dto.ManagementDto;
 import com.idinoproject.web.model.CheckingModel;
 import com.idinoproject.web.model.ManagementModel;
 import com.idinoproject.web.model.SubjectModel;
@@ -41,12 +42,17 @@ public class SubjectDAOImpl implements SubjectDAO{
 			@Param("SubjectName") String SubjectName,
 			@Param("Status") String Status) throws Exception {
 		CheckDto checkdto = new CheckDto();
+		ManagementDto managementDto = new ManagementDto();
 		String status = null;
+		int m_attendance=0, m_lateness=0, m_absence =0;
 		
 		checkdto.setS_id(s_id);
 		checkdto.setSubjectCode(SubjectCode);
 		checkdto.setSubjectName(SubjectName);
 		checkdto.setStatus(Status);
+		
+		managementDto.setM_sid(Integer.parseInt(s_id));
+		managementDto.setM_subName(SubjectName);
 		
 		
 		List<TakingSubjectModel> checking = sqlSession.selectList(NAMESPACE+"getChecking",checkdto);
@@ -57,15 +63,19 @@ public class SubjectDAOImpl implements SubjectDAO{
 			//20전
 //			checkdto.setCheckStatus("출석");
 			status = "출석";
+			m_attendance=1; m_lateness=0; m_absence =0;
 		}else if (checking.isEmpty() && !latecheCking.isEmpty() && absenceChecking.isEmpty()) {
 			//20분 후
 //			checkdto.setCheckStatus("지각");
 			status = "지각";
+			m_attendance=0; m_lateness=1; m_absence =0;
 		}else  if(checking.isEmpty() && latecheCking.isEmpty() && !absenceChecking.isEmpty()) {
 //			checkdto.setCheckStatus("결석");
 			status = "결석";
+			m_attendance=0; m_lateness=0; m_absence =1;
 		}else {
 			status = "출석시간이 아닙니다.";
+			m_attendance=0; m_lateness=0; m_absence =0;
 		}
 			
 		checkdto.setCheckStatus(status);
@@ -85,10 +95,25 @@ public class SubjectDAOImpl implements SubjectDAO{
 			checkModel.setC_yoil(subjectList.get(0).getS_yoil());
 			checkModel.setC_state(status);
 			
+			ManagementModel manageModel = new ManagementModel();
+			manageModel.setM_sid(Integer.parseInt(s_id));
+			manageModel.setM_subName(SubjectName);
+			manageModel.setM_state(status);
+			manageModel.setM_attendance(m_attendance);
+			manageModel.setM_lateness(m_lateness);
+			manageModel.setM_absence(m_absence);
+			
 			sqlSession.insert(NAMESPACE+"saveCheckingInfo",checkModel);
+			sqlSession.insert(NAMESPACE+"saveManagementInfo",manageModel);
+			
 		}else {
 			System.out.println("1111111111111");
-			sqlSession.insert(NAMESPACE+"updateCheckingData",checkdto);
+			managementDto.setM_state(status);
+			managementDto.setM_attendance(m_attendance);
+			managementDto.setM_lateness(m_lateness);
+			managementDto.setM_absence(m_absence);
+			sqlSession.update(NAMESPACE+"updateCheckingData",checkdto);
+			sqlSession.update(NAMESPACE+"updateManagementData",managementDto);
 		}
 		
 		System.out.println(checking);
