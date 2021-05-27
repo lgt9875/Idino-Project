@@ -65,8 +65,8 @@ function OnChange()
 				<input type="hidden" id="SubjectName" name=SubjectName value="${(SubjectName).attr('value')}" />
 				<input type="hidden" id="Position" name=Position value="${login.getPosition()}" />
 				<button type="button" class="btn btn-sm btn-primary" id="btnSearch">출석확인</button>
+				<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
 			</form>
-			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
 		</div>
 	</div>
 	<article>
