@@ -39,7 +39,7 @@
 	<result property="m_sid" column="m_sid"/>
 	<result property="m_sname" column="m_sname"/>
 	<result property="m_subCode" column="m_subCode"/>
-	<result property="m_subMode" column="m_subMode"/>
+	<result property="m_subName" column="m_subName"/>
 	<result property="m_chekcingTime" column="m_chekcingTime"/>
 	<result property="m_state"  column="m_state"/>
 </resultMap>
@@ -155,10 +155,12 @@
 
 
 <select id = "getManagementList" resultMap="managementMap">
-	SELECT * FROM  [TEST].[dbo].[Management] 
-	Where m_subCode = #{m_subCode}
-
+	SELECT * FROM  [TEST].[dbo].[Management]
+	<if test="m_subName != null &amp;&amp; m_subName !=''">
+		Where m_subName = #{m_subName}
+	</if>
 </select>
+
 
 
 </mapper>

@@ -53,7 +53,12 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 	
 	@Override
-	public List<ManagementModel> getManagementList(@Param("m_subCode") String m_subCode)throws Exception{
-		return subjectDao.getManagementList(m_subCode);
+	public List<ManagementModel> getManagementList(@Param("m_subName") String m_subName)throws Exception{
+		return subjectDao.getManagementList(m_subName);
+	}
+	
+	@Override
+	public List<SubjectModel> getManageComboSubjectList()throws Exception{
+		return subjectDao.getManageComboSubjectList();
 	}
 }

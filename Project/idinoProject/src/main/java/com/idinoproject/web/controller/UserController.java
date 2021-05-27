@@ -56,14 +56,14 @@ public class UserController {
 	public String choice(LoginDto loginDto, HttpSession httpSession, Model model,HttpServletRequest request) throws Exception	{
 		UserModel userModel = (UserModel) httpSession.getAttribute("login"); 
 		int sid = userModel.getSid();
-		String m_subCode = "15430"; 
+		String m_subName = ""; 
 		if(userModel.getPosition().equals("학생")) {
 			model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(sid));
 			return "user/choice";	
 		}
 		else if(userModel.getPosition().equals("관리자")) {
-			
-			model.addAttribute("managementList", subjectService.getManagementList(m_subCode));
+			model.addAttribute("comboManageSubjectList", subjectService.getManageComboSubjectList());
+			model.addAttribute("managementList", subjectService.getManagementList(""));
 			
 			return "user/manager";
 			
@@ -100,8 +100,8 @@ public class UserController {
 	}
 	
 	//로그인 페이지로 돌아감
-	@RequestMapping(value = "/login", method=RequestMethod.GET)
-	public String loginGET(@ModelAttribute("loginDTO") LoginDto loginDTO) {
+	@RequestMapping(value = "/login")
+	public String loginGET() {
 		return "login";
 	}
 	
@@ -161,12 +161,20 @@ public class UserController {
 	@RequestMapping(value = "/getCheckingInfo",method = RequestMethod.GET)
 	public String getCheckingInfo(LoginDto loginDto, Model model,
 			@Param("s_id") String s_id,
-			@Param("SubjectName") String SubjectName) throws Exception{
-//		String sid = Integer.toString(loginDto.getSid());
-		model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
-//		model.addAttribute("checkingSearchList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
-		return "checking";
-//		return "redirect:getCheckingSearchInfo";
+			@Param("SubjectName") String SubjectName,
+			@Param("Position") String Position) throws Exception{
+		if(Position.equals("학생")) {
+			model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
+			return "checking";	
+		}
+		else if(Position.equals("관리자")) {
+//			String a="데이터베이스";
+			model.addAttribute("comboManageSubjectList", subjectService.getManageComboSubjectList());
+			model.addAttribute("managementList", subjectService.getManagementList(SubjectName));
+			return "user/manager";	
+//			model.addAttribute("manageCheckingList", subjectService.getManageCheckingSearchInfo(SubjectName));
+		}
+		return null;
 	}
 	
 

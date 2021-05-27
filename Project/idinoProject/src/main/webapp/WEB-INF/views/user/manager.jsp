@@ -34,8 +34,18 @@ $(document).on('click', '#btnLogOutForm',function(e){
 	location.href = "${pageContext.request.contextPath}/user/logout"
 });
 	
+$(document).on('click', '#btnSearch',function(e){
 	
-	 
+	e.preventDefault();
+	/* alert($("#SubjectName option:selected").text()); */
+	
+	$("#formCheck2").submit();
+}); 	
+function OnChange()
+{    
+	var subject = $("#selectSubject option:selected").attr('value');
+	document.getElementById('SubjectName').setAttribute('value',subject);
+}
 </script>
 
 </head>
@@ -44,6 +54,18 @@ $(document).on('click', '#btnLogOutForm',function(e){
 		<img src="<spring:url value='/resources/images/Idino.png'/>">
 		<div class=button>
 			<p>${login.getName()}님 안녕하세요</p>
+			<form name="formCheck2" id="formCheck2" role="form" method="GET" action="${pageContext.request.contextPath}/user/getCheckingInfo">
+				<select id="selectSubject" name="selectSubject"onchange="OnChange();">
+						<option value=""><c:out value="전체"/></option>
+						<c:forEach var="comboManageSubjectList" items="${comboManageSubjectList}">	
+						    <option value="${comboManageSubjectList.getS_name()}"><c:out value="${comboManageSubjectList.getS_name()}"/></option>
+					    </c:forEach>
+				</select>
+				<input type="hidden" id="s_id" name=s_id value="${login.getName()}" />
+				<input type="hidden" id="SubjectName" name=SubjectName value="${(SubjectName).attr('value')}" />
+				<input type="hidden" id="Position" name=Position value="${login.getPosition()}" />
+				<button type="button" class="btn btn-sm btn-primary" id="btnSearch">출석확인</button>
+			</form>
 			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
 		</div>
 	</div>
@@ -80,7 +102,7 @@ $(document).on('click', '#btnLogOutForm',function(e){
 										<td class="align-center"><c:out value="${managementList.getM_sid()}"/></td>
 										<td class="align-center"><c:out value="${managementList.getM_sname()}"/></td>
 										<td class="align-center"><c:out value="${managementList.getM_subCode()}"/></td>
-										<td class="align-center"><c:out value="${managementList.getM_subMode()}"/></td>
+										<td class="align-center"><c:out value="${managementList.getM_subName()}"/></td>
 										<td class="align-center"><c:out value="${managementList.getM_chekcingTime()}"/></td>
 										<td class="align-center"><c:out value="${managementList.getM_state()}"/></td>
 									</tr>

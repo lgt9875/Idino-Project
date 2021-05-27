@@ -27,6 +27,9 @@ public interface SubjectDAO {
 			@Param("SubjectName") String SubjectName) throws Exception;
 	
 	
-	public List<ManagementModel> getManagementList(@Param("m_subCode") String m_subCode)throws Exception;
+	public List<ManagementModel> getManagementList(@Param("m_subName") String m_subName)throws Exception;
+	
+	public List<SubjectModel> getManageComboSubjectList()throws Exception;
+	
 	
 }

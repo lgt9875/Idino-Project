@@ -79,6 +79,7 @@
 						</select>
 							<input type="hidden" id="s_id" name=s_id value="${login.getName()}" />
 							<input type="hidden" id="SubjectName" name=SubjectName value="${(SubjectName).attr('value')}" />
+							<input type="hidden" id="Position" name=Position value="${login.getPosition()}" />
 							
 							
 							<button type="button" class="btn btn-sm btn-primary" id="btnSearch">출석확인</button>

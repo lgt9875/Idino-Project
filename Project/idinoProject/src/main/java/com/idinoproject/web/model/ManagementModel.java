@@ -4,7 +4,7 @@ public class ManagementModel {
 	int m_sid;
 	String m_sname;
 	String m_subCode;
-	String m_subMode;
+	String m_subName;
 	String m_chekcingTime;
 	String m_state;
 	public int getM_sid() {
@@ -25,11 +25,12 @@ public class ManagementModel {
 	public void setM_subCode(String m_subCode) {
 		this.m_subCode = m_subCode;
 	}
-	public String getM_subMode() {
-		return m_subMode;
+	
+	public String getM_subName() {
+		return m_subName;
 	}
-	public void setM_subMode(String m_subMode) {
-		this.m_subMode = m_subMode;
+	public void setM_subName(String m_subName) {
+		this.m_subName = m_subName;
 	}
 	public String getM_chekcingTime() {
 		return m_chekcingTime;
