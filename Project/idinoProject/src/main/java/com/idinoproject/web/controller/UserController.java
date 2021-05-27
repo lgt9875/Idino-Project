@@ -56,34 +56,35 @@ public class UserController {
 	public String choice(LoginDto loginDto, HttpSession httpSession, Model model,HttpServletRequest request) throws Exception	{
 		UserModel userModel = (UserModel) httpSession.getAttribute("login"); 
 		int sid = userModel.getSid();
-		String m_subName = ""; 
 		if(userModel.getPosition().equals("학생")) {
-			model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(sid));
-			return "user/choice";	
+			model.addAttribute("takingSubjectList", subjectService.getTakingSubjectList(sid));
+			return "user/main";
 		}
 		else if(userModel.getPosition().equals("관리자")) {
 			model.addAttribute("comboManageSubjectList", subjectService.getManageComboSubjectList());
 			model.addAttribute("managementList", subjectService.getManagementList(""));
-			
 			return "user/manager";
-			
-			//managerChoice화면에서 전체과목에 대해서 콤보박스 셋팅후
-			//해당 과목 데이터를 가지고 아래 실행
-//			model.addAttribute("managementList", subjectService.getManagementList(m_subCode));
-//			return "user/manageerChoice";	
 		}
-		
 		return null;
 	}
 	
+	
+	@RequestMapping(value = "/chekcing",method = RequestMethod.GET)
+	public String checking(Model model, @Param("s_id") String s_id)throws Exception	{
+		model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(Integer.parseInt(s_id)));
+		model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,""));
+		return "checking";	
+	}
 
-
-	//출석체크화면
-	@RequestMapping(value = "/getUserInfo",method = RequestMethod.GET)
-	public String getUserInfo(LoginDto loginDto,Model model) throws Exception{
-		model.addAttribute("takingSubjectList", subjectService.getTakingSubjectList(loginDto.getSid()));
+	//출석체크 현황 리턴
+	@ResponseBody
+	@RequestMapping(value = "/checking",method = RequestMethod.POST)
+	public String checking(@Param("s_id") String s_id,
+			@Param("SubjectCode") String SubjectCode,
+			@Param("SubjectName") String SubjectName,
+			@Param("Status") String Status) throws Exception{
+		subjectService.getChecking(s_id,SubjectCode,SubjectName,Status);
 		return "user/main";
-		
 	}
 		
 	//회원가입 이동
@@ -109,11 +110,9 @@ public class UserController {
 	@RequestMapping(value="/loginPost",method = RequestMethod.POST)
 	public void loginPost(LoginDto loginDto, HttpSession httpSession, Model model) throws Exception	{
 		UserModel userModel = userService.login(loginDto);
-		
 		if(userModel == null || !BCrypt.checkpw(loginDto.getPassword(), userModel.getPassword())) {
 			return;
 		}
-		
 		model.addAttribute("user",userModel);
 	}
 	
@@ -121,7 +120,6 @@ public class UserController {
 	//로그아웃
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession session) {
-		
 		session.invalidate();
 		logger.info("logout success");
 		ModelAndView mv = new ModelAndView("redirect:/user/login");
@@ -144,19 +142,6 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 		
-	//출석체크 현황 리턴
-	@ResponseBody
-	@RequestMapping(value = "/checking",method = RequestMethod.POST)
-//	public String checking(CheckDto checkDto,Model model) throws Exception{
-	public String checking(@Param("s_id") String s_id,
-			@Param("SubjectCode") String SubjectCode,
-			@Param("SubjectName") String SubjectName,
-			@Param("Status") String Status) throws Exception{
-		subjectService.getChecking(s_id,SubjectCode,SubjectName,Status);
-		return "user/main";
-		
-	}
-	
 	//출석체크화면
 	@RequestMapping(value = "/getCheckingInfo",method = RequestMethod.GET)
 	public String getCheckingInfo(LoginDto loginDto, Model model,
@@ -164,15 +149,14 @@ public class UserController {
 			@Param("SubjectName") String SubjectName,
 			@Param("Position") String Position) throws Exception{
 		if(Position.equals("학생")) {
+			model.addAttribute("comboSubjectList", subjectService.getComboSubjectList(Integer.parseInt(s_id)));
 			model.addAttribute("checkingList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
 			return "checking";	
 		}
 		else if(Position.equals("관리자")) {
-//			String a="데이터베이스";
 			model.addAttribute("comboManageSubjectList", subjectService.getManageComboSubjectList());
 			model.addAttribute("managementList", subjectService.getManagementList(SubjectName));
 			return "user/manager";	
-//			model.addAttribute("manageCheckingList", subjectService.getManageCheckingSearchInfo(SubjectName));
 		}
 		return null;
 	}
@@ -183,17 +167,11 @@ public class UserController {
 	public String getCheckingSearchInfo(LoginDto loginDto, Model model,
 			@Param("s_id") String s_id,
 			@Param("SubjectName") String SubjectName) throws Exception{
-		
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("checkingSearchList", subjectService.getCheckingSearchInfo(s_id,SubjectName));
-//		mv.setViewName("/test");
-//		return mv;
+
 		List<CheckingModel> list = subjectService.getCheckingSearchInfo(s_id,SubjectName);
 		JSONArray jsonArray = new JSONArray();
 		
-//		model.addAttribute("checkingSearchList", list);
 		model.addAttribute("checkingSearchList",jsonArray.fromObject(list));
 		return "checking";
 	}
-
 }

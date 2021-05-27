@@ -39,9 +39,14 @@
 		location.href = "${pageContext.request.contextPath}/user/login"
 	});
 	
-	$(document).on('click', '#btnChoiceForm',function(e){
+	$(document).on('click', '#btnCheck',function(e){
 		e.preventDefault();
 		location.href = "${pageContext.request.contextPath}/user/choice"
+	});
+	
+	$(document).on('click', '#btnSearch',function(e){
+		e.preventDefault();
+		$("#formCheck2").submit();
 	});
 	
 	
@@ -49,6 +54,12 @@
 		e.preventDefault();
 		location.href = "${pageContext.request.contextPath}/user/logout"
 	});
+	
+	function OnChange()
+	{    
+		var subject = $("#selectSubject option:selected").attr('value');
+		document.getElementById('SubjectName').setAttribute('value',subject);
+	}
 	
 </script>
 
@@ -60,7 +71,24 @@
 		<img src="<spring:url value='/resources/images/Idino.png'/>">
 		<div class=button>
 			<p>${login.getName()}님 안녕하세요</p>
-			<button type="button" class="btn btn-sm btn-primary" id="btnChoiceForm">출석확인</button>
+			<form name="formCheck2" id="formCheck2" role="form" method="GET" action="${pageContext.request.contextPath}/user/getCheckingInfo">
+				<div class=menu>
+					<select id="selectSubject" name="selectSubject"onchange="OnChange();">
+							<option value=""><c:out value="전체"/></option>
+							<c:forEach var="comboSubjectList" items="${comboSubjectList}">	
+							    <option value="${comboSubjectList.getTs_name()}"><c:out value="${comboSubjectList.getTs_name()}"/></option>
+						    </c:forEach>
+					</select>
+					<input type="hidden" id="s_id" name=s_id value="${login.getName()}" />
+					<input type="hidden" id="SubjectName" name=SubjectName value="${(SubjectName).attr('value')}" />
+					<input type="hidden" id="Position" name=Position value="${login.getPosition()}" />
+					
+					
+					<button type="button" class="btn btn-sm btn-primary" id="btnSearch">출석확인</button>
+				</div>
+			</form>
+			<!-- <button type="button" class="btn btn-sm btn-primary" id="btnChoiceForm">출석확인</button> -->
+			<button type="button" class="btn btn-sm btn-primary" id="btnCheck">출석체크</button>
 			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
 			
 		</div>
@@ -121,7 +149,6 @@
 	</article>
 </c:if>
 <h1>
-${checkingSearchList}
 </h1>
 </body>
 </html>

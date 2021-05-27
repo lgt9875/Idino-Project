@@ -29,6 +29,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			
 			httpSession.setAttribute(LOGIN, userModel);
 			response.sendRedirect("/user/choice");
+			
 		}
 	}
 	

@@ -40,7 +40,8 @@
 	
 	$(document).on('click', '#btnChoiceForm',function(e){
 		e.preventDefault();
-		location.href = "${pageContext.request.contextPath}/user/choice"
+		/* location.href = "${pageContext.request.contextPath}/user/chekcing" */
+		$("#formCheck3").submit();
 	});
 	
 	
@@ -150,7 +151,7 @@
 
 </head>
 <body>
-<c:if test="${empty login}">
+<%-- <c:if test="${empty login}">
 <div class="container">
 	<img src="<spring:url value='/resources/images/Idino.png'/>">
 	 <div class=button>
@@ -214,16 +215,17 @@
 		</div>	
 	</article>
 </div>
-</c:if>
+</c:if> --%>
 <c:if test="${not empty login}">
 	<div class="container">
 		<img src="<spring:url value='/resources/images/Idino.png'/>">
 		<div class=button>
 			<p>${login.getName()}님 안녕하세요</p>
-			<button type="button" class="btn btn-sm btn-primary" id="btnChoiceForm">출석확인</button>
-			<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
-			
-			
+			<form name="formCheck3" id="formCheck3" role="form" method="GET" action="${pageContext.request.contextPath}/user/chekcing">
+				<input type="hidden" id="s_id" name=s_id value="${login.getName()}" />
+				<button type="button" class="btn btn-sm btn-primary" id="btnChoiceForm">출석확인</button>
+				<button type="button" class="btn btn-sm btn-primary" id="btnLogOutForm">로그아웃</button>
+			</form>
 		</div>
 	</div>
 	<article>

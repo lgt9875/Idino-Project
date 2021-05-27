@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Checking"/>
+		<item key="selection" value="login"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="login"/>
+			<item value="btnCheck"/>
 			<item value="checking"/>
-			<item value="selectSubject"/>
-			<item value="SubjectName"/>
-			<item value="comboManageSubjectList"/>
-			<item value="comboSubjectList"/>
-			<item value="if"/>
-			<item value="checkingList"/>
-			<item value="s_id"/>
+			<item value="Checking"/>
+			<item value="cheking"/>
+			<item value="formCheck3"/>
+			<item value="formCheck2."/>
 			<item value="formCheck2"/>
+			<item value="form"/>
+			<item value="btnChoiceForm"/>
 			<item value="btnSearch"/>
+			<item value="btnLogOutForm"/>
 			<item value="getCheckingInfo"/>
-			<item value="OnChange();"/>
-			<item value="${pageContext.request.contextPath}/user/getCheckingInfo"/>
-			<item value="combo"/>
-			<item value="loginPost"/>
+			<item value="getCheckingSearch"/>
+			<item value="getCheckingSearchInfo"/>
 		</list>
 		<list key="replacehistory">
 			<item value="checkingList"/>

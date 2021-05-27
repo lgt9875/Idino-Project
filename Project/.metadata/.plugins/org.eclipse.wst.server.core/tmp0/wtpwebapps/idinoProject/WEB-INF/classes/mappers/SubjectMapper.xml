@@ -156,7 +156,7 @@
 
 <select id = "getManagementList" resultMap="managementMap">
 	SELECT * FROM  [TEST].[dbo].[Management]
-	<if test="m_subName != null &amp;&amp; m_subName !=''">
+	<if test="m_subName != null and m_subName !=''">
 		Where m_subName = #{m_subName}
 	</if>
 </select>
