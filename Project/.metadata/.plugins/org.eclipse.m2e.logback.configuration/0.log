@@ -21246,3 +21246,228 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact net.sf.json-l
 2021-05-27 15:04:53,325 [Worker-95: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
 2021-05-27 15:04:53,325 [Worker-95: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
 2021-05-27 15:04:53,329 [Worker-95: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:51:27,760 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-05-28 08:51:34,889 [Worker-32: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 08:51:37,896 [Worker-9: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:51:37,901 [Worker-9: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 08:51:37,963 [Worker-9: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:51:37,963 [Worker-9: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 08:51:37,964 [Worker-9: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 08:51:37,965 [Worker-9: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 08:51:38,253 [Worker-9: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:58:38,608 [Worker-35: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 08:58:38,862 [Worker-34: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:58:38,865 [Worker-34: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 08:58:38,875 [Worker-34: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:58:38,877 [Worker-34: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 08:58:38,877 [Worker-34: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 08:58:38,877 [Worker-34: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 08:58:38,886 [Worker-34: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:58:48,058 [Worker-30: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 08:58:48,267 [Worker-38: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:58:48,268 [Worker-38: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 08:58:48,275 [Worker-38: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 08:58:48,276 [Worker-38: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 08:58:48,277 [Worker-38: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 08:58:48,277 [Worker-38: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 08:58:48,280 [Worker-38: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:00:08,813 [Worker-30: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:00:09,009 [Worker-36: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:00:09,010 [Worker-36: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:00:09,021 [Worker-36: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:00:09,021 [Worker-36: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:00:09,022 [Worker-36: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:00:09,022 [Worker-36: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:00:09,029 [Worker-36: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:00:33,013 [Worker-36: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:00:33,227 [Worker-38: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:00:33,228 [Worker-38: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:00:33,238 [Worker-38: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:00:33,238 [Worker-38: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:00:33,239 [Worker-38: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:00:33,239 [Worker-38: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:00:33,242 [Worker-38: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:01:37,774 [Worker-36: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:01:37,958 [Worker-35: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:01:37,958 [Worker-35: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:01:37,965 [Worker-35: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:01:37,966 [Worker-35: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:01:37,966 [Worker-35: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:01:37,966 [Worker-35: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:01:37,969 [Worker-35: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:01:49,963 [Worker-39: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:01:50,138 [Worker-37: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:01:50,139 [Worker-37: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:01:50,147 [Worker-37: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:01:50,147 [Worker-37: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:01:50,148 [Worker-37: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:01:50,148 [Worker-37: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:01:50,150 [Worker-37: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:02:54,992 [Worker-34: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:02:55,171 [Worker-35: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:02:55,172 [Worker-35: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:02:55,180 [Worker-35: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:02:55,180 [Worker-35: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:02:55,181 [Worker-35: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:02:55,181 [Worker-35: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:02:55,184 [Worker-35: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:04:38,840 [Worker-30: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:04:39,021 [Worker-36: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:04:39,022 [Worker-36: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:04:39,030 [Worker-36: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:04:39,031 [Worker-36: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:04:39,031 [Worker-36: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:04:39,031 [Worker-36: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:04:39,034 [Worker-36: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:06:54,257 [Worker-41: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:06:54,438 [Worker-39: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:06:54,440 [Worker-39: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:06:54,447 [Worker-39: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:06:54,448 [Worker-39: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:06:54,448 [Worker-39: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:06:54,448 [Worker-39: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:06:54,456 [Worker-39: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:14:21,865 [Worker-43: Build Project] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:14:21,868 [Worker-43: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-05-28 09:14:21,870 [Worker-43: Build Project] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:14:21,871 [Worker-43: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:14:24,291 [Worker-43: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:14:24,477 [Worker-44: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:14:24,478 [Worker-44: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:14:24,488 [Worker-44: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:14:24,489 [Worker-44: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:14:24,489 [Worker-44: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:14:24,489 [Worker-44: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:14:24,497 [Worker-44: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:23:27,605 [Worker-59: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:23:27,780 [Worker-48: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:23:27,781 [Worker-48: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:23:27,792 [Worker-48: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:23:27,793 [Worker-48: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:23:27,793 [Worker-48: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:23:27,793 [Worker-48: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:23:27,796 [Worker-48: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:33:44,083 [Worker-68: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:33:44,277 [Worker-50: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:33:44,278 [Worker-50: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:33:44,286 [Worker-50: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:33:44,287 [Worker-50: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:33:44,288 [Worker-50: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:33:44,288 [Worker-50: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:33:44,292 [Worker-50: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:34:02,286 [Worker-66: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:34:02,499 [Worker-70: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:34:02,500 [Worker-70: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:34:02,505 [Worker-70: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:34:02,506 [Worker-70: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:34:02,506 [Worker-70: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:34:02,506 [Worker-70: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:34:02,508 [Worker-70: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:35:15,042 [Worker-71: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:35:15,210 [Worker-63: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:35:15,211 [Worker-63: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:35:15,221 [Worker-63: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:35:15,223 [Worker-63: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:35:15,226 [Worker-63: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:35:15,226 [Worker-63: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:35:15,228 [Worker-63: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:40:02,885 [Worker-73: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:40:03,049 [Worker-74: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:40:03,049 [Worker-74: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:40:03,057 [Worker-74: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:40:03,058 [Worker-74: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:40:03,058 [Worker-74: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:40:03,058 [Worker-74: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:40:03,061 [Worker-74: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:42:43,567 [Worker-77: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:42:43,742 [Worker-75: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:42:43,744 [Worker-75: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:42:43,752 [Worker-75: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:42:43,753 [Worker-75: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:42:43,754 [Worker-75: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:42:43,754 [Worker-75: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:42:43,757 [Worker-75: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:44:09,874 [Worker-81: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:44:10,043 [Worker-83: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:44:10,044 [Worker-83: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:44:10,052 [Worker-83: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:44:10,053 [Worker-83: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:44:10,053 [Worker-83: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:44:10,053 [Worker-83: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:44:10,058 [Worker-83: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:50:05,121 [Worker-88: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:50:05,308 [Worker-91: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:50:05,309 [Worker-91: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:50:05,319 [Worker-91: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:50:05,320 [Worker-91: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:50:05,320 [Worker-91: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:50:05,320 [Worker-91: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:50:05,324 [Worker-91: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:54:44,537 [Worker-99: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:54:44,708 [Worker-98: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:54:44,709 [Worker-98: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:54:44,721 [Worker-98: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:54:44,723 [Worker-98: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:54:44,725 [Worker-98: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:54:44,725 [Worker-98: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:54:44,729 [Worker-98: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:55:14,183 [Worker-99: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 09:55:14,357 [Worker-97: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:55:14,358 [Worker-97: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 09:55:14,364 [Worker-97: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 09:55:14,365 [Worker-97: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 09:55:14,365 [Worker-97: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 09:55:14,365 [Worker-97: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 09:55:14,367 [Worker-97: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:11:57,685 [Worker-101: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:11:57,687 [Worker-101: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-05-28 10:11:57,690 [Worker-101: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:11:57,692 [Worker-101: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 10:28:36,880 [Worker-135: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 10:28:37,050 [Worker-124: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:28:37,051 [Worker-124: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 10:28:37,059 [Worker-124: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:28:37,060 [Worker-124: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 10:28:37,061 [Worker-124: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 10:28:37,061 [Worker-124: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 10:28:37,070 [Worker-124: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:29:07,823 [Worker-138: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 10:29:07,998 [Worker-124: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:29:07,999 [Worker-124: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 10:29:08,008 [Worker-124: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:29:08,009 [Worker-124: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 10:29:08,010 [Worker-124: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 10:29:08,010 [Worker-124: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 10:29:08,013 [Worker-124: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:34:30,866 [Worker-140: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 10:34:31,040 [Worker-88: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:34:31,041 [Worker-88: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 10:34:31,053 [Worker-88: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:34:31,053 [Worker-88: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 10:34:31,054 [Worker-88: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 10:34:31,054 [Worker-88: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 10:34:31,057 [Worker-88: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:38:01,307 [Worker-143: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 10:38:01,483 [Worker-133: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:38:01,484 [Worker-133: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 10:38:01,494 [Worker-133: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:38:01,495 [Worker-133: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 10:38:01,495 [Worker-133: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 10:38:01,495 [Worker-133: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 10:38:01,498 [Worker-133: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:38:58,056 [Worker-88: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 10:38:58,232 [Worker-141: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:38:58,233 [Worker-141: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 10:38:58,242 [Worker-141: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:38:58,242 [Worker-141: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 10:38:58,243 [Worker-141: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 10:38:58,243 [Worker-141: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 10:38:58,246 [Worker-141: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:55:46,058 [Worker-158: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for idinoProject
+2021-05-28 10:55:46,216 [Worker-163: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:55:46,218 [Worker-163: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2021-05-28 10:55:46,225 [Worker-163: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2021-05-28 10:55:46,226 [Worker-163: Building Workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\gtlee\Desktop\Project\Project\idinoProject\src\test\resources
+2021-05-28 10:55:46,226 [Worker-163: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of idinoProject
+2021-05-28 10:55:46,226 [Worker-163: Building Workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for idinoProject
+2021-05-28 10:55:46,230 [Worker-163: Building Workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!

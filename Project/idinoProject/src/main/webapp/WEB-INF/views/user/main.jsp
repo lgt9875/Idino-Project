@@ -54,7 +54,6 @@
 	$(document).ready(function(){
 		 $("#update input").on('click',function(){ 
 			event.preventDefault();
-			
 			var currentRow = $(this).closest('tr');
 			var sid = currentRow.find('td:eq(0)').text();
 			var code = currentRow.find('td:eq(1)').text();
@@ -66,11 +65,14 @@
 		
             url = "${pageContext.request.contextPath}/user/createCode";
             var content = "sid:"+ sid +":code:"+ code +":name:"+ name+":status:"+ status +":" + randomText;
+            content = encodeURIComponent(content);
         	$("#img").prop("src", url+"?content="+content);
         	
-            var myTimer = setInterval(function() {var randomText = randomStringfunction();
+            var myTimer = setInterval(function() {
+            	var randomText = randomStringfunction();
 				url = "${pageContext.request.contextPath}/user/createCode";
 				var content = "sid:"+ sid +":code:"+ code +":name:"+ name+":status:"+ status +":" + randomText;
+				content = encodeURIComponent(content);
             	$("#img").prop("src", url+"?content="+content);
            	}, 60000);
             setTimeout(function(){
@@ -96,12 +98,12 @@
 	//출석확인시스템 구현 필요(qr코드 / 현재시간 디비 저장 후 지각, 결석 확인)
 	$(document).on('click','#btnSave',function(e){
 		e.preventDefault();
+		debugger;
 		var theForm = document.form;
 		var qrCodeSRC = theForm.img.src.split('?');
-		var checkingData = qrCodeSRC[1].split(':');
-		
-		/* alert(theForm.img.src); */
-		/* var sid = qrCodeSRC[1].split(':'); */
+		/* var checkingData = qrCodeSRC[1].split(':'); */
+		//content를 encodeURIComponent로 특수문자를 모두 치환하였기 때문에 치환된 문자로 split 해줘야함
+		var checkingData = qrCodeSRC[1].split('%3A');
 		console.log(checkingData);
 		var s_id = checkingData[1];
 		var subjectCode = checkingData[3];
@@ -144,78 +146,10 @@
 		e.preventDefault();
 		location.reload();
 	});
-	
-	
-	
 </script>
 
 </head>
 <body>
-<%-- <c:if test="${empty login}">
-<div class="container">
-	<img src="<spring:url value='/resources/images/Idino.png'/>">
-	 <div class=button>
-		<div class=button>
-			<button type="button" class="btn btn-sm btn-primary" id="btnJoinForm">회원가입</button>
-		</div>
-		<div class=button>
-			<button type="button" class="btn btn-sm btn-primary" id="btnLoginForm">로그인</button>
-		</div>
-	</div>
-	<article>
-		<div class="container">
-			<div class="table-responsive">
-				<table id="example-table-2" class="table table-striped table-sm text-center">
-					<colgroup>
-						<col style="width:15%;" />
-						<col style="width:30&;" />
-						<col style="width:20%;" />
-						<col style="width:15%;" />
-						<col style="width:15%;" />
-					</colgroup>
-					<thead>
-						<tr>
-							<th class="align-center">과목코드</th>
-							<th class="align-center">과목명</th>
-							<th class="align-center">강의시간</th>
-							<th class="align-center">요일</th>
-							<th class="align-center">출석여부</th>
-							<th class="align-center">출석상태</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:choose>
-							<c:when test="${empty login }" >
-								<tr><td colspan="5" align="center">데이터가 없습니다.</td></tr>
-							</c:when> 
-							<c:when test="${!empty login}">
-								<c:forEach var="takingSubjectList" items="${takingSubjectList}">
-									<tr>
-										<td class="hidden-col"><c:out value="${login.getSid()}"/></td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTs_code()}"/></td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTs_name()}"/></td>
-										<td class="align-center">
-											<fmt:parseDate value='${takingSubjectList.getTsS_time()}' var='StartTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:parseDate value='${takingSubjectList.getTsE_time()}' var='EndTime' pattern='yyyy-MM-dd HH:mm:ss'/>
-											<fmt:formatDate value="${StartTime}" pattern="HH:mm"/>
-											~
-											<fmt:formatDate value="${EndTime}" pattern="HH:mm"/>
-										</td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTs_yoil()}"/></td>
-										<td class="align-center"><c:out value="${takingSubjectList.getTs_check()}"/></td>
-										
-										<td id="update"><a href="#ex1" rel="modal:open"><input type="button" class="btn btn-sm btn-primary" value="출석체크"/></a></td>
-									</tr>
-								</c:forEach>
-							</c:when>
-						</c:choose>
-					</tbody>
-				</table>
-			</div>
-		</div>	
-	</article>
-</div>
-</c:if> --%>
 <c:if test="${not empty login}">
 	<div class="container">
 		<img src="<spring:url value='/resources/images/Idino.png'/>">
@@ -297,5 +231,4 @@
 </c:if>
 </body>
 </html>
-
 

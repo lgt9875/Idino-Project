@@ -130,7 +130,6 @@ public class UserController {
 	//QRCode
 	@RequestMapping("/createCode")
 	public ModelAndView createCode(@RequestParam String content){
-	    //ModelAndView �ٷ� ����
 	    return new ModelAndView("qrcodeview", "content", content);
 	}
 	
